@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Revista Digital - Login</title>
+    <title>{{ env('APP_NAME')}} - Login</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,39 +18,8 @@
     <!-- Material Design Bootstrap -->
     <link href="/backend/css/mdb.min.css" rel="stylesheet">
 
-    <!-- Template styles -->
-    <style rel="stylesheet">
-        /* TEMPLATE STYLES */
+    <link href="/backend/css/main.css" rel="stylesheet">
 
-        main {
-            padding-top: 3rem;
-            padding-bottom: 2rem;
-        }
-
-        .extra-margins {
-            margin-top: 1rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .jumbotron {
-            text-align: center;
-        }
-
-        .navbar {
-            background-color: #3b295a;
-        }
-
-        footer.page-footer {
-            background-color: #3b295a;
-            margin-top: 2rem;
-        }
-        .navbar .btn-group .dropdown-menu a:hover {
-            color: #000 !important;
-        }
-        .navbar .btn-group .dropdown-menu a:active {
-            color: #fff !important;
-        }
-    </style>
 
 </head>
 
@@ -64,8 +33,8 @@
             <div class="row wow fadeIn  justify-content-center" data-wow-delay="0.2s">
                 <div class="col-md-6">
                     <!-- Default form login -->
-                <form class="text-center border border-light p-5" action="{{ route('login') }}">
-
+                <form class="text-center border border-light p-5" method="POST"  action="{{ route('login') }}">
+                    @csrf
                     <p class="h4 mb-4">Sign in</p>
 
                     <!-- Email -->

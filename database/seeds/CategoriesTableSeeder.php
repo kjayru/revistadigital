@@ -11,16 +11,44 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        App\Categories::create([
-            'name' => 'Administrador',
-            'slug' => 'admin',
-            'description' => 'Administrador general',
+        App\Category::create([
+            'name' => 'Productos mobiles',
+            'slug' => 'productos-mobiles',
+            'description' => 'productos mobiles',
+            'cover'=> '/category/'.\Faker\Provider\Image::image(storage_path().'/app/public/category',600,350,'business',false),
+            'status' => 1
         ]);
 
-        App\Categories::create([
-            'name' => 'Cordinador',
-            'slug' => 'cordinador',
-            'description' => 'Cordinadores',
+        App\Category::create([
+            'name' => 'Equipos',
+            'slug' => 'equipos',
+            'description' => 'equipos en stock',
+            'cover'=> '/category/'.\Faker\Provider\Image::image(storage_path().'/app/public/category',600,350,'business',false),
+            'status' => 1
+        ]);
+
+        App\Category::create([
+            'name' => 'Olo',
+            'slug' => 'olo',
+            'description' => 'equipos en olo',
+            'cover'=> '/category/'.\Faker\Provider\Image::image(storage_path().'/app/public/category',600,350,'business',false),
+            'status' => 1
+        ]);
+
+        App\Category::create([
+            'name' => 'Claro hogar',
+            'slug' => 'claro-hogar',
+            'description' => 'equipos claro hogar',
+            'cover'=> '/category/'.\Faker\Provider\Image::image(storage_path().'/app/public/category',600,350,'business',false),
+            'status' => 1
+        ]);
+
+        App\Category::create([
+            'name' => 'Claro negocio',
+            'slug' => 'claro-negocio',
+            'description' => 'equipos claro negocio',
+            'cover'=> '/category/'.\Faker\Provider\Image::image(storage_path().'/app/public/category',600,350,'business',false),
+            'status' => 1
         ]);
     }
 }
