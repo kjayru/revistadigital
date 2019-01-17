@@ -15,7 +15,7 @@
   <!-- Your custom styles (optional) -->
   <link href="/backend/css/style.min.css?v=1" rel="stylesheet">
 
-  <link href="/backend/css/main.css" rel="stylesheet">
+  <link href="/backend/css/main.css?v={{ uniqid() }}" rel="stylesheet">
 </head>
 <body class="grey lighten-3">
 
@@ -24,7 +24,7 @@
 
     @include('layouts.admin.partial.navigation')
 
-    @include('layouts.admin.partial.sidebar')
+
 
   </header>
   <!--Main Navigation-->

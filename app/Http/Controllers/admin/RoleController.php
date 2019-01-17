@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Caffeinated\Shinobi\Models\Role;
+use Caffeinated\Shinobi\Models\Permission;
 
 class RoleController extends Controller
 {
@@ -14,7 +16,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return view('admin.role.index',['roles'=>$roles]);
     }
 
     /**
@@ -24,7 +27,9 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::get();
+        $permissions = Permission::get();
+        return view('admin.role.create',['roles'=>$roles,'permissions'=>$permissions]);
     }
 
     /**
@@ -35,7 +40,12 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $role = Role::create($request->all());
+
+        $role->permissions()->sync($request->get('permissions'));
+
+        return redirect()->route('roles.edit',$role->id)
+        ->with('info','Rol creado satisfactoriamente');
     }
 
     /**
@@ -57,7 +67,21 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $role = Role::find($id);
+        $permissions = Permission::get();
+        $marcas=[];
+        foreach($role->permissions as $marca){
+           $marcas[] =  $marca->id;
+        }
+
+
+        if(count($marcas)>0){
+            $mcas = $marcas;
+        }else{
+            $mcas = 0;
+        }
+
+        return view('admin.role.edit',['role'=>$role,'permissions'=>$permissions,'marcas'=>$mcas]);
     }
 
     /**
@@ -67,9 +91,15 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Role $role)
     {
-        //
+
+        $role->update($request->all());
+
+        $role->permissions()->sync($request->get('permissions'));
+
+        return redirect()->route('roles.edit',['id' =>$role->id])
+        ->with('info','Rol actualizado satisfactoriamente');
     }
 
     /**
@@ -80,6 +110,9 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Role::find($id)->delete();
+
+        return redirect()->route('roles.index')
+        ->with('info','Rol Eliminado satisfactoriamente');
     }
 }

@@ -68,4 +68,29 @@ Route::group(['prefix' => 'admin'],function(){
 
     Route::get('permissions/{role}/edit','admin\PermissionController@edit')->name('permissions.edit')
     ->middleware('permission:permissions.edit');
+
+
+
+    ///catalog category
+
+    Route::post('categories/store','admin\CategoryController@store')->name('categories.store')
+    ->middleware('permission:categories.create');
+
+    Route::get('categories','admin\CategoryController@index')->name('categories.index')
+    ->middleware('permission:categories.index');
+
+    Route::get('categories/create','admin\CategoryController@create')->name('categories.create')
+    ->middleware('permission:categories.create');
+
+    Route::put('categories/{category}','admin\CategoryController@update')->name('categories.update')
+    ->middleware('permission:categories.edit');
+
+    Route::get('categories/{category}','admin\CategoryController@show')->name('categories.show')
+    ->middleware('permission:categories.show');
+
+    Route::delete('categories/{category}','admin\CategoryController@destroy')->name('categories.destroy')
+    ->middleware('permission:categories.destroy');
+
+    Route::get('categories/{category}/edit','admin\CategoryController@edit')->name('categories.edit')
+    ->middleware('permission:categories.edit');
 });

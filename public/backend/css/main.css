@@ -56,3 +56,10 @@ a.logo-wrapper.waves-effect {
     background-color: #fd2028;
     padding: 0 1.5rem 1.5rem;
 }
+
+
+@media (min-width: 1200px){
+    .navbar, .page-footer, main {
+        padding-left: 0 !important;
+    }
+}
