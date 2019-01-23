@@ -4,26 +4,23 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Caffeinated\Shinobi\Models\Permission;
-use App\Category;
+use App\Slider;
+use App\Video;
+use App\Image;
 
-class CategoryController extends Controller
+class ContentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-
-        $categories = Category::all();
-        return view('admin.categoria.index',['categories'=>$categories]);
+        $sliders = Slider::all();
+        $videos  = Video::all();
+        $imagenes = Image::all();
+        return view('admin.contenido.index',['sliders'=>$sliders,'videos'=>$videos,'imagenes'=>$imagenes]);
     }
 
     /**
@@ -33,7 +30,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**

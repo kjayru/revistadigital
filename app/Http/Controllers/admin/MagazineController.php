@@ -4,26 +4,17 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Caffeinated\Shinobi\Models\Permission;
-use App\Category;
 
-class CategoryController extends Controller
+class MagazineController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-
-        $categories = Category::all();
-        return view('admin.categoria.index',['categories'=>$categories]);
+        return view('admin.magazine.index');
     }
 
     /**
@@ -33,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**

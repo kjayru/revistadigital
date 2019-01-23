@@ -12,18 +12,17 @@
             <!--Card content-->
             <div class="card-body d-sm-flex justify-content-between">
 
-              <h5 class="mb-2 mb-sm-0 pt-1">
+              <h4 class="mb-2 mb-sm-0 pt-1">
                 <a href="/admin" target="_blank">Dashboard</a>
                 <span>/</span>
-                <span>Editar Catálogo</span>
-              </h5>
-
+                <span>Usuarios</span>
+              </h4>
 
               <form class="d-flex justify-content-center">
                 <!-- Default input -->
-
-                <button class="btn btn-primary btn-sm my-0 p btn-category-create"  type="button">
-                  Crear Categoria
+                <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
+                <button class="btn btn-primary btn-sm my-0 p" type="submit">
+                  <i class="fas fa-search"></i>
                 </button>
 
               </form>
@@ -34,7 +33,8 @@
           <!-- Heading -->
 
           <!--Grid row-->
-          <div class="row wow fadeIn">
+         <!--Grid row-->
+         <div class="row wow fadeIn">
 
             <!--Grid column-->
             <div class="col-md-12 mb-4">
@@ -51,21 +51,23 @@
                                           <tr>
                                             <th>#</th>
                                             <th class="th-sm">Nombre </th>
-                                            <th class="th-sm">Slug </th>
+                                            <th class="th-sm">Correo </th>
+                                            <th class="th-sm">Role</th>
                                             <th class="th-sm">Fecha </th>
                                             <th ></th>
                                             <th ></th>
                                           </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($categories as $k => $cat)
+                                            @foreach($users as $k => $user)
                                                 <tr>
                                                     <td>{{ $k+1 }}</td>
-                                                    <td>{{ $cat->name }}</td>
-                                                    <td>{{ $cat->slug}}</td>
-                                                    <td>{{ $cat->updated_at}}</td>
-                                                    <td><button type="button" data-id="{{ $cat->id }}" class="btn btn-default btn-editar">editar</button></td>
-                                                    <td><button type="button" data-id="{{ $cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->email}}</td>
+                                                    <td></td>
+                                                    <td>{{ $user->created_at}}</td>
+                                                    <td><button type="button" data-id="{{ $user->id }}" class="btn btn-default btn-editar">editar</button></td>
+                                                    <td><button type="button" data-id="{{ $user->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
@@ -79,6 +81,7 @@
             </div>
 
           </div>
+
 
 
         </div>

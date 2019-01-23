@@ -2,10 +2,12 @@
 @section('content')
 
 
-<main class="pt-5 mx-lg-5">
-    <div class="container-fluid mt-5">
 
-        <div class="card mb-4 wow fadeIn">
+<main class="pt-5 mx-lg-5">
+        <div class="container-fluid mt-5">
+
+          <!-- Heading -->
+          <div class="card mb-4 wow fadeIn">
 
             <!--Card content-->
             <div class="card-body d-sm-flex justify-content-between">
@@ -13,7 +15,7 @@
               <h4 class="mb-2 mb-sm-0 pt-1">
                 <a href="/admin" target="_blank">Dashboard</a>
                 <span>/</span>
-                <span>Roles</span>
+                <span>Paginas</span>
               </h4>
 
               <form class="d-flex justify-content-center">
@@ -28,9 +30,10 @@
             </div>
 
           </div>
+          <!-- Heading -->
 
-        <!-- Heading -->
-        <div class="card mb-4 wow fadeIn">
+          <!--Grid row-->
+          <div class="card mb-4 wow fadeIn">
 
             <!--Card content-->
             <div class="card-body d-sm-flex justify-content-between">
@@ -41,13 +44,13 @@
                     <!-- Default box -->
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">REGISTRO DE ROLES</h3>
+                            <h3 class="box-title">Paginas</h3>
 
 
                         </div>
                         <div class="box-body">
                                 @can('podcasts.create')
-                                    <a href="{{route('roles.create')}}" class="btn btn-primary pull-right">Crear</a>
+                                    <a href="{{route('pages.create')}}" class="btn btn-primary pull-right">Crear</a>
                                 @endcan
 
                             <table class="table table-striped table-hover">
@@ -60,23 +63,23 @@
                                     <th colspan="3"></th>
                                 </thead>
                                 <tbody>
-                                    @foreach($roles as $key => $rol)
+                                    @foreach($pages as $key => $pag)
                                         <tr>
-                                            <td>{{$key+1}}</td>
-                                            <td>{{ $rol->name }}</td>
-                                            <td>{{ $rol->slug }}</td>
-                                            <td>{{ $rol->description }}</td>
+                                            <td>{{ $pag+1}}</td>
+                                            <td>{{ $pag->name }}</td>
+                                            <td>{{ $pag->slug }}</td>
+                                            <td>{{ $pag->description }}</td>
 
 
                                             <td width="15">
-                                                    @can('roles.edit')
-                                                    <a href="{{route('roles.edit',$rol->id )}}" class="btn btn-success pull-right">Editar</a>
+                                                    @can('pages.edit')
+                                                    <a href="{{route('pages.edit',$pag->id )}}" class="btn btn-success pull-right">Editar</a>
                                                     @endcan
                                             </td>
                                             <td width="10">
-                                                    @can('roles.destroy')
+                                                    @can('pages.destroy')
 
-                                                        <form action="{{ route('roles.destroy',$rol->id ) }}" method="POST">
+                                                        <form action="{{ route('pages.destroy',$pag->id ) }}" method="POST">
                                                             <input type="hidden" name="_method" value="delete" >
                                                             <input type="submit" value="borrar" class="btn btn-danger"/>
                                                             @csrf
@@ -97,6 +100,11 @@
 
             </div>
         </div>
-    </div>
-</main>
+
+
+        </div>
+      </main>
+
+
+
 @endsection

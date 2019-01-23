@@ -57,7 +57,23 @@ a.logo-wrapper.waves-effect {
     padding: 0 1.5rem 1.5rem;
 }
 
+a.btn-floating.btn-lg.blue.waves-effect.waves-light {
+    border-radius: 50%;
+    color: white;
+}
 
+.fixed-action-btn {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+}
+.bitem {
+    display: flex;
+    border: 1px solid lightgray;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px 0 4px 0;
+}
 @media (min-width: 1200px){
     .navbar, .page-footer, main {
         padding-left: 0 !important;

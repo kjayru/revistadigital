@@ -11,9 +11,10 @@
   <!-- Bootstrap core CSS -->
   <link href="/backend/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
-  <link href="/backend/css/mdb.min.css" rel="stylesheet">
+  <link href="/backend/css/mdb.min.css?v=3" rel="stylesheet">
   <!-- Your custom styles (optional) -->
   <link href="/backend/css/style.min.css?v=1" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
 
   <link href="/backend/css/main.css?v={{ uniqid() }}" rel="stylesheet">
 </head>
