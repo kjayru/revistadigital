@@ -12,11 +12,11 @@
             <!--Card content-->
             <div class="card-body d-sm-flex justify-content-between">
 
-              <h4 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin" target="_blank">Dashboard</a>
+              <h5 class="mb-2 mb-sm-0 pt-1">
+                <a href="/admin">Dashboard</a>
                 <span>/</span>
                 <span>Historial</span>
-              </h4>
+              </h5>
 
               <form class="d-flex justify-content-center">
                 <!-- Default input -->

@@ -11,7 +11,11 @@
   <!-- Bootstrap core CSS -->
   <link href="/backend/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
-  <link href="/backend/css/mdb.min.css?v=3" rel="stylesheet">
+<link href="/backend/css/mdb.min.css?v=3" rel="stylesheet">
+
+<!--
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">-->
   <!-- Your custom styles (optional) -->
   <link href="/backend/css/style.min.css?v=1" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">

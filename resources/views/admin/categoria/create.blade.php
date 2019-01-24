@@ -13,9 +13,11 @@
             <div class="card-body d-sm-flex justify-content-between">
 
               <h4 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin" target="_blank">Dashboard</a>
+                <a href="/admin">Dashboard</a>
                 <span>/</span>
-                <span>Editar Catálogo</span>
+                <span><a href="/admin/categories">Categorias</a></span>
+                <span>/</span>
+                <span>Editar Categoria</span>
               </h4>
 
               <form class="d-flex justify-content-center">
@@ -44,7 +46,31 @@
                     <!--Card content-->
                     <div class="card-body">
                         <div class="row justify-content-center mt-5 p-5">
+                            <div class="col-md-12">
 
+                                <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3>Crear Categoria</h3>
+                                        </div>
+
+                                        <div class="box-body">
+                                            <div class="row justify-content-center">
+
+                                                <div class="col-md-7">
+                                                    <form class="mdb-form" action="/admin/category/store">
+
+                                                        @csrf
+                                                        @method('POST')
+                                                        @include('admin.categoria.partial.form')
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                </div>
+
+                            </div>
                         </div>
                     </div>
 

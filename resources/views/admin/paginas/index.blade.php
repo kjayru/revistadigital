@@ -12,11 +12,11 @@
             <!--Card content-->
             <div class="card-body d-sm-flex justify-content-between">
 
-              <h4 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin" target="_blank">Dashboard</a>
+              <h5 class="mb-2 mb-sm-0 pt-1">
+                <a href="/admin">Dashboard</a>
                 <span>/</span>
                 <span>Paginas</span>
-              </h4>
+              </h5>
 
               <form class="d-flex justify-content-center">
                 <!-- Default input -->
@@ -48,9 +48,11 @@
 
 
                         </div>
+
                         <div class="box-body">
+
                                 @can('podcasts.create')
-                                    <a href="{{route('pages.create')}}" class="btn btn-primary pull-right">Crear</a>
+                                    <a href="{{route('pages.create')}}" class="btn btn-primary btn-right btn-page-create">Crear</a>
                                 @endcan
 
                             <table class="table table-striped table-hover">
@@ -65,10 +67,10 @@
                                 <tbody>
                                     @foreach($pages as $key => $pag)
                                         <tr>
-                                            <td>{{ $pag+1}}</td>
-                                            <td>{{ $pag->name }}</td>
+                                            <td>{{ $key + 1}}</td>
+                                            <td>{{ $pag->title }}</td>
                                             <td>{{ $pag->slug }}</td>
-                                            <td>{{ $pag->description }}</td>
+                                            <td>{{ $pag->resume }}</td>
 
 
                                             <td width="15">

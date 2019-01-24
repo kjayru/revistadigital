@@ -33,7 +33,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-
+        return view('admin.categoria.create');
     }
 
     /**
@@ -66,7 +66,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('admin.categoria.edit',['category'=>$category]);
     }
 
     /**

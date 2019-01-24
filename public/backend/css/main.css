@@ -74,6 +74,47 @@ a.btn-floating.btn-lg.blue.waves-effect.waves-light {
     width: 100%;
     padding: 10px 0 4px 0;
 }
+.indicadores ul {
+    list-style: none;
+    display: inline-block;
+    padding:0;
+}
+li.indicador {
+    width: 25px;
+    height: 25px;
+    background: gray;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.indicador:after {
+    content: "";
+    width: 35px;
+    height: 34px;
+    border: gray 2px solid;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    left: -5px;
+    top: -4px;
+}
+li.indicador.active{
+    background: red;
+}
+.indicador.active:after{
+    border: red 2px solid;
+}
+.contador {
+    display: block;
+    width: 25%;
+    height: 10px;
+    background: blue;
+}
+.btn-right{
+    float:right;
+}
 @media (min-width: 1200px){
     .navbar, .page-footer, main {
         padding-left: 0 !important;

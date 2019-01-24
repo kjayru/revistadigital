@@ -9,10 +9,13 @@
 <script type="text/javascript" src="/backend/js/popper.min.js"></script>
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="/backend/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
+<!-- MDB core JavaScript-->
 <script type="text/javascript" src="/backend/js/mdb.min.js"></script>
-<script type="text/javascript" src="/backend/js/plugins/file-upload.js"></script>
-
+<script type="text/javascript" src="/backend/js/compiled.js"></script>
+<!--
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+-->
 <!-- Initializations -->
 <script type="text/javascript">
   // Animations initialization

@@ -12,11 +12,11 @@
             <!--Card content-->
             <div class="card-body d-sm-flex justify-content-between">
 
-              <h4 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin" target="_blank">Dashboard</a>
+              <h5 class="mb-2 mb-sm-0 pt-1">
+                <a href="/admin">Dashboard</a>
                 <span>/</span>
                 <span>Tipos de contenido</span>
-              </h4>
+              </h5>
 
               <form class="d-flex justify-content-center">
                 <!-- Default input -->
@@ -281,24 +281,35 @@
                           <strong>Nuevo Video</strong>
                       </h2>
 
-                      <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-                              <a class="btn-floating btn-lg blue waves-effect waves-light btn-nuevo-item" data-toggle="tooltip" title="Nuevo Item">
-                                <i class="fas fa-plus mdb-gallery-view-icon"></i>
-                              </a>
-                      </div>
-                      <!-- Add to Cart -->
               </div>
 
             <div class="col-lg-12">
                   <form class="md-form" id="frm-items">
-                      <!-- Add to Cart -->
-                      <div class="card-title">
-                              <div class="md-form">
-                                      <input type="text" name="nombre" id="form1" class="form-control" >
-                                      <label for="form1">Nombre del identificador</label>
-                              </div>
-                      </div>
+
+
                       <div class="card-body">
+
+                        <div class="card-title">
+                                <div class="md-form">
+                                        <input type="text" name="nombre" id="form1" class="form-control" >
+                                        <label for="form1">Nombre </label>
+                                </div>
+                        </div>
+
+                        <div class="card-title">
+                                <div class="md-form">
+                                        <input type="text" name="nombre" id="form1" class="form-control" >
+                                        <label for="form1">Embed</label>
+                                </div>
+                        </div>
+                        <div class="md-form form-group">
+                            <div class="form-check">
+                                    <input type="checkbox" name="estado" class="form-check-input" id="form4">
+                                    <label class="form-check-label" for="form4">Oculto</label>
+                            </div>
+
+                        </div>
+
 
                       </div>
                       <div class="card-footer">
@@ -310,7 +321,7 @@
                           </div>
                       </div>
                   </form>
-              <!-- /.Add to Cart -->
+
             </div>
           </div>
         </div>
@@ -339,20 +350,25 @@
               </div>
 
             <div class="col-lg-12">
-                  <form class="md-form" id="frm-items">
+                  <form class="md-form" id="frm-gallery">
                       <!-- Add to Cart -->
                       <div class="card-title">
                               <div class="md-form">
-                                      <input type="text" name="nombre" id="form1" class="form-control" >
-                                      <label for="form1">Nombre del grupo</label>
+                                      <input type="text" name="nombre" id="fb1" class="form-control" >
+                                      <label for="fb1">Nombre del grupo</label>
                               </div>
                       </div>
                       <div class="card-body">
 
-
-
-
-
+                        <div class="file-field">
+                            <div class="btn btn-primary btn-sm float-left">
+                              <span>Seleccione imagenes</span>
+                              <input type="file" name="fotos[]" multiple>
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate"  type="text" placeholder="Subir mas imagenes">
+                            </div>
+                          </div>
 
                       </div>
                       <div class="card-footer">

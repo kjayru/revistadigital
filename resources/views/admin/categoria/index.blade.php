@@ -13,7 +13,7 @@
             <div class="card-body d-sm-flex justify-content-between">
 
               <h5 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin" target="_blank">Dashboard</a>
+                <a href="/admin">Dashboard</a>
                 <span>/</span>
                 <span>Editar Catálogo</span>
               </h5>
@@ -22,9 +22,9 @@
               <form class="d-flex justify-content-center">
                 <!-- Default input -->
 
-                <button class="btn btn-primary btn-sm my-0 p btn-category-create"  type="button">
+                <a href="/admin/categories/create" class="btn btn-primary btn-sm my-0 p btn-category-create"  type="button">
                   Crear Categoria
-                </button>
+                </a>
 
               </form>
 
@@ -64,8 +64,8 @@
                                                     <td>{{ $cat->name }}</td>
                                                     <td>{{ $cat->slug}}</td>
                                                     <td>{{ $cat->updated_at}}</td>
-                                                    <td><button type="button" data-id="{{ $cat->id }}" class="btn btn-default btn-editar">editar</button></td>
-                                                    <td><button type="button" data-id="{{ $cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                    <td><a href="/admin/categories/{{ $cat->id }}/edit" class="btn btn-default btn-editar">editar</a></td>
+                                                    <td><a href="/admin/categories/delete"   class="btn btn-danger  btn-borrar">Borrar</a></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

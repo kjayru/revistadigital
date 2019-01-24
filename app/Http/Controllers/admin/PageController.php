@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Page;
+use App\Category;
+
 class PageController extends Controller
 {
     /**
@@ -15,6 +17,7 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::all();
+
         return view('admin.paginas.index',['pages'=>$pages]);
     }
 
@@ -25,7 +28,11 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+
+        $categories = Category::all();
+
+        return view('admin.paginas.create',['categories'=>$categories]);
+
     }
 
     /**
@@ -58,7 +65,10 @@ class PageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $page = Page::find($id);
+        $categories = Category::all();
+
+        return view('admin.paginas.edit',['page'=>$page,'categories'=>$categories]);
     }
 
     /**
