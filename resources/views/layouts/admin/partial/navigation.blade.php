@@ -3,7 +3,7 @@
             <div class="container-fluid">
 
               <!-- Brand -->
-              <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
+              <a class="navbar-brand waves-effect" href="/admin" target="_blank">
                 <strong class="blue-text">RD-Claro</strong>
               </a>
 
