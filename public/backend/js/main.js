@@ -1,25 +1,3 @@
-
-    $('#tb-categories').DataTable();
-    $('#tb-usuarios').DataTable();
-    $('.dataTables_length').addClass('bs-select');
-
-
-    $('#tb-usuarios_wrapper').find('label').each(function () {
-        $(this).parent().append($(this).children());
-    });
-    $('#usuarios_wrapper .dataTables_filter').find('input').each(function () {
-        $('input').attr("placeholder", "Search");
-        $('input').removeClass('form-control-sm');
-    });
-    $('#usuarios_wrapper .dataTables_length').addClass('d-flex flex-row');
-    $('#usuarios_wrapper .dataTables_filter').addClass('md-form');
-    $('#usuarios_wrapper select').removeClass('custom-select custom-select-sm form-control form-control-sm');
-    $('#usuarios_wrapper select').addClass('mdb-select');
-    $('#usuarios_wrapper .mdb-select').materialSelect();
-    $('#usuarios_wrapper .dataTables_filter').find('label').remove();
-
-
-
 $(".op-slider").on('click',function(e){
     e.preventDefault();
     $(".panel1").show();
@@ -48,10 +26,7 @@ $(".op-imagen").on('click',function(e){
     $(this).addClass('active');
 });
 
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-    $('.mdb-select').materialSelect();
-})
+
 
 $(".btn-nuevo-item").click(function(e){
     let item = `<div class="bitem">
@@ -110,12 +85,135 @@ $(".btn-step-1").click(function(e){
     $(".step2").fadeIn(350,'swing');
     $(".indicador").removeClass("active");
     $(".indicadores ul li:nth-child(2)").addClass('active');
+
+   let categoria =  $("#paso1 #categoria").val();
+   let catmes = $("#paso1 #catmes").val();
+   let catyear =  $("#paso1 #catyear").val();
+
+   $("#paso2 #categoria2").val(categoria);
+   $("#paso2 #catmes2").val(catmes);
+   $("#paso2 #catyear2").val(catyear);
 });
 
-$(".btn-step-2").click(function(e){
+$("#paso2").submit(function(e){
     e.preventDefault();
+
+    $.ajax({
+        url: '/admin/contents/postpdf',
+        type: 'POST',
+        data: new FormData(this),
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            if(response.rpta==''){
+                //window.location.reload();
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+
     $(".step2").hide();
     $(".step3").fadeIn(350,'swing');
     $(".indicador").removeClass("active");
     $(".indicadores ul li:nth-child(3)").addClass('active');
 });
+
+//$('#tb-categories').DataTable();
+//$('#tb-usuarios').DataTable();
+//$('.dataTables_length').addClass('bs-select');
+
+//datamenu
+
+
+
+
+$(".btn-add-content").on('click',function(e){
+    e.preventDefault();
+    //$("#document-full .ql-editor").html('<div class="box1"><a>Contenido</a><div>Inserte contenido</div></div>');
+    let ph = $("#document-full .ql-editor").html();
+    console.log(ph);
+
+});
+
+$("#tipocontenido").change(function(){
+    let tipo = $(this).val();
+    let itoken = $("#paso2 input[name='_token']").val();
+
+    if(tipo==1){
+
+        let opt = '';
+        $.ajax({
+            url:'/admin/getvideo',
+            method:'GET',
+            dataType:'json',
+            beforeSend:function(){},
+            success:function(response){
+
+                    opt = `<select name="video" class="form-control">`;
+                    $.each(response, function(i,e){
+                        opt+=`<option value="${e.id}">${e.embed}</option>`;
+                    })
+                    opt += `</select>`;
+                    $(".iholder").html(opt);
+
+            }
+        });
+
+    }
+    if(tipo==2){
+
+        let opt1 = '';
+        $.ajax({
+            url:'/admin/getgallery',
+            method:'GET',
+            dataType:'json',
+            beforeSend:function(){},
+            success:function(response){
+                console.log(response);
+                    opt1 = `<select name="imagenes" class="form-control">`;
+                    $.each(response, function(i,e){
+
+                        opt1+=`<option value="${e.id}">${e.name}</option>`;
+                    })
+                    opt1 += `</select>`;
+
+
+                    $(".iholder").html(opt1);
+            }
+        });
+
+    }
+    if(tipo==3){
+
+
+        let postdoc = `<input type='file' name="pdffile" accept=".pdf" class="form-control-file">`;
+        $(".iholder").html(postdoc);
+
+    }
+
+});
+
+
+
+$('#frm-gallery').on('submit', (function (e) {
+    e.preventDefault();
+
+
+
+       $.ajax({
+        url: '/admin/contents/postgallery',
+        type: 'POST',
+        data: new FormData(this),
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            $("#canvaimagen").modal('close');
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    });
+
+  }))

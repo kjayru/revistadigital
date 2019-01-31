@@ -3,37 +3,20 @@
 
 
 
-<main class="pt-5 mx-lg-5">
+<main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
 
           <!-- Heading -->
-          <div class="card mb-4 wow fadeIn">
-
-            <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
-
-              <h5 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin">Dashboard</a>
-                <span>/</span>
-                <span>Tipos de contenido</span>
-              </h5>
-
-              <form class="d-flex justify-content-center">
-                <!-- Default input -->
-                <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-                <button class="btn btn-primary btn-sm my-0 p" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-
-              </form>
-
-            </div>
-
-          </div>
+          <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Categoría</li>
+                </ol>
+            </nav>
           <!-- Heading -->
 
           <!--Grid row-->
-          <div class="row wow fadeIn">
+          <div class="row">
 
             <!--Grid column-->
             <div class="col-md-12 mb-4">
@@ -58,95 +41,94 @@
                                     <div class="col-md-12 text-right">
                                         <a href="#" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#canvaslider">Crear</a>
                                     </div>
-                                    <table id="tb-sliders" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                                <thead>
-                                                  <tr>
-                                                    <th>#</th>
-                                                    <th class="th-sm">Nombre </th>
-                                                    <th class="th-sm">Items </th>
-                                                    <th class="th-sm">Estado </th>
-                                                    <th class="th-sm">Fecha </th>
-                                                    <th ></th>
-                                                    <th ></th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach($sliders as $k => $cat)
-                                                        <tr>
-                                                            <td>{{ @$k+1 }}</td>
-                                                            <td>{{ @$cat->title }}</td>
-                                                            <td>{{ @$cat->items}}</td>
-                                                            <td>@if(@$cat->status == 1) activo @else inactivo @endif </td>
-                                                            <td>{{ @$cat->updated_at}}</td>
-                                                            <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-default btn-editar">editar</button></td>
-                                                            <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                        <table id="tb-sliders" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                <th>#</th>
+                                                <th class="th-sm">Nombre </th>
+                                                <th class="th-sm">Items </th>
+                                                <th class="th-sm">Estado </th>
+                                                <th class="th-sm">Fecha </th>
+                                                <th ></th>
+                                                <th ></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($sliders as $k => $cat)
+                                                    <tr>
+                                                        <td>{{ @$k+1 }}</td>
+                                                        <td>{{ @$cat->title }}</td>
+                                                        <td>{{ @$cat->items}}</td>
+                                                        <td>@if(@$cat->status == 1) activo @else inactivo @endif </td>
+                                                        <td>{{ @$cat->updated_at}}</td>
+                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-default btn-editar">editar</button></td>
+                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
 
                                 </div>
-
                                 <div class="panel2" style="display:none">
                                     <h2>Videos</h2>
                                     <div class="col-md-12 text-right">
                                         <a href="#" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#canvavideo">Crear</a>
                                     </div>
-                                    <table id="tb-video" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                                <thead>
-                                                  <tr>
-                                                    <th>#</th>
-                                                    <th class="th-sm">Nombre </th>
-                                                    <th class="th-sm">Embed </th>
-                                                    <th class="th-sm">Estado </th>
-                                                    <th ></th>
-                                                    <th ></th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach($videos as $k => $vid)
-                                                        <tr>
-                                                            <td>{{ @$k+1 }}</td>
-                                                            <td>{{ @$vid->name }}</td>
-                                                            <td>{{ @$vid->embed }}</td>
-                                                            <td>@if(@$cat->status == 1) activo @else inactivo @endif </td>
-                                                            <td>{{ @$cat->updated_at}}</td>
-                                                            <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-default btn-editar">editar</button></td>
-                                                            <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                        <table id="tb-video" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                <th>#</th>
+                                                <th class="th-sm">Nombre </th>
+                                                <th class="th-sm">Embed </th>
+                                                <th class="th-sm">Estado </th>
+                                                <th ></th>
+                                                <th ></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($videos as $k => $vid)
+                                                    <tr>
+                                                        <td>{{ @$k+1 }}</td>
+                                                        <td>{{ @$vid->name }}</td>
+                                                        <td>{{ @$vid->embed }}</td>
+                                                        <td>@if(@$cat->status == 1) activo @else inactivo @endif </td>
+                                                        <td>{{ @$cat->updated_at}}</td>
+                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-default btn-editar">editar</button></td>
+                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                 </div>
                                 <div class="panel3" style="display:none">
                                     <h2>Imagenes</h2>
                                     <div class="col-md-12 text-right">
                                         <a href="#" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#canvaimagen">Crear</a>
                                     </div>
-                                    <table id="tb-imagenes" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                                                <thead>
-                                                  <tr>
-                                                    <th>#</th>
-                                                    <th class="th-sm">Nombre </th>
-                                                    <th class="th-sm">Items </th>
-                                                    <th class="th-sm">Estado </th>
-                                                    <th ></th>
-                                                    <th ></th>
-                                                  </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach($sliders as $k => $cat)
-                                                        <tr>
-                                                            <td>{{ @$k+1 }}</td>
-                                                            <td>{{ @$cat->name }}</td>
-                                                            <td></td>
-                                                            <td>{{ @$cat->updated_at}}</td>
-                                                            <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-default btn-editar">editar</button></td>
-                                                            <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                        <table id="tb-imagenes" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                <th>#</th>
+                                                <th class="th-sm">Nombre </th>
+                                                <th class="th-sm">Items </th>
+                                                <th class="th-sm">Estado </th>
+                                                <th ></th>
+                                                <th ></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($imagenes as $k => $cat)
+                                                    <tr>
+                                                        <td>{{ @$k+1 }}</td>
+                                                        <td>{{ @$cat->name }}</td>
+                                                        <td></td>
+                                                        <td>{{ @$cat->updated_at}}</td>
+                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-default btn-editar">editar</button></td>
+                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                 </div>
 
                             </div>
@@ -190,9 +172,9 @@
                 <form class="md-form" id="frm-items">
                     <!-- Add to Cart -->
                     <div class="card-title">
-                            <div class="md-form">
-                                    <input type="text" name="nombre" id="form1" class="form-control" >
-                                    <label for="form1">Nombre del slider</label>
+                            <div class="form-group">
+                                    <input type="text" name="nombre" id="form1" class="form-control" placeholder="Nombre Slide">
+
                             </div>
                     </div>
                     <div class="card-body">
@@ -205,27 +187,21 @@
                                                 alt="..." >
                                             </figure>
                                         <div class="file-field">
-
-                                                <div class="d-flex justify-content-center">
-                                                <div class="btn btn-mdb-color btn-rounded float-left">
-                                                    <span>Imagen</span>
-                                                    <input type="file" name="imagen[]">
-                                                </div>
-                                                </div>
+                                                    <input type="file"  name="imagen[]" class="form-control" placeholder="Imagen">
                                         </div>
 
                                 </div>
                                 <div class="col-md-7">
 
                                     <div class="md-form form-group">
-                                            <input type="text" name="texto[]" id="form2" class="form-control">
-                                            <label for="form2">texto</label>
+                                            <input type="text" name="texto[]" id="form2" placeholder="Texto" class="form-control">
+
                                     </div>
 
                                     <div class="form-row mb-4 form-group">
                                         <div class="col-md-10 md-form">
-                                            <input type="text" name="url[]" id="form3" class="form-control">
-                                            <label for="form3">Url</label>
+                                            <input type="text" name="url[]" id="form3" placeholder="URL" class="form-control">
+
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-check">
@@ -270,7 +246,7 @@
 </div>
 
 
-<!-- Modal: modalQuickView -->
+<!-- Modal: video -->
 <div class="modal fade" id="canvavideo" tabindex="-1" role="dialog" aria-labelledby="canvavideo"  aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -330,7 +306,7 @@
   </div>
 
 
-  <!-- Modal: modalQuickView -->
+  <!-- Modal: imagen -->
 <div class="modal fade" id="canvaimagen" tabindex="-1" role="dialog" aria-labelledby="canvaimagen"  aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
@@ -340,43 +316,36 @@
                       <h2 class="h2-responsive product-name">
                           <strong>Nuevo grupo de imagenes</strong>
                       </h2>
-
-                      <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-                              <a class="btn-floating btn-lg blue waves-effect waves-light btn-nuevo-item" data-toggle="tooltip" title="Nuevo Item">
-                                <i class="fas fa-plus mdb-gallery-view-icon"></i>
-                              </a>
-                      </div>
-                      <!-- Add to Cart -->
               </div>
 
             <div class="col-lg-12">
-                  <form class="md-form" id="frm-gallery">
+                  <form class="form" id="frm-gallery" enctype="multipart/form-data">
+
+                    @csrf
+                    <input type="hidden" name="_method" value="POST">
                       <!-- Add to Cart -->
                       <div class="card-title">
-                              <div class="md-form">
-                                      <input type="text" name="nombre" id="fb1" class="form-control" >
-                                      <label for="fb1">Nombre del grupo</label>
+                              <div class="form-group">
+                                      <input type="text" name="nombre" id="fb1" class="form-control" placeholder="Nombre del grupo" required>
+
                               </div>
                       </div>
                       <div class="card-body">
 
-                        <div class="file-field">
-                            <div class="btn btn-primary btn-sm float-left">
+                        <div class="form-group">
+
                               <span>Seleccione imagenes</span>
-                              <input type="file" name="fotos[]" multiple>
-                            </div>
-                            <div class="file-path-wrapper">
-                              <input class="file-path validate"  type="text" placeholder="Subir mas imagenes">
-                            </div>
+                              <input type="file" name="fotos[]" accept="image/*"  placeholder="imagenes" multiple required>
+
+
                           </div>
 
                       </div>
                       <div class="card-footer">
                           <div class="text-center">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                              <button class="btn btn-primary">guardar
-                              <i class="fas fa-save ml-2" aria-hidden="true"></i>
-                              </button>
+                              <input type="submit" class="btn btn-primary" value="Guardar">
+
                           </div>
                       </div>
                   </form>

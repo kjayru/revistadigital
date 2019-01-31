@@ -3,33 +3,21 @@
 
 
 
-<main class="pt-5 mx-lg-5">
+<main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
 
           <!-- Heading -->
-          <div class="card mb-4 wow fadeIn">
 
             <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
+            <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Paginas</li>
 
-              <h5 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin">Dashboard</a>
-                <span>/</span>
-                <span>Paginas</span>
-              </h5>
+                    </ol>
+            </nav>
 
-              <form class="d-flex justify-content-center">
-                <!-- Default input -->
-                <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-                <button class="btn btn-primary btn-sm my-0 p" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
 
-              </form>
-
-            </div>
-
-          </div>
           <!-- Heading -->
 
           <!--Grid row-->
@@ -45,13 +33,11 @@
                     <div class="box">
                         <div class="box-header with-border">
                             <h3 class="box-title">Paginas</h3>
-
-
                         </div>
 
                         <div class="box-body">
 
-                                @can('podcasts.create')
+                                @can('pages.create')
                                     <a href="{{route('pages.create')}}" class="btn btn-primary btn-right btn-page-create">Crear</a>
                                 @endcan
 

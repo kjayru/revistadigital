@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Slider;
 use App\Video;
 use App\Image;
+use App\Gallery;
+use App\File;
+use App\Category;
+use App\Flipper;
 
 class ContentController extends Controller
 {
@@ -19,7 +23,8 @@ class ContentController extends Controller
     {
         $sliders = Slider::all();
         $videos  = Video::all();
-        $imagenes = Image::all();
+        $imagenes = Gallery::all();
+        $categories = Category::all();
         return view('admin.contenido.index',['sliders'=>$sliders,'videos'=>$videos,'imagenes'=>$imagenes]);
     }
 
@@ -30,7 +35,7 @@ class ContentController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -52,7 +57,9 @@ class ContentController extends Controller
      */
     public function show($id)
     {
-        //
+        $files = File::find($id);
+
+        return Response(['files'=>$files]);
     }
 
     /**
@@ -63,7 +70,9 @@ class ContentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $files = File::find($id);
+
+        return Response(['files'=>$files]);
     }
 
     /**
@@ -87,5 +96,82 @@ class ContentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getvideo(){
+        $videos = Video::all();
+
+        return Response()->json($videos);
+    }
+
+    public function getgallery(){
+        $imagenes = Gallery::all();
+
+        return Response()->json($imagenes);
+    }
+
+
+    public function postgallery(Request $request){
+
+        $cadena = uniqid();
+
+        $galeria = new Gallery();
+
+        $galeria->name = $request->nombre;
+        $galeria->prefijo = $cadena;
+        $galeria->save();
+
+        if($request->file('fotos')){
+
+            foreach ($request->file('fotos') as $k => $photo) {
+                $file = $photo;
+                $cont = $k+1;
+                $input['imagename'] = $cadena."-".$cont.'.'.$file->getClientOriginalExtension();
+                $destinationPath = public_path('/storage/gallery');
+                $file->move($destinationPath, $input['imagename']);
+
+                $image = new Image();
+                $image->gallery_id = $galeria->id;
+                $image->path = $input['imagename'];
+                $image->order = $cont;
+                $image->save();
+
+
+            }
+
+        }
+
+        return  Response()->json(['rpta'=>'ok']);
+    }
+
+    public function postpdf(Request $request){
+
+        $flip = new Flipper();
+
+        if ($request->hasFile('pdffile')) {
+            $anuncio = $request->file('pdffile')->store('files');
+
+            $ifile = new File();
+            $ifile->path = $anuncio;
+            $ifile->save();
+            $flip->file_id  =  $ifile->id;
+        }
+
+        if($request->imagenes){
+            $flip->gallery_id = $request->imagenes;
+        }
+
+        if($request->video){
+            $flip->video_id = $request->video;
+        }
+
+        $flip->category_id = $request->categoria;
+
+        $flip->month = $request->catmes;
+        $flip->year = $request->catyear;
+
+        $flip->save();
+
+        return  Response()->json(['file'=>$flip->id]);
     }
 }

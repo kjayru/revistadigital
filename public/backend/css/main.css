@@ -1,4 +1,6 @@
-
+body{
+    font-family: 'Roboto', sans-serif;
+}
 main {
     padding-top: 3rem;
     padding-bottom: 2rem;
@@ -13,12 +15,12 @@ main {
     text-align: center;
 }
 
-.navbar {
-    background-color: #3b295a;
+.footer-copyright.py-3.white {
+    color: white;
 }
 
 footer.page-footer {
-    background-color: #3b295a;
+    background-color: #212121;
     margin-top: 2rem;
 }
 .navbar .btn-group .dropdown-menu a:hover {
@@ -60,6 +62,10 @@ a.logo-wrapper.waves-effect {
 a.btn-floating.btn-lg.blue.waves-effect.waves-light {
     border-radius: 50%;
     color: white;
+    background: gray;
+    padding: .5rem .7rem;
+    top: 14px;
+    position: relative !important;
 }
 
 .fixed-action-btn {
@@ -114,6 +120,19 @@ li.indicador.active{
 }
 .btn-right{
     float:right;
+}
+.fixed-content-btn {
+    text-align: center;
+}
+
+a.card-link {
+    color: #000 !important;
+    font-weight: 300;
+}
+
+.dashboard .card-link:hover {
+    text-decoration: none;
+    color: red !important;
 }
 @media (min-width: 1200px){
     .navbar, .page-footer, main {

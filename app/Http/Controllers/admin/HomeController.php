@@ -4,7 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\File;
+use App\Category;
 class HomeController extends Controller
 {
     /**
@@ -49,9 +50,12 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $categories = Category::all();
+        $slug = Category::where('slug',$slug)->with('flipper')->first();
+
+        return view('front.categoria',['slug'=>$slug,'categories'=> $categories]);
     }
 
     /**

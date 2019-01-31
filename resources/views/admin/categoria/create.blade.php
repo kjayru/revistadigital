@@ -3,61 +3,43 @@
 
 
 
-<main class="pt-5 mx-lg-5">
+<main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
 
           <!-- Heading -->
-          <div class="card mb-4 wow fadeIn">
-
-            <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
-
-              <h4 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin">Dashboard</a>
-                <span>/</span>
-                <span><a href="/admin/categories">Categorias</a></span>
-                <span>/</span>
-                <span>Editar Categoria</span>
-              </h4>
-
-              <form class="d-flex justify-content-center">
-                <!-- Default input -->
-                <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-                <button class="btn btn-primary btn-sm my-0 p" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-
-              </form>
-
-            </div>
-
-          </div>
+          <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                  <li class="breadcrumb-item"><a href="/admin/categories">Categorias</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Crear Categoría</li>
+                </ol>
+            </nav>
           <!-- Heading -->
 
           <!--Grid row-->
           <div class="row wow fadeIn">
-
             <!--Grid column-->
             <div class="col-md-12 mb-4">
-
               <!--Card-->
                 <div class="card">
 
                     <!--Card content-->
                     <div class="card-body">
-                        <div class="row justify-content-center mt-5 p-5">
+
+                        <div class="row justify-content-center">
                             <div class="col-md-12">
 
                                 <div class="box">
                                         <div class="box-header with-border">
                                             <h3>Crear Categoria</h3>
+                                            <p></p>
                                         </div>
 
                                         <div class="box-body">
                                             <div class="row justify-content-center">
 
                                                 <div class="col-md-7">
-                                                    <form class="mdb-form" action="/admin/category/store">
+                                                    <form class="mdb-form" method="POST" action="/admin/categories/store" enctype="multipart/form-data">
 
                                                         @csrf
                                                         @method('POST')

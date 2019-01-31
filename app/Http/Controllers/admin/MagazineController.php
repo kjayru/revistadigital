@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Category;
 
 class MagazineController extends Controller
 {
@@ -14,7 +15,11 @@ class MagazineController extends Controller
      */
     public function index()
     {
-        return view('admin.magazine.index');
+
+        $months = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Setiembre","Octubre","Noviembre","Diciembre");
+
+        $categories = Category::all();
+        return view('admin.magazine.index',['categories'=>$categories,"months"=>$months]);
     }
 
     /**

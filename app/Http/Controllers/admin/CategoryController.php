@@ -44,7 +44,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = new Category();
+
+        if ($request->hasFile('cover')) {
+            $cover = $request->file('cover')->store('category');
+            $categoria->cover = $cover;
+        }
+            $categoria->name = $request->name;
+            $categoria->slug = $request->slug;
+            $categoria->description = $request->description;
+            $categoria->save();
+
+        return redirect()->route('categories.index')
+                ->with('info','Categoria creado satisfactoriamente');
     }
 
     /**
@@ -79,7 +91,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $categoria = Category::find($id);
+
+        if ($request->hasFile('cover')) {
+            $cover = $request->file('cover')->store('category');
+            $categoria->cover = $cover;
+        }
+            $categoria->name = $request->name;
+            $categoria->slug = $request->slug;
+            $categoria->description = $request->description;
+            $categoria->save();
+
+            return redirect()->route('categories.index')
+                   ->with('info','Categoria actualizado satisfactoriamente');
     }
 
     /**

@@ -3,33 +3,16 @@
 
 
 
-<main class="pt-5 mx-lg-5">
+<main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
 
           <!-- Heading -->
-          <div class="card mb-4 wow fadeIn">
-
-            <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
-
-              <h5 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin">Dashboard</a>
-                <span>/</span>
-                <span>Usuarios</span>
-              </h5>
-
-              <form class="d-flex justify-content-center">
-                <!-- Default input -->
-                <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-                <button class="btn btn-primary btn-sm my-0 p" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-
-              </form>
-
-            </div>
-
-          </div>
+          <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Usuarios</li>
+                </ol>
+            </nav>
           <!-- Heading -->
 
           <!--Grid row-->
@@ -44,34 +27,52 @@
 
                     <!--Card content-->
                     <div class="card-body">
-                        <div class="row justify-content-center mt-5 p-5">
 
-                                    <table id="tb-usuarios" class="table table-striped table-bordered" cellspacing="0" width="100%" >
-                                        <thead>
-                                          <tr>
-                                            <th>#</th>
-                                            <th class="th-sm">Nombre </th>
-                                            <th class="th-sm">Correo </th>
-                                            <th class="th-sm">Role</th>
-                                            <th class="th-sm">Fecha </th>
-                                            <th ></th>
-                                            <th ></th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach($users as $k => $user)
+                        <div class="col-md-12 ">
+
+                                    <!-- Default box -->
+                            <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Usuarios</h3>
+                                        </div>
+
+                                <div class="box-body">
+                                        @can('users.create')
+                                        <a href="{{route('users.create')}}" class="btn btn-primary btn-right btn-page-create">Crear</a>
+                                        @endcan
+                                            <table id="tb-usuarios" class="table table-striped table-bordered" cellspacing="0" width="100%" >
+                                                <thead>
                                                 <tr>
-                                                    <td>{{ $k+1 }}</td>
-                                                    <td>{{ $user->name }}</td>
-                                                    <td>{{ $user->email}}</td>
-                                                    <td></td>
-                                                    <td>{{ $user->created_at}}</td>
-                                                    <td><button type="button" data-id="{{ $user->id }}" class="btn btn-default btn-editar">editar</button></td>
-                                                    <td><button type="button" data-id="{{ $user->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                    <th>#</th>
+                                                    <th class="th-sm">Nombre </th>
+                                                    <th class="th-sm">Correo </th>
+                                                    <th class="th-sm">Role</th>
+                                                    <th class="th-sm">Fecha </th>
+                                                    <th ></th>
+                                                    <th ></th>
                                                 </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($users as $k => $user)
+                                                        <tr>
+                                                            <td>{{ $k+1 }}</td>
+                                                            <td>{{ $user->name }}</td>
+                                                            <td>{{ $user->email}}</td>
+                                                            <td></td>
+                                                            <td>{{ $user->created_at}}</td>
+                                                            <td>
+
+                                                                    @can('users.edit')
+                                                                    <a href="{{route('users.edit',$user->id )}}" class="btn btn-success pull-right">Editar</a>
+                                                                    @endcan
+                                                            </td>
+                                                            <td><button type="button" data-id="{{ $user->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

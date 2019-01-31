@@ -6,6 +6,9 @@ header{
 	background: #000000;
 	height: 57px;
 }
+header .navbar{
+	padding: 0;
+}
 header .navbar a{
 	color: #fff;
 	text-decoration: none;
@@ -16,6 +19,11 @@ header .navbar a .text-sesion{
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 3px;
+}
+@media screen and (max-width: 450px){
+	header .navbar a .text-sesion{
+		display: none;
+	}
 }
 
 .lg_claro{
@@ -47,17 +55,23 @@ header .navbar a .text-sesion{
 	height: 100vh;
 	background: rgba(255,255,255,.5);
 }
-.menu .item-menu{
+
+.menu-main .item-menu{
 	border-bottom: solid 1px #fff;
-	padding: 5px 0;
+	padding: 5px 5px 5px 25px ;
 }
-.menu .item-menu a{
+.menu-main .item-menu:hover{
+	background: #fff;
+}
+.menu-main .item-menu a{
 	color: #fff;
 }
-.menu .item-menu a:hover{
-	color: #aaa;
+.menu-main .item-menu a:hover{
+	color: #000;
 }
-
+#main-nav .navbar-toggler{
+	padding: 0 !important;
+}
 .main{
 	position: relative;
 	display: block;
@@ -69,12 +83,12 @@ header .navbar a .text-sesion{
 .navbar-dark .navbar-toggler{
 	outline: 0;
 	color: rgba(255, 255, 255, 0) !important;
-  border-color: rgba(255, 255, 255, 0) !important; 
+	border-color: rgba(255, 255, 255, 0) !important;
 }
 
 .carousel-item .carousel-caption{
 	padding-top: 0;
-	padding-bottom: 0; 
+	padding-bottom: 0;
 	bottom: 0;
 }
 
@@ -84,7 +98,7 @@ header .navbar a .text-sesion{
 .catalogos img{
 	margin: 0 auto;
 	display: block;
-	margin-left: 5%; 
+	margin-left: 5%;
 }
 
 .catalogos h2{
@@ -98,6 +112,10 @@ header .navbar a .text-sesion{
 .catalogos p{
 	text-align: center;
 	font-weight: 500;
+}
+
+.catalogos-m{
+	display: block;
 }
 
 .campanias{
@@ -124,6 +142,19 @@ footer{
 	color: #fff;
 }
 
+.contacto{
+	width: 100%;
+}
+
+@media screen and (max-width: 540px) {
+	.contacto{
+		text-align: center;
+	}
+	.contacto .text-right{
+		text-align: center !important;
+	}
+}
+
 
 .login-form{
 	background: url('../assets/bg-form.jpg') no-repeat top center;
@@ -131,13 +162,18 @@ footer{
 	padding: 50px 20px;
 	height: calc(100vh - 266px);
 
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #f5f5f5;
+}
+@media screen and (max-width: 540px){
+	.login-form{
+		height: 540px;
+	}
 }
 
 .formulario{
@@ -175,4 +211,114 @@ footer{
 	padding-top: 10px;
 }
 
+/*--menu--*/
+.main-nav {
+	/*background: darkslateblue;*/
+	height: 57px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+/*.menu {
+	transition: all 0.5s;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	opacity: 1;
+	visibility: visible;
+}*/
+.menu__item {
+	margin: 0 15px;
+}
+.menu__link {
+	color: #fff;
+	text-decoration: none;
+}
+.menu-bar {
+	width: 30px;
+	margin: 0;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+}
+.uno, .dos, .tres {
+	width: 100%;
+	background: white;
+	height: 3px;
+	transition: all 0.5s;
+}
+.dos {
+	margin: 5px 0;
+}
+/*animacion*/
 
+.mostrar .uno {
+	transform: rotate(45deg) translate(5px, 5px);
+}
+.mostrar .dos {
+	opacity: 0;
+}
+.mostrar .tres {
+	transform: rotate(-45deg) translate(6px, -7px);
+}
+.mostrar .menu{
+	visibility: visible;
+	opacity: 1;
+}
+
+.btnwp-w{
+	display: inline-block;
+}
+.btnwp-m{
+	display: none;
+}
+@media screen and (max-width: 1100px){
+	.btnwp-w{
+		display: none;
+	}
+	.btnwp-m{
+		display: inline-block;
+	}
+	.catalogos-m{
+		display: none;
+	}
+}
+
+
+@media screen and (max-width: 540px){
+	.container .row .col-6 .h4{
+		font-size: 22px;
+	}
+	.container .row .col-6 a.btn{
+		font-size: 0.8rem;
+	}
+}
+
+@media screen and (max-width:325px) {
+	.container .row .col-6 .h4 {
+		font-size: 18px;
+		margin-top: 4px;
+		display: inline-block;
+	}
+}
+
+
+
+.revista3d {
+    height: 666px;
+    width: 90%;
+    margin: 20px auto;
+    border: 0px solid #000;
+}
+@media screen and (max-width: 540px){
+    .revista3d {
+        height: 400px;
+        width: 80%;
+        margin: 10px auto;
+        border: 0px solid #000;
+    }
+}
+.fullscreen {
+ background-color: #333;
+}

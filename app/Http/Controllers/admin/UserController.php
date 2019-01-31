@@ -4,10 +4,19 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Caffeinated\Shinobi\Models\Role;
+use Illuminate\Support\Facades\Input;
+use Hash;
+use Carbon\Carbon;
 use App\User;
+use App\RoleUser;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +36,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::all();
+        return view('admin.usuario.create',['roles'=>$roles]);
     }
 
     /**
@@ -38,7 +48,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $usuario =  new User();
+
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+
+           $usuario->password = Hash::make($request->password);
+
+
+        $usuario->save();
+
+        $role = new RoleUser();
+        $role->user_id = $usuario->id;
+        $role->role_id = $request->role_id;
+
+        $role->save();
+
+         return redirect()->route('users.index')
+         ->with('info','Usuario creado satisfactoriamente');
     }
 
     /**
@@ -60,7 +88,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $roles = Role::all();
+        return view('admin.usuario.edit',['roles'=>$roles,'user'=>$user]);
     }
 
     /**
@@ -72,7 +102,32 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario =   User::find($id);
+
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        if($request->password){
+           $usuario->password = Hash::make($request->password);
+        }
+
+        $usuario->save();
+
+        $role = RoleUser::where('user_id',$id)->first();
+       if($role){
+          $role->role_id = $request->role_id;
+          $role->save();
+       }else{
+            $rol = new RoleUser();
+            $rol->role_id = $request->role_id;
+            $rol->user_id = $id;
+            $rol->save();
+       }
+
+
+
+
+         return redirect()->route('users.index')
+         ->with('info','Usuario creado satisfactoriamente');
     }
 
     /**

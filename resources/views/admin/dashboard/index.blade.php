@@ -3,34 +3,8 @@
 
 
 
-<main class="pt-5 mx-lg-5">
+<main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
-
-          <!-- Heading -->
-          <div class="card mb-4 wow">
-
-            <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
-
-              <h4 class="mb-2 mb-sm-0 pt-1">
-
-
-                <span>Dashboard</span>
-              </h4>
-
-              <form class="d-flex justify-content-center">
-                <!-- Default input -->
-                <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-                <button class="btn btn-primary btn-sm my-0 p" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-
-              </form>
-
-            </div>
-
-          </div>
-          <!-- Heading -->
 
           <!--Grid row-->
           <div class="row wow">
@@ -42,42 +16,49 @@
                 <div class="card">
 
                     <!--Card content-->
-                    <div class="card-body">
+                    <div class="card-body dashboard">
                         <div class="row justify-content-center mt-5 p-5">
                             <div class="col-xl-3 col-md-6 mb-r">
 
 
                                 <div class="card card-cascade cascading-admin-card p-3 text-center">
-
+                                    <a href="/admin/categories" class="card-link text-center">
                                         <p class="card-text">
-                                        <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
+                                                <i class="fas fa-th-list fa-5x"></i>
                                         </p>
-                                        <a href="/admin/categories" class="card-link text-center">Categorias</a>
+                                       <p>Categorias</p>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6 mb-r">
                                     <div class="card card-cascade cascading-admin-card p-3 text-center">
+                                        <a href="/admin/contents" class="card-link text-center">
                                             <p class="card-text">
-                                                    <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
+                                                    <i class="fas fa-cubes fa-5x"></i>
                                             </p>
-                                            <a href="/admin/contents" class="card-link text-center">Tipos de contenido</a>
+                                            <p>Tipos de contenido</p>
+                                        </a>
                                     </div>
                             </div>
                             <div class="col-xl-3 col-md-6 mb-r">
                                     <div class="card card-cascade cascading-admin-card p-3 text-center">
-                                        <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
-                                        </p>
-                                        <a href="/admin/magazines" class="card-link text-center">Revista</a>
+                                        <a href="/admin/magazines" class="card-link text-center">
+                                            <p class="card-text">
+                                                    <i class="fas fa-newspaper fa-5x"></i>
+                                            </p>
+                                            <p>Revista</p>
+                                        </a>
                                     </div>
                             </div>
 
                             <div class="col-xl-3 col-md-6 mb-r">
                                     <div class="card card-cascade cascading-admin-card p-3 text-center">
-                                        <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
-                                        </p>
-                                        <a href="/admin/historials" class="card-link text-center">Historial de Catalagos</a>
+                                        <a href="/admin/historials" class="card-link text-center">
+                                            <p class="card-text">
+                                                    <i class="fas fa-history fa-5x"></i>
+                                            </p>
+                                            <p>Historial de Catalagos</p>
+                                        </a>
                                     </div>
                             </div>
                         </div>
@@ -85,40 +66,44 @@
                         <div class="row justify-content-center mt-5 p-5">
                                 <div class="col-xl-3 col-md-6 mb-r">
                                         <div class="card card-cascade cascading-admin-card p-3 text-center">
-
+                                            <a href="/admin/pages" class="card-link text-center">
                                                 <p class="card-text">
-                                                        <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
+                                                        <i class="fas fa-file-alt fa-5x"></i>
                                                 </p>
-                                                <a href="/admin/pages" class="card-link text-center">Paginas</a>
+                                                <p>Paginas</p>
+                                            </a>
                                         </div>
                                 </div>
                             <div class="col-xl-3 col-md-6 mb-r">
                                     <div class="card card-cascade cascading-admin-card p-3 text-center">
-
+                                        <a href="/admin/reports" class="card-link text-center">
                                             <p class="card-text">
-                                                    <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
+                                                    <i class="fas fa-chart-area fa-5x"></i>
                                             </p>
-                                            <a href="/admin/reports" class="card-link text-center">Reportes</a>
+                                            <p>Reportes</p>
+                                        </a>
                                     </div>
                             </div>
 
                             <div class="col-xl-3 col-md-6 mb-r">
                                 <div class="card card-cascade cascading-admin-card p-3 text-center">
-
+                                    <a href="/admin/users" class="card-link text-center">
                                         <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
+                                                <i class="fas fa-users fa-5x"></i>
                                         </p>
-                                        <a href="/admin/users" class="card-link text-center">Usuarios</a>
+                                       <p>Usuarios</p>
+                                    </a>
                                 </div>
                             </div>
 
                             <div class="col-xl-3 col-md-6 mb-r">
                                 <div class="card card-cascade cascading-admin-card p-3 text-center">
-
+                                    <a href="/admin/roles" class="card-link text-center">
                                         <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
+                                                <i class="fas fa-id-card fa-5x"></i>
                                         </p>
-                                        <a href="/admin/roles" class="card-link text-center">Roles</a>
+                                        <p>Roles</p>
+                                    </a>
                                 </div>
                             </div>
 

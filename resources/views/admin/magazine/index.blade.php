@@ -1,35 +1,16 @@
 @extends('layouts.admin.master')
 @section('content')
 
-
-
-<main class="pt-5 mx-lg-5">
+<main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
 
           <!-- Heading -->
-          <div class="card mb-4 wow fadeIn">
-
-            <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
-
-              <h5 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin">Dashboard</a>
-                <span>/</span>
-                <span>Revista</span>
-              </h5>
-
-              <form class="d-flex justify-content-center">
-                <!-- Default input -->
-                <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-                <button class="btn btn-primary btn-sm my-0 p" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-
-              </form>
-
-            </div>
-
-          </div>
+          <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Revista</li>
+                </ol>
+            </nav>
           <!-- Heading -->
 
           <!--Grid row-->
@@ -43,7 +24,7 @@
 
                     <!--Card content-->
                     <div class="card-body">
-                        <div class="row justify-content-center mt-5 p-5">
+                        <div class="row justify-content-center p-5">
                            <div class="col-md-12 text-center indicadores">
 
                                <ul>
@@ -54,31 +35,32 @@
                            </div>
                             <div class="col-sm-8  step1">
                                 <div class="card mt-3 p-4">
-                                    <form class="mdb-form" >
+                                    <form class="mdb-form" id="paso1">
                                         <p>Paso 1: Selecciona la categoría y fecha del catálogo que deseas añadir o editar.</p>
                                         <div class="form-row mb-4 form-group">
                                             <div class="col-md-4 md-form">
-                                                    <select class="mdb-select md-form">
+                                                    <select class="form-control" name="categoria" id="categoria">
                                                             <option value="" disabled selected>Categoría</option>
-                                                            <option value="1">Option 1</option>
-                                                            <option value="2">Option 2</option>
-                                                            <option value="3">Option 3</option>
+                                                           @foreach($categories as $cat)
+                                                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                                           @endforeach
+
                                                     </select>
                                             </div>
                                             <div class="col-md-4 md-form">
-                                                    <select class="mdb-select md-form">
+                                                    <select class="form-control" name="mes" id="catmes">
                                                             <option value="" disabled selected>Mes</option>
-                                                            <option value="1">Option 1</option>
-                                                            <option value="2">Option 2</option>
-                                                            <option value="3">Option 3</option>
+                                                           @foreach($months as $mon)
+                                                            <option value="{{ $mon }}">{{ $mon}}</option>
+                                                           @endforeach
                                                     </select>
                                             </div>
                                             <div class="col-md-4 md-form">
-                                                    <select class="mdb-select md-form">
+                                                    <select class="form-control" name="year" id="catyear">
                                                             <option value="" disabled selected>Año</option>
-                                                            <option value="1">Option 1</option>
-                                                            <option value="2">Option 2</option>
-                                                            <option value="3">Option 3</option>
+                                                           @for($i = (int)date("Y")-3; $i< (int)date("Y"); $i++)
+                                                              <option value="{{ $i }}">{{ $i}}</option>
+                                                           @endfor
                                                     </select>
                                             </div>
 
@@ -93,39 +75,31 @@
                             </div>
                             <div class="col-md-8 step2" style="display:none;">
                                 <div class="card mt-3 p-4">
-                                    <form class="mdb-form" >
+                                    <form class="mdb-form" id="paso2" enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" name="categoria"  id="categoria2" >
+                                            <input type="hidden" name="catmes" id="catmes2">
+                                            <input type="hidden" name="catyear" id="catyear2">
+                                            <input type="hidden" name="_method" value="POST">
                                                 <p>Paso 2: Selecciona el tipo de contenido.</p>
                                                 <div class="form-row mb-4 form-group">
                                                     <div class="col-md-4 md-form">
-                                                            <select class="mdb-select md-form">
-                                                                    <option value="" disabled selected>Categoría</option>
-                                                                    <option value="1">Option 1</option>
-                                                                    <option value="2">Option 2</option>
-                                                                    <option value="3">Option 3</option>
-                                                            </select>
-                                                    </div>
-                                                    <div class="col-md-4 md-form">
-                                                            <select class="mdb-select md-form">
-                                                                    <option value="" disabled selected>Mes</option>
-                                                                    <option value="1">Option 1</option>
-                                                                    <option value="2">Option 2</option>
-                                                                    <option value="3">Option 3</option>
-                                                            </select>
-                                                    </div>
-                                                    <div class="col-md-4 md-form">
-                                                            <select class="mdb-select md-form">
-                                                                    <option value="" disabled selected>Año</option>
-                                                                    <option value="1">Option 1</option>
-                                                                    <option value="2">Option 2</option>
-                                                                    <option value="3">Option 3</option>
+                                                            <select class="form-control" name="tipo" id="tipocontenido">
+                                                                    <option value="0" selected>Tipo</option>
+                                                                    <option value="1">Video</option>
+                                                                    <option value="2">Imagenes</option>
+                                                                    <option value="3">PDF</option>
                                                             </select>
                                                     </div>
 
+                                                    <div class="col-md-8 md-form iholder">
 
+                                                    </div>
                                                 </div>
 
                                                 <div class="md-form text-center">
-                                                    <a href="#" class="btn btn-danger btn-step-2">Siguiente</a>
+
+                                                    <input type="submit" class="btn btn-danger btn-step-2" value="Siguiente">
                                                 </div>
                                     </form>
                                 </div>

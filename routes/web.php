@@ -10,15 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 Route::group(['prefix' => 'admin'],function(){
     Route::get('/', 'admin\HomeController@index')->name('admin');
@@ -115,6 +107,18 @@ Route::group(['prefix' => 'admin'],function(){
     Route::get('contents/{content}/edit','admin\ContentController@edit')->name('contents.edit')
     ->middleware('permission:contents.edit');
 
+    Route::get('getvideo','admin\ContentController@getvideo')->name('contents.getvideo')
+    ->middleware('permission:contents.index');
+    //getgallery
+    Route::get('getgallery','admin\ContentController@getgallery')->name('contents.getgallery')
+    ->middleware('permission:contents.index');
+
+
+    Route::post('contents/postpdf','admin\ContentController@postpdf')->name('contents.postpdf')
+    ->middleware('permission:contents.index');
+
+    Route::post('contents/postgallery','admin\ContentController@postgallery')->name('contents.postgallery')
+    ->middleware('permission:contents:index');
 
     ///pages
     Route::post('pages/store','admin\PageController@store')->name('pages.store')
@@ -236,3 +240,10 @@ Route::group(['prefix' => 'admin'],function(){
      ->middleware('permission:users.edit');
 
 });
+Route::get('/', 'HomeController@index')->name('home');
+
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/{url}', 'admin\HomeController@show')->name('home.detalle')
+->middleware('permission:magazines.index');
+
+

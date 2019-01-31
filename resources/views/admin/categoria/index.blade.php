@@ -3,34 +3,19 @@
 
 
 
-<main class="pt-5 mx-lg-5">
+<main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
 
           <!-- Heading -->
-          <div class="card mb-4 wow fadeIn">
 
             <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Categoría</li>
+                    </ol>
+                </nav>
 
-              <h5 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin">Dashboard</a>
-                <span>/</span>
-                <span>Editar Catálogo</span>
-              </h5>
-
-
-              <form class="d-flex justify-content-center">
-                <!-- Default input -->
-
-                <a href="/admin/categories/create" class="btn btn-primary btn-sm my-0 p btn-category-create"  type="button">
-                  Crear Categoria
-                </a>
-
-              </form>
-
-            </div>
-
-          </div>
           <!-- Heading -->
 
           <!--Grid row-->
@@ -44,7 +29,18 @@
 
                     <!--Card content-->
                     <div class="card-body">
-                        <div class="row justify-content-center mt-5 p-5">
+                            <div class="col-md-12 ">
+
+                                    <!-- Default box -->
+                            <div class="box">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Usuarios</h3>
+                                        </div>
+
+                                <div class="box-body">
+                                        @can('categories.create')
+                                        <a href="{{route('categories.create')}}" class="btn btn-primary btn-right btn-page-create">Crear</a>
+                                        @endcan
 
                                     <table id="tb-categories" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
@@ -52,6 +48,7 @@
                                             <th>#</th>
                                             <th class="th-sm">Nombre </th>
                                             <th class="th-sm">Slug </th>
+                                            <th>Cover</th>
                                             <th class="th-sm">Fecha </th>
                                             <th ></th>
                                             <th ></th>
@@ -63,13 +60,16 @@
                                                     <td>{{ $k+1 }}</td>
                                                     <td>{{ $cat->name }}</td>
                                                     <td>{{ $cat->slug}}</td>
+                                                    <td><img src="/{{ $cat->cover }}" class="img-fluid" style="max-width:100px"></td>
                                                     <td>{{ $cat->updated_at}}</td>
-                                                    <td><a href="/admin/categories/{{ $cat->id }}/edit" class="btn btn-default btn-editar">editar</a></td>
-                                                    <td><a href="/admin/categories/delete"   class="btn btn-danger  btn-borrar">Borrar</a></td>
+                                                    <td class="text-center"><a href="/admin/categories/{{ $cat->id }}/edit" class="btn btn-success  btn-editar">Editar</a></td>
+                                                    <td class="text-center"><a href="/admin/categories/delete"   class="btn btn-danger  btn-borrar">Borrar</a></td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
