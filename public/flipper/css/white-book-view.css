@@ -7,7 +7,9 @@
   text-align: center;
   height: 100%;
 }
-
+.flip-book .view canvas{
+    padding-top: 35px;
+}
 .flip-book .view .fnav {
 }
 
