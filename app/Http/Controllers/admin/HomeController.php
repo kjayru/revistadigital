@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\File;
 use App\Category;
+use App\Flipper;
 class HomeController extends Controller
 {
     /**
@@ -53,9 +54,15 @@ class HomeController extends Controller
     public function show($slug)
     {
         $categories = Category::all();
-        $slug = Category::where('slug',$slug)->with('flipper')->first();
+        $cat = Category::where('slug',$slug)->first();
+        if($cat){
+        $estado = 1;
+        $slug = Flipper::where('category_id',$cat->id)->orderBy('created_at','desc')->first();
+        }else{
+          $estado = 0;
+        }
 
-        return view('front.categoria',['slug'=>$slug,'categories'=> $categories]);
+        return view('front.categoria',['slug'=>$slug,'categories'=> $categories,'estado'=>$estado]);
     }
 
     /**
