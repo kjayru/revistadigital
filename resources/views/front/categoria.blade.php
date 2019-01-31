@@ -99,7 +99,7 @@
 				<h2>Catálogos por categorías</h2>
 				<div class="row">
                     @foreach($categories as $cat)
-					<div class="col-lg-2 col-md-4 col-sm-6 col-6"><img src="{{  $cat->cover }}" class="img-fluid"><p><a href="/{{ $cat->slug }}">{{ $cat->name }}</a></p></div>
+					<div class="col-lg-2 col-md-4 col-sm-6 col-6"><img src="/storage/{{  $cat->cover }}" class="img-fluid"><p><a href="/{{ $cat->slug }}">{{ $cat->name }}</a></p></div>
                     @endforeach
 				</div>
 			</div>
@@ -136,7 +136,7 @@
 
 
         $('#revista3d').FlipBook({
-          pdf: '/{{ $slug->flipper->file->path }}',
+          pdf: '/storage/{{ $slug->flipper->file->path }}',
           template: {
             html: '/flipper/templates/default-book-view.html?v={{ uniqid() }}',
             styles: [
@@ -187,7 +187,7 @@
         pageCallback: function(n) {
             var imageDescription = {
                 type: 'image',
-                src: '/gallery/{{ $slug->flipper->gallery->prefijo }}-'+(n+1)+'.jpg',
+                src: '/storage/gallery/{{ $slug->flipper->gallery->prefijo }}-'+(n+1)+'.jpg',
                 interactive: false
             };
             return imageDescription;
