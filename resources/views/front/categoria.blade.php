@@ -66,8 +66,8 @@
 					<a href="#" class="ml-4"><img src="assets/icon-whatsapp.png" class="img-fluid"></a> -->
 					<!--<a href=”fb-messenger://share/?link= https://www.facebook.com/AmericaMovilPeruSAC/”><img border="0" src="assets/icon-messenger.png"></a>-->
 					<!--<a href=""  class="ml-4" onclick="facebookShare()"  ><img border="0" src="assets/icon-messenger.png"></a>-->
-                    @if(@$slug->flipper->file_id)
-                    <a href="/{{ @$slug->flipper->file->path }}" target="_blank" class="btn btn-info">Descarga</a>
+                    @if(@$slug->file_id)
+                    <a href="/storage/{{ @$slug->file->path }}" target="_blank" class="btn btn-info">Descarga</a>
                     @endif
 					<script type="text/javascript">
 					//	window.open('fb-messenger://share?link=' + encodeURIComponent(link) + '&app_id=' + encodeURIComponent(app_id));
