@@ -62,7 +62,7 @@ class HomeController extends Controller
           $estado = 0;
         }
 
-        return view('front.categoria',['slug'=>$slug,'categories'=> $categories,'estado'=>$estado]);
+        return view('front.categoria',['slug'=>$slug,'categories'=> $categories,'estado'=>$estado,'cat'=>$cat]);
     }
 
     /**

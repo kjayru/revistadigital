@@ -44,7 +44,7 @@
 				<div class="row" aria-label="breadcrumb">
 					<ul class="breadcrumb" style="margin-bottom: 0;">
 						<li class="breadcrumb-item"><a href="{{ route('home' )}}">Inicio</a></li>
-						<li class="breadcrumb-item active" aria-current="page">{{ @$slug->name }}</li>
+						<li class="breadcrumb-item active" aria-current="page">{{ @$cat->name }}</li>
 					</ul>
 				</div>
 
@@ -53,7 +53,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-sm-6 col-6 pt-2 pb-2"><span class="h4">{{ @$slug->name }} </span></div>
+				<div class="col-md-6 col-sm-6 col-6 pt-2 pb-2"><span class="h4">{{ @$cat->name }} </span></div>
 				<div class="col-md-6 col-sm-6 col-6 text-right pt-2 pb-2">
 
 					<!--
