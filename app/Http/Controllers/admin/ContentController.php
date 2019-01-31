@@ -172,6 +172,6 @@ class ContentController extends Controller
 
         $flip->save();
 
-        return  Response()->json(['file'=>$flip->id]);
+        return  Response()->json(['file'=>$ifile,'flip_id'=>$flip->id]);
     }
 }
