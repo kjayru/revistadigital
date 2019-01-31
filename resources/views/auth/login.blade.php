@@ -32,7 +32,8 @@
 				<div class="row">
 					<div class="col-lg-6 mx-auto col-md-6 col-sm-12">
 
-						<form class="formulario" method="POST" action="{{ route('login') }}">
+                        <form class="formulario" method="POST" action="{{ route('login') }}">
+                            @csrf
 							<h2>Bienvenido a <strong>MKT</strong> <span>Claro</span></h2>
 							<p>Inicia sesión para visualizar el contenido</p>
 							<div class="content-form">
