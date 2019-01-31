@@ -66,7 +66,9 @@
 					<a href="#" class="ml-4"><img src="assets/icon-whatsapp.png" class="img-fluid"></a> -->
 					<!--<a href=”fb-messenger://share/?link= https://www.facebook.com/AmericaMovilPeruSAC/”><img border="0" src="assets/icon-messenger.png"></a>-->
 					<!--<a href=""  class="ml-4" onclick="facebookShare()"  ><img border="0" src="assets/icon-messenger.png"></a>-->
-					<a href="/{{ @$slug->flipper->file->path }}" target="_blank" class="btn btn-info">Descarga</a>
+                    @if(@$slug->flipper->file_id)
+                    <a href="/{{ @$slug->flipper->file->path }}" target="_blank" class="btn btn-info">Descarga</a>
+                    @endif
 					<script type="text/javascript">
 					//	window.open('fb-messenger://share?link=' + encodeURIComponent(link) + '&app_id=' + encodeURIComponent(app_id));
 					</script>
@@ -79,9 +81,14 @@
 
 
 		<section class="revista">
-			<!--<div class="container">-->
+
+             @if(@$slug->flipper)
 				<div class="revista3d" id="revista3d" ></div>
-			<!--</div>-->
+            @else
+                <div class="container text-center">
+                    <h2 class="pt-5 pb-4">NO HAY CONTENIDO GENERADO PARA ESTA CATEGORIA</h2>
+                </div>
+            @endif
 
 
 		</section>
@@ -92,7 +99,7 @@
 				<h2>Catálogos por categorías</h2>
 				<div class="row">
                     @foreach($categories as $cat)
-					<div class="col-lg-2 col-md-4 col-sm-6 col-6"><img src="{{  $cat->cover }}" class="img-fluid"><p>{{ $cat->name }}</p></div>
+					<div class="col-lg-2 col-md-4 col-sm-6 col-6"><img src="{{  $cat->cover }}" class="img-fluid"><p><a href="/{{ $cat->slug }}">{{ $cat->name }}</a></p></div>
                     @endforeach
 				</div>
 			</div>
@@ -123,7 +130,7 @@
     @include('layouts.front.partial.flipscript')
 
 
-    @if($slug->flipper->file_id){
+    @if(@$slug->flipper->file_id)
 
     <script>
 
@@ -172,7 +179,7 @@
     </script>
     @endif
 
-    @if($slug->flipper->gallery_id)
+    @if(@$slug->flipper->gallery_id)
 
     <script>
 

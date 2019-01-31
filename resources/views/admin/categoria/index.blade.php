@@ -72,6 +72,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer">
+                            <a href="/admin/magazines" class="btn btn-primary">Revista</a>
+
+                    </div>
 
                 </div>
               <!--/.Card-->

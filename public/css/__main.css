@@ -35,12 +35,6 @@ header .navbar a .text-sesion{
 	padding-bottom: 5px;
 	height: 30px;
 }
-@media screen and (max-width: 450px) {
-	.lg_claro-f{
-		display: block;
-		margin: 0 auto;
-	}
-}
 .bg-negro{
 	background: #000;
 	max-width: 350px;
@@ -277,14 +271,14 @@ footer{
 	display: inline-block;
 }
 .btnwp-m{
-	display: none !important;
+	display: none;
 }
 @media screen and (max-width: 1100px){
 	.btnwp-w{
-		display: none !important;
+		display: none;
 	}
 	.btnwp-m{
-		display: inline-block !important;
+		display: inline-block;
 	}
 	.catalogos-m{
 		display: none;
@@ -309,76 +303,6 @@ footer{
 	}
 }
 
-.main .container .dropdown{
-	width: 70px;
-	display: inline-block;
-	vertical-align: top;
-}
-@media screen and (max-width: 325px){
-	.main .container .dropdown{
-		width: 47px;
-	}
-}
-
-.main .container .dropdown .dropdown-menu.show{
-	min-width: 60px;
-}
-
-.main .container .dropdown .dropdown-item{
-	text-align: center;
-	padding: 0.25rem 0.25rem;
-}
-
-
-.ico-compartir{
-	padding: 5px 5px 5px !important;
-}
-@media screen and (max-width:325px){
-	.ico-compartir{
-		padding: 2px 3px 5px !important;
-	}
-	.ico-compartir img{
-		width: 20px;
-	}
-}
-
-
-.linkmodal{
-	cursor: pointer;
-	opacity: 1;
-	transition: all linear 0.5s;
-	-webkit-transition: all linear 0.5s;
-}
-.linkmodal:hover{
-	opacity: 0.7;
-}
-.linkmodal img{
-	transform:scale(1.0);
-	transition: all linear 0.2s;
-	-webkit-transition: all linear 0.2s;
-}
-.linkmodal:hover img{
-	transform:scale(1.02);
-}
-
-
-.derechos-reservados{
-	font-size: 1rem;
-}
-@media screen and (max-width: 450px) {
-	.derechos-reservados{
-		font-size: 14px;
-		display: block;
-		text-align: center;
-	}
-}
-
-@media screen and (max-width: 450px) {
-	footer .container .row p {
-		text-align: center;
-	}
-
-}
 
 
 .revista3d {
@@ -396,6 +320,5 @@ footer{
     }
 }
 .fullscreen {
-background-color: #333;
+ background-color: #333;
 }
-

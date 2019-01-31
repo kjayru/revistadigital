@@ -5,3 +5,8 @@ menu.addEventListener('click', function () {
   nav.classList.toggle('mostrar');
 });
 
+//
+$(".link-mesenger").on('click',function(e){
+    e.preventDefault();
+    window.open('fb-messenger://share?link=' + encodeURIComponent(link) + '&app_id=' + encodeURIComponent(app_id));
+});

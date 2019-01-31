@@ -79,7 +79,7 @@ $(".btn-nuevo-item").click(function(e){
 });
 
 //magazine
-$(".btn-step-1").click(function(e){
+$("#paso1").submit(function(e){
     e.preventDefault();
     $(".step1").hide();
     $(".step2").fadeIn(350,'swing');
@@ -115,7 +115,9 @@ $("#paso2").submit(function(e){
     })
 
     $(".step2").hide();
-    $(".step3").fadeIn(350,'swing');
+    $(".step3").fadeIn(350,'swing',function(){
+        porcentaje();
+    });
     $(".indicador").removeClass("active");
     $(".indicadores ul li:nth-child(3)").addClass('active');
 });
@@ -151,7 +153,8 @@ $("#tipocontenido").change(function(){
             beforeSend:function(){},
             success:function(response){
 
-                    opt = `<select name="video" class="form-control">`;
+                    opt = `<select name="video" class="form-control" required>`;
+                    opt+=`<option value="">Seleccione</option>`;
                     $.each(response, function(i,e){
                         opt+=`<option value="${e.id}">${e.embed}</option>`;
                     })
@@ -172,7 +175,8 @@ $("#tipocontenido").change(function(){
             beforeSend:function(){},
             success:function(response){
                 console.log(response);
-                    opt1 = `<select name="imagenes" class="form-control">`;
+                    opt1 = `<select name="imagenes" class="form-control" required>`;
+                    opt1+=`<option value="">Seleccione</option>`;
                     $.each(response, function(i,e){
 
                         opt1+=`<option value="${e.id}">${e.name}</option>`;
@@ -217,3 +221,26 @@ $('#frm-gallery').on('submit', (function (e) {
     });
 
   }))
+
+
+$(document).ready(function(){
+
+})
+function porcentaje(){
+
+         //
+    let i =1;
+   var timerid = setInterval(function() {
+        if(i<100){
+
+            $(".contador").css('width',`${i}%`);
+            i++;
+        }else{
+            clearInterval(timerid);
+        }
+
+
+    }, 60 * 1);
+
+
+}

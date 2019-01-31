@@ -39,8 +39,8 @@
                                         <p>Paso 1: Selecciona la categoría y fecha del catálogo que deseas añadir o editar.</p>
                                         <div class="form-row mb-4 form-group">
                                             <div class="col-md-4 md-form">
-                                                    <select class="form-control" name="categoria" id="categoria">
-                                                            <option value="" disabled selected>Categoría</option>
+                                                    <select class="form-control" name="categoria" id="categoria" required>
+                                                            <option value="">Categoría</option>
                                                            @foreach($categories as $cat)
                                                             <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                                            @endforeach
@@ -48,17 +48,17 @@
                                                     </select>
                                             </div>
                                             <div class="col-md-4 md-form">
-                                                    <select class="form-control" name="mes" id="catmes">
-                                                            <option value="" disabled selected>Mes</option>
+                                                    <select class="form-control" name="mes" id="catmes" required>
+                                                            <option value="">Mes</option>
                                                            @foreach($months as $mon)
                                                             <option value="{{ $mon }}">{{ $mon}}</option>
                                                            @endforeach
                                                     </select>
                                             </div>
                                             <div class="col-md-4 md-form">
-                                                    <select class="form-control" name="year" id="catyear">
-                                                            <option value="" disabled selected>Año</option>
-                                                           @for($i = (int)date("Y")-3; $i< (int)date("Y"); $i++)
+                                                    <select class="form-control" name="year" id="catyear" required>
+                                                            <option value="">Año</option>
+                                                           @for($i = (int)date("Y")-1; $i<= (int)date("Y"); $i++)
                                                               <option value="{{ $i }}">{{ $i}}</option>
                                                            @endfor
                                                     </select>
@@ -68,7 +68,7 @@
                                         </div>
 
                                         <div class="md-form text-center">
-                                            <a href="#" class="btn btn-danger btn-step-1">Siguiente</a>
+                                            <input type="submit" class="btn btn-danger btn-step-1" value="Siguiente">
                                         </div>
                                     </form>
                                 </div>
@@ -111,12 +111,19 @@
                                         <div class="contador"></div>
                                     </div>
                                     <div class="md-form text-center">
-                                        <a href="#" class="btn btn-danger btn-step-final">Finalizar</a>
+                                        <a href="/" class="btn btn-danger btn-step-final">Finalizar</a>
                                     </div>
 
                                 </div>
                             </div>
+
+
                         </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="/admin/categories" class="btn btn-primary">Categorias</a>
+                        <a href="/admin/contents" class="btn btn-primary">Contenidos</a>
                     </div>
 
                 </div>
