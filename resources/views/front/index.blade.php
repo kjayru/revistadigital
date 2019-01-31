@@ -51,7 +51,7 @@
                         <div class="col-lg-10 mx-auto">
                             <div class="row">
                                 <div class="col-lg-8 mt-3 col-sm-8 mx-auto col-12">
-                                    <a data-toggle="modal" data-target="#exampleModalCenter1" class="linkmodal"><img src="assets/video1.jpg" class="img-fluid"></a>
+                                    <a data-toggle="modal" data-target="#exampleModalCenter1" class="linkmodal"><img src="assets/01_video_triplica.jpg" class="img-fluid"></a>
                                     <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -73,7 +73,7 @@
                                 <div class="col-lg-4 col-md-10 mx-auto col-sm-10 col-12">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-6 col-6 mt-3">
-                                            <a data-toggle="modal" data-target="#exampleModalCenter2" class="linkmodal"><img src="assets/video2.jpg" class="img-fluid"></a>
+                                            <a data-toggle="modal" data-target="#exampleModalCenter2" class="linkmodal"><img src="assets/02_video_plan_chip.jpg" class="img-fluid"></a>
                                             <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
@@ -92,7 +92,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-12 col-md-6 col-6 mt-3">
-                                            <a data-toggle="modal" data-target="#exampleModalCenter3" class="linkmodal"><img src="assets/video3.jpg" class="img-fluid"></a>
+                                            <a data-toggle="modal" data-target="#exampleModalCenter3" class="linkmodal"><img src="assets/03_video_max.jpg" class="img-fluid"></a>
                                             <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                     <div class="modal-content">
