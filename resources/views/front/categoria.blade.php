@@ -106,24 +106,24 @@
 		</section>
 
 		<section class="contacto">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-10 mx-auto">
-						<div class="row pt-5 pb-4">
-							<div class="col-md-6 col-sm-12">
-									<h3>Contacto</h3>
-									<p>Tel: 998887256 / Lorem ipsum dolor.</p>
-							</div>
-							<div class="col-md-6 col-sm-12 text-right">
-								<a href="#"><img src="assets/icon-facebook.png" class="img-fluid"></a>
-								<!--<a href="#" class="ml-4"><img src="assets/icon-whatsapp.png" class="img-fluid"></a>-->
-								<a href="#" class="ml-4"><img src="assets/icon-youtube.png" class="img-fluid"></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto">
+                            <div class="row pt-5 pb-4">
+                                <div class="col-md-6 col-sm-12">
+                                        <h3>Contacto</h3>
+                                        <p>Tel: <a href="tel:993000488" class="enlace_ver">993000488</a> <a href="https://api.whatsapp.com/send?phone=051993000488&text=%20"><img src="assets/icon-whatsapp.png" width="20px" class="img-fluid"></a> / Email: <a href="mailto:mktclaro@claro.com.pe" class="enlace_ver">mktclaro@claro.com.pe</a>.</p>
+                                </div>
+                                <div class="col-md-6 col-sm-12 text-right">
+                                    <!--<a href="#"><img src="assets/icon-facebook.svg" width="31px" class="img-fluid"></a>-->
+                                    <!--<a href="#" class="ml-4"><img src="assets/icon-whatsapp.png" class="img-fluid"></a>-->
+                                    <!--<a href="#" class="ml-4"><img src="assets/icon-youtube.svg" width="34px" class="img-fluid"></a>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
 
 	</div>
