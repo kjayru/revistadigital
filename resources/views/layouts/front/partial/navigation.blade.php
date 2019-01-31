@@ -13,7 +13,7 @@
             <a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-            <img src="/assets/power-sign.svg"> <span class="text-sesion">{{ __('Cerrar Session') }}</span>
+            <img src="/assets/power-sign.svg"> <span class="text-sesion">{{ __('Cerrar Sesión') }}</span>
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
