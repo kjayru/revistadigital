@@ -16,7 +16,7 @@
                             <img src="assets/banner_1.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="assets/banner_2.jpg" class="d-block w-100" alt="...">
+                            <img src="assets/1440x521_instagram.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
                             <img src="assets/banner_3.jpg" class="d-block w-100" alt="...">
