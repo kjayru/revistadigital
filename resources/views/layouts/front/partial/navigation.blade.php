@@ -8,12 +8,12 @@
             <a href="#"><img src="/assets/logo-claro.svg" class="lg_claro img-fluid"></a>
         </div>
         @guest
-        <a href="/login"> <img src="assets/power-sign.svg"> <span class="text-sesion">Iniciar Sesión</span></a>
+        <a href="/login"> <img src="assets/power-sign.svg"> <span class="text-sesion">Iniciar sesión</span></a>
         @else
             <a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
-            <img src="/assets/power-sign.svg"> <span class="text-sesion">{{ __('Cerrar Sesión') }}</span>
+            <img src="/assets/power-sign.svg"> <span class="text-sesion">{{ __('Cerrar sesión') }}</span>
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
