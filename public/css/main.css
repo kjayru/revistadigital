@@ -342,6 +342,22 @@ footer{
 	}
 }
 
+.modal-content{
+	background-color: transparent !important;
+	border: 0 !important;
+
+}
+.modal-content .modal-header{
+	background: transparent !important;
+	border: 0 !important;
+}
+.modal-content .modal-body{
+	background-color: #000 !important;
+}
+.modal-content .modal-header .close{
+	color: #fff !important;
+	padding: 0;
+}
 
 .linkmodal{
 	cursor: pointer;
