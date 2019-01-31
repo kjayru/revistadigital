@@ -594,3 +594,9 @@
     min-width: 50px !important;
     text-align: center;
 }
+
+@media(max-width:780px){
+    .flip-book .view .fnav {
+        display: none;
+    }
+}
