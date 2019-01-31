@@ -8,7 +8,7 @@
             <a href="#"><img src="/assets/logo-claro.svg" class="lg_claro img-fluid"></a>
         </div>
         @guest
-        <a href="/login"> <img src="assets/power-sign.svg"> <span class="text-sesion">Iniciar sesión</span></a>
+        <a href="/login"> <img src="assets/power-sign.svg"> <span class="text-sesion">Iniciar Sesión</span></a>
         @else
             <a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
