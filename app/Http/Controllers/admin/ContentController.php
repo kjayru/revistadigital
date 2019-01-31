@@ -148,6 +148,7 @@ class ContentController extends Controller
 
         $flip = new Flipper();
 
+        dd($request->file('pdffile'));
         if ($request->hasFile('pdffile')) {
             $anuncio = $request->file('pdffile')->store('files');
 
@@ -172,6 +173,6 @@ class ContentController extends Controller
 
         $flip->save();
 
-        return  Response()->json(['file'=>$ifile->id,'flip_id'=>$flip->id]);
+        return  Response()->json(['flip_id'=>$flip->id]);
     }
 }
