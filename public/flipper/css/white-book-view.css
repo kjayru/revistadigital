@@ -595,8 +595,18 @@
     text-align: center;
 }
 
-@media(max-width:780px){
+@media(max-width:779px){
     .flip-book .view .fnav {
         display: none;
     }
+    .hide-mobile{
+        display: none !important;
+    }
+    .show-mobile{
+        display: inline-block !important;
+    }
+}
+@media(min-width:780px){
+
+
 }
