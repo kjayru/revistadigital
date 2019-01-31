@@ -60,7 +60,7 @@
                                                     <td>{{ $k+1 }}</td>
                                                     <td>{{ $cat->name }}</td>
                                                     <td>{{ $cat->slug}}</td>
-                                                    <td><img src="/{{ $cat->cover }}" class="img-fluid" style="max-width:100px"></td>
+                                                    <td><img src="/storage/{{ $cat->cover }}" class="img-fluid" style="max-width:100px"></td>
                                                     <td>{{ $cat->updated_at}}</td>
                                                     <td class="text-center"><a href="/admin/categories/{{ $cat->id }}/edit" class="btn btn-success  btn-editar">Editar</a></td>
                                                     <td class="text-center"><a href="/admin/categories/delete"   class="btn btn-danger  btn-borrar">Borrar</a></td>
