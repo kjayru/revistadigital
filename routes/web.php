@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin'],function(){
 
 
     //Permissions
-    Route::post('permissions/store','admin\PermissionController@store')->name('permissions.store')
+    /*Route::post('permissions/store','admin\PermissionController@store')->name('permissions.store')
     ->middleware('permission:permissions.create');
 
     Route::get('permissions','admin\PermissionController@index')->name('permissions.index')
@@ -58,7 +58,7 @@ Route::group(['prefix' => 'admin'],function(){
     ->middleware('permission:permissions.destroy');
 
     Route::get('permissions/{role}/edit','admin\PermissionController@edit')->name('permissions.edit')
-    ->middleware('permission:permissions.edit');
+    ->middleware('permission:permissions.edit');*/
 
 
 
