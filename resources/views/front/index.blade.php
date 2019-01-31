@@ -38,7 +38,7 @@
                 <h2>Catálogos por categorías</h2>
                 <div class="row">
                     @foreach($categories as $cat)
-                     <div class="col-lg-2 col-md-4 col-sm-6 col-6"><img src="/storage/{{ $cat->cover }}" class="img-fluid"><p><a href="/{{ $cat->slug }}">{{ $cat->name }}</a></p></div>
+                     <div class="col-lg-2 col-md-4 col-sm-6 col-6"> <a href="/{{ $cat->slug }}"> <img src="/storage/{{ $cat->cover }}" class="img-fluid"><p>{{ $cat->name }}</p></a></div>
                     @endforeach
                 </div>
             </div>
