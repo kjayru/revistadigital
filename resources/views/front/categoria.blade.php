@@ -44,7 +44,7 @@
 				<div class="row" aria-label="breadcrumb">
 					<ul class="breadcrumb" style="margin-bottom: 0;">
 						<li class="breadcrumb-item"><a href="{{ route('home' )}}">Inicio</a></li>
-						<li class="breadcrumb-item active" aria-current="page">{{ $slug->name }}</li>
+						<li class="breadcrumb-item active" aria-current="page">{{ @$slug->name }}</li>
 					</ul>
 				</div>
 
@@ -53,7 +53,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-sm-6 col-6 pt-2 pb-2"><span class="h4">{{ $slug->name }} </span></div>
+				<div class="col-md-6 col-sm-6 col-6 pt-2 pb-2"><span class="h4">{{ @$slug->name }} </span></div>
 				<div class="col-md-6 col-sm-6 col-6 text-right pt-2 pb-2">
 
 					<!--
@@ -82,7 +82,7 @@
 
 		<section class="revista">
 
-             @if(@$slug->flipper)
+             @if(@$estado==1)
 				<div class="revista3d" id="revista3d" ></div>
             @else
                 <div class="container text-center">
@@ -130,13 +130,13 @@
     @include('layouts.front.partial.flipscript')
 
 
-    @if(@$slug->flipper->file_id)
+    @if(@$slug->file_id)
 
     <script>
 
 
         $('#revista3d').FlipBook({
-          pdf: '/storage/{{ $slug->flipper->file->path }}',
+          pdf: '/storage/{{ $slug->file->path }}',
           template: {
             html: '/flipper/templates/default-book-view.html?v={{ uniqid() }}',
             styles: [
@@ -159,7 +159,7 @@
 
           },
           controlsProps: {
-            downloadURL: '/{{$slug->flipper->file->path }}',
+            downloadURL: '/{{$slug->file->path }}',
             actions: {
                 cmdBackward: {
                 code: 37,
@@ -179,7 +179,7 @@
     </script>
     @endif
 
-    @if(@$slug->flipper->gallery_id)
+    @if(@$slug->gallery_id)
 
     <script>
 
@@ -187,7 +187,7 @@
         pageCallback: function(n) {
             var imageDescription = {
                 type: 'image',
-                src: '/storage/gallery/{{ $slug->flipper->gallery->prefijo }}-'+(n+1)+'.jpg',
+                src: '/storage/gallery/{{ $slug->gallery->prefijo }}-'+(n+1)+'.jpg',
                 interactive: false
             };
             return imageDescription;
@@ -242,7 +242,7 @@
         </script>
     @endif
 
-    @if($slug->video_id)
+    @if(@$slug->video_id)
         EMBED VIDEO
     @endif
 @endsection

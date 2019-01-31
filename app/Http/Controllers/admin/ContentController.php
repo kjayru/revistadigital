@@ -148,7 +148,7 @@ class ContentController extends Controller
 
         $flip = new Flipper();
 
-        dd($request->file('pdffile'));
+
         if ($request->hasFile('pdffile')) {
             $anuncio = $request->file('pdffile')->store('files');
 
