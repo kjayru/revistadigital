@@ -1,55 +1,66 @@
-@extends('layouts.app')
+@extends('layouts.admin.master')
+@section('content')
+<main class="pt-1 mx-lg-5">
+        <div class="container-fluid mt-5">
 
-@section('contentheader_title')
-	Roles
-@endsection
-@section('contentheader_description')
-  Lista de Roles
-@endsection
+            <div class="card mb-4 wow fadeIn">
 
-@section('main-content')
-	<div class="container-fluid spark-screen">
-		<div class="row">
-			<div class="col-md-12 ">
+                <!--Card content-->
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                          <li class="breadcrumb-item"><a href="/admin/roles">Roles</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Crear</li>
+                        </ol>
+                 </nav>
 
-				<!-- Default box -->
-				<div class="box">
-					<div class="box-header with-border">
-						<h3 class="box-title">REGISTRO DE ROLES</h3>
+              </div>
 
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-								<i class="fa fa-minus"></i></button>
-							<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-								<i class="fa fa-times"></i></button>
-						</div>
-					</div>
-					<div class="box-body">
-                        <div class="box box-info">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                            <!-- /.box-header -->
-                            <!-- form start -->
-                            <form class="form-horizontal" action="{{ route('roles.store')}}" method="POST">
-                                     @method('POST')
-                                    @include('admin.role.partials.form')
+            <!-- Heading -->
+            <div class="card mb-4 wow fadeIn">
 
-                            <!-- /.box  -footer -->
-                            </form>
+                <!--Card content-->
+                <div class="card-body d-sm-flex justify-content-between">
+
+
+                <div class="col-md-12 ">
+
+                    <!-- Default box -->
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">REGISTRO DE ROLES</h3>
+
+
                         </div>
-					</div>
-					<!-- /.box-body -->
-				</div>
-				<!-- /.box -->
+                        <div class="box-body">
+                            <div class="box box-info">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                                <!-- /.box-header -->
+                                <!-- form start -->
+                                <form class="form-horizontal" action="{{ route('roles.store')}}" method="POST">
+                                        @method('POST')
+                                        @include('admin.role.partials.form')
 
-			</div>
-		</div>
-	</div>
+                                <!-- /.box  -footer -->
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</main>
 @endsection

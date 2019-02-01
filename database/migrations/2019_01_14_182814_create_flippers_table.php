@@ -15,7 +15,21 @@ class CreateFlippersTable extends Migration
     {
         Schema::create('flippers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->unsignedInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
+
+            $table->unsignedInteger('file_id');
+            $table->foreign('file_id')->references('id')->on('categories');
+
+            $table->unsignedInteger('gallery_id');
+            $table->foreign('gallery_id')->references('id')->on('galleries');
+
+            $table->unsignedInteger('video_id');
+            $table->foreign('video_id')->references('id')->on('videos');
+
+            $table->string('month');
+            $table->string('year');
+
             $table->integer('status')->default(0);
             $table->timestamps();
         });

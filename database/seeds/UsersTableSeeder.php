@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class,30)->create();
+        factory(App\User::class,2)->create();
 
         Role::create([
             'name' => 'Administrador',
@@ -20,9 +20,15 @@ class UsersTableSeeder extends Seeder
         ]);
 
         Role::create([
-            'name' => 'Cordinador',
-            'slug' => 'cordinador',
-            'description' => 'Cordinadores',
+            'name' => 'Contenido',
+            'slug' => 'contenido',
+            'description' => 'entidades y contenido',
+        ]);
+
+        Role::create([
+            'name' => 'fuerza de venta',
+            'slug' => 'usuario',
+            'description' => 'usuarios en general',
         ]);
 
     }
