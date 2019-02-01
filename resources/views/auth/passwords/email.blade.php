@@ -38,14 +38,18 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('password.email') }}">
-                            @csrf
 
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                        <form class="formulario" method="POST" action="{{ route('password.email') }}">
+                                @csrf
+                                <h2>Olvidé mi contraseña</h2>
+                                <p>Ingresa tu e-mail para enviarte una nueva contraseña</p>
+                                <div class="content-form">
+                                    <div class="form-group">
+                                        <label for="email">{{ __('E-Mail') }}</label>
+                                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                    </div>
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                    <button type="submit" class="btn btn-primary btn-info btn-sm btn-ingresa" style="width: 150px;">Enviar</button>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
@@ -53,15 +57,7 @@
                                         </span>
                                     @endif
                                 </div>
-                            </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Enviar clave enlace reset') }}
-                                    </button>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -74,7 +70,7 @@
 		<div class="container">
 			<div class="row pt-3">
 				<div class="col-lg-8 col-md-8">
-					<span><img src="assets/logo-claro.svg" class="lg_claro-f"></span> <span class="derechos-reservados">Todos los derechos reservados, Claro 2019</span>
+					<span><img src="/assets/logo-claro.svg" class="lg_claro-f"></span> <span class="derechos-reservados">Todos los derechos reservados, Claro 2019</span>
 				</div>
 				<div class="col-lg-4 col-md-4 text-right">
 					<p>

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Support\Facades\Input;
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Hash;
 use Carbon\Carbon;
 use App\User;
@@ -149,7 +151,11 @@ class UserController extends Controller
 
 
     public function proceso(Request $request){
-        dd($request->archivo);
+       // dd($request->archivo);
+
+        Excel::import(new UsersImport, $request->archivo);
+
+
     }
 
 }
