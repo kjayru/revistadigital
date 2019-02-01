@@ -239,6 +239,11 @@ Route::group(['prefix' => 'admin'],function(){
      Route::get('users/{user}/edit','admin\UserController@edit')->name('users.edit')
      ->middleware('permission:users.edit');
 
+     Route::get('cargamasiva','admin\UserController@cargamasiva')->name('users.carga')
+     ->middleware('permission:users.create');
+
+     Route::post('proceso','admin\UserController@proceso')->name('users.proceso')
+     ->middleware('permission:users.create');
 });
 Route::get('/', 'HomeController@index')->name('home');
 

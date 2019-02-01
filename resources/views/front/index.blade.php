@@ -14,17 +14,19 @@
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="assets/banner_1.jpg" class="d-block w-100" alt="...">
+                            <img src="assets/1440x521_novedades.jpg" class="d-block w-100" alt="Novedades">
                         </div>
                         <div class="carousel-item">
-                            <img src="assets/1440x521_instagram.jpg" class="d-block w-100" alt="...">
+                            <img src="assets/1440x521_instagram.jpg" class="d-block w-100" alt="Instagram">
                         </div>
+                        <div class="carousel-item ">
+                            <img src="assets/banner_1.jpg" class="d-block w-100" alt="Triplica">
+                        </div>
+
                         <div class="carousel-item">
-                            <img src="assets/banner_3.jpg" class="d-block w-100" alt="...">
+                            <img src="assets/banner_3.jpg" class="d-block w-100" alt="Moderniza">
                         </div>
-                        <div class="carousel-item">
-                            <img src="assets/1440x521_novedades.jpg" class="d-block w-100" alt="...">
-                        </div>
+
 
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
