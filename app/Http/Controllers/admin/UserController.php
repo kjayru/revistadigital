@@ -75,6 +75,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function show($id)
     {
         //
@@ -123,9 +126,6 @@ class UserController extends Controller
             $rol->save();
        }
 
-
-
-
          return redirect()->route('users.index')
          ->with('info','Usuario creado satisfactoriamente');
     }
@@ -140,4 +140,16 @@ class UserController extends Controller
     {
         //
     }
+
+
+    public function cargamasiva(){
+
+        return view('admin.usuario.carga');
+    }
+
+
+    public function proceso(Request $request){
+        dd($request->archivo);
+    }
+
 }
