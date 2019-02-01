@@ -149,14 +149,14 @@ class ContentController extends Controller
         $flip = new Flipper();
 
 
-        if ($request->hasFile('pdffile')) {
+       // if ($request->hasFile('pdffile')) {
             $anuncio = $request->file('pdffile')->store('files');
 
             $ifile = new File();
             $ifile->path = $anuncio;
             $ifile->save();
             $flip->file_id  =  $ifile->id;
-        }
+        //}
 
         if($request->imagenes){
             $flip->gallery_id = $request->imagenes;
