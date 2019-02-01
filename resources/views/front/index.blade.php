@@ -17,14 +17,14 @@
                             <img src="assets/1440x521_novedades.jpg" class="d-block w-100" alt="Novedades">
                         </div>
                         <div class="carousel-item">
-                            <img src="assets/1440x521_instagram.jpg" class="d-block w-100" alt="Instagram">
+                            <a href="/productos-mobiles"><img src="assets/1440x521_instagram.jpg" class="d-block w-100" alt="Instagram"></a>
                         </div>
                         <div class="carousel-item ">
-                            <img src="assets/banner_1.jpg" class="d-block w-100" alt="Triplica">
+                            <a href="/productos-mobiles"><img src="assets/banner_1.jpg" class="d-block w-100" alt="Triplica"></a>
                         </div>
 
                         <div class="carousel-item">
-                            <img src="assets/banner_3.jpg" class="d-block w-100" alt="Moderniza">
+                                <a href="/claro_hogar"><img src="assets/banner_3.jpg" class="d-block w-100" alt="Moderniza"></a>
                         </div>
 
 

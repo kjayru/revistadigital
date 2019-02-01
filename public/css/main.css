@@ -381,6 +381,9 @@ footer{
 .derechos-reservados{
 	font-size: 1rem;
 }
+a.login img {
+    width: 24px;
+}
 @media screen and (max-width: 450px) {
 	.derechos-reservados{
 		font-size: 14px;
@@ -414,4 +417,5 @@ footer{
 .fullscreen {
 background-color: #333;
 }
+
 
