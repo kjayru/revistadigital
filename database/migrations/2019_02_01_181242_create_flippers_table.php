@@ -18,13 +18,13 @@ class CreateFlippersTable extends Migration
             $table->unsignedInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
 
-            $table->unsignedInteger('file_id');
-            $table->foreign('file_id')->references('id')->on('categories');
+            $table->unsignedInteger('file_id')->nullable();
+            $table->foreign('file_id')->references('id')->on('files');
 
-            $table->unsignedInteger('gallery_id');
+            $table->unsignedInteger('gallery_id')->nullable();
             $table->foreign('gallery_id')->references('id')->on('galleries');
 
-            $table->unsignedInteger('video_id');
+            $table->unsignedInteger('video_id')->nullable();
             $table->foreign('video_id')->references('id')->on('videos');
 
             $table->string('month');
