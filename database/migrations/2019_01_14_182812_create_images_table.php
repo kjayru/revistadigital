@@ -17,6 +17,10 @@ class CreateImagesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('order')->nullable();
+
+            $table->unsignedInteger('gallery_id');
+            $table->foreign('gallery_id')->references('id')->on('galleries');
+
             $table->timestamps();
         });
     }

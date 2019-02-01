@@ -1,28 +1,36 @@
-@extends('layouts.app')
+@extends('layouts.admin.master')
+@section('content')
 
-@section('contentheader_title')
-	Roles
-@endsection
-@section('contentheader_description')
-  Editar Role
-@endsection
+<main class="pt-1 mx-lg-5">
+        <div class="container-fluid mt-5">
 
-@section('main-content')
-	<div class="container-fluid spark-screen">
-		<div class="row">
-			<div class="col-md-12 ">
+            <div class="card mb-4 wow fadeIn">
+
+                <!--Card content-->
+                <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+                          <li class="breadcrumb-item"><a href="/admin/roles">Roles</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Editar</li>
+                        </ol>
+                 </nav>
+
+              </div>
+
+            <!-- Heading -->
+            <div class="card mb-4 wow fadeIn">
+
+                <!--Card content-->
+                <div class="card-body d-sm-flex justify-content-between">
+
+
+                    <div class="col-md-12 ">
 
 				<!-- Default box -->
 				<div class="box">
 					<div class="box-header with-border">
 						<h3 class="box-title">EDITAR ROLE</h3>
 
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-								<i class="fa fa-minus"></i></button>
-							<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-								<i class="fa fa-times"></i></button>
-						</div>
 					</div>
 					<div class="box-body">
                         <div class="box box-info">
@@ -49,7 +57,10 @@
 				</div>
 				<!-- /.box -->
 
-			</div>
-		</div>
-	</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</main>
 @endsection
