@@ -246,9 +246,10 @@ Route::group(['prefix' => 'admin'],function(){
      ->middleware('permission:users.create');
 });
 Route::get('/', 'HomeController@index')->name('home');
-
+Route::get('/testmail','HomeController@testmail');
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/{url}', 'admin\HomeController@show')->name('home.detalle')
 ->middleware('permission:magazines.index');
+
 
 

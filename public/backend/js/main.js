@@ -97,6 +97,7 @@ $("#paso1").submit(function(e){
 
 $("#paso2").submit(function(e){
     e.preventDefault();
+    var categoria = '';
 
     $.ajax({
         url: '/admin/contents/postpdf',
@@ -104,20 +105,30 @@ $("#paso2").submit(function(e){
         data: new FormData(this),
         contentType: false,
         processData: false,
+        beforeSend(){
+            $(".capa").show();
+        },
         success: function (response) {
-            if(response.rpta==''){
-                //window.location.reload();
+            categoria = response;
+            if(response){
+                $(".capa").fadeOut(350,'swing');
+            }else{
+                console.log("actividad");
             }
         },
         error: function (err) {
             console.log(err)
         }
+
     })
 
     $(".step2").hide();
     $(".step3").fadeIn(350,'swing',function(){
-        porcentaje();
+        //porcentaje();
+        console.log(categoria);
+        $(".btn-step-final").attr('href',"/"+categoria);
     });
+
     $(".indicador").removeClass("active");
     $(".indicadores ul li:nth-child(3)").addClass('active');
 });

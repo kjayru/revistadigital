@@ -381,9 +381,6 @@ footer{
 .derechos-reservados{
 	font-size: 1rem;
 }
-a.login img {
-    width: 24px;
-}
 @media screen and (max-width: 450px) {
 	.derechos-reservados{
 		font-size: 14px;
@@ -398,6 +395,28 @@ a.login img {
 	}
 
 }
+.salto{
+
+}
+@media screen and (max-width: 769px) {
+	.salto{
+		display: block;
+    visibility: hidden;
+    height: 0px;
+	}
+}
+.mini-wv{
+	max-width: 275px !important;
+}
+
+@media screen and (max-width: 1200px) {
+	.mini-wv{
+		max-width: 100% !important;
+	}
+}
+
+
+
 
 
 .revista3d {
