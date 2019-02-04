@@ -395,9 +395,7 @@ footer{
 	}
 
 }
-.salto{
 
-}
 @media screen and (max-width: 769px) {
 	.salto{
 		display: block;
@@ -435,6 +433,9 @@ footer{
 }
 .fullscreen {
 background-color: #333;
+}
+a.login img {
+    max-width: 26px;
 }
 
 
