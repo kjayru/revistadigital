@@ -109,7 +109,8 @@ $("#paso2").submit(function(e){
             $(".capa").show();
         },
         success: function (response) {
-            categoria = response;
+
+            $(".btn-step-final").attr('href',"/"+response);
             if(response){
                 $(".capa").fadeOut(350,'swing');
             }else{
@@ -126,7 +127,7 @@ $("#paso2").submit(function(e){
     $(".step3").fadeIn(350,'swing',function(){
         //porcentaje();
         console.log(categoria);
-        $(".btn-step-final").attr('href',"/"+categoria);
+
     });
 
     $(".indicador").removeClass("active");
