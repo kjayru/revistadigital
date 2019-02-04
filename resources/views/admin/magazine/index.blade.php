@@ -28,8 +28,8 @@
                            <div class="col-md-12 text-center indicadores">
 
                                <ul>
-                                   <li class="indicador active"></li>
-                                   <li  class="indicador"></li>
+                                   <li class="indicador active" id="step1"></li>
+                                   <li  class="indicador" id="step2"></li>
                                    <li  class="indicador"></li>
                                </ul>
                            </div>
