@@ -28,4 +28,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public static function existuser($email){
+        $user = \App\User::where('email',$email)->count();
+        $usuarios = \App\User::all();
+
+
+    }
 }

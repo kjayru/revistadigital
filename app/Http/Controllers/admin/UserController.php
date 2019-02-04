@@ -8,6 +8,7 @@ use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Support\Facades\Input;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
+use \DB;
 use Hash;
 use Carbon\Carbon;
 use App\User;
@@ -26,7 +27,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+
+        $users = DB::table('users')->paginate(100);
 
         return view('admin.usuario.index',['users'=>$users]);
     }
@@ -51,12 +53,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
+
         $usuario =  new User();
 
         $usuario->name = $request->name;
         $usuario->email = $request->email;
 
-           $usuario->password = Hash::make($request->password);
+        $usuario->password = Hash::make($request->password);
 
 
         $usuario->save();
@@ -154,7 +157,8 @@ class UserController extends Controller
        // dd($request->archivo);
 
         Excel::import(new UsersImport, $request->archivo);
-
+        return redirect()->route('users.index')
+        ->with('info','Carga de usuarios satisfactoriamente');
 
     }
 

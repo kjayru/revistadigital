@@ -41,7 +41,7 @@
                                         @method('POST')
                                          <div class="form-group">
                                              <label for="archivo">Cargue el archivos</label>
-                                             <input type="file" class="form-control-file" id="archivo" name="archivo">
+                                             <input type="file" class="form-control-file" id="archivo" name="archivo" required>
                                          </div>
                                          <div class="form-group text-center">
 

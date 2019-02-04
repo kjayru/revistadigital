@@ -173,6 +173,8 @@ class ContentController extends Controller
 
         $flip->save();
 
-        return  Response()->json(['flip_id'=>$flip->id]);
+        $cate = Category::where('id',$request->categoria)->first();
+
+        return  Response()->json($cate->slug);
     }
 }

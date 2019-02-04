@@ -24,7 +24,7 @@
 
                     <!--Card content-->
                     <div class="card-body">
-                        <div class="row justify-content-center p-5">
+                        <div class="row justify-content-center p-5" id="pasos-carga">
                            <div class="col-md-12 text-center indicadores">
 
                                <ul>
@@ -84,8 +84,8 @@
                                                 <p>Paso 2: Selecciona el tipo de contenido.</p>
                                                 <div class="form-row mb-4 form-group">
                                                     <div class="col-md-4 md-form">
-                                                            <select class="form-control" name="tipo" id="tipocontenido">
-                                                                    <option value="0" selected>Tipo</option>
+                                                            <select class="form-control" name="tipo" id="tipocontenido" required>
+                                                                    <option value="" selected>Tipo</option>
                                                                     <option value="1">Video</option>
                                                                     <option value="2">Imagenes</option>
                                                                     <option value="3">PDF</option>
@@ -106,18 +106,25 @@
                             </div>
                             <div class="col-md-8 step3" style="display:none;">
                                 <div class="card mt-3 p-4">
-                                    <p>Paso 3: Espere que la carga de documentos haya sido completada.</p>
-                                    <div class="form-row mb-4 form-group">
-                                        <div class="contador"></div>
-                                    </div>
+
+
                                     <div class="md-form text-center">
-                                        <a href="/" class="btn btn-danger btn-step-final">Finalizar</a>
+                                        <a href="/" class="btn btn-danger btn-step-final">Ir a la publicación</a>
                                     </div>
 
                                 </div>
                             </div>
 
+                            <div class="capa">
 
+                                    <div class="text-center cargador">
+                                            <p>Paso 3: Espere que la carga de documentos haya sido completada.</p>
+                                        <div class="spinner-border text-danger" role="status">
+                                        <span class="sr-only">Cargando...</span>
+                                    </div>
+
+                              </div>
+                            </div>
                         </div>
                     </div>
 
