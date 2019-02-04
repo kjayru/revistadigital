@@ -203,7 +203,7 @@ $("#tipocontenido").change(function(){
     if(tipo==3){
 
 
-        let postdoc = `<input type='file' name="pdffile" accept=".pdf" class="form-control-file">`;
+        let postdoc = `<input type='file' name="pdffile" accept=".pdf" class="form-control-file" required>`;
         $(".iholder").html(postdoc);
 
     }
