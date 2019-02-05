@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Slider;
+use App\Item;
 class SliderController extends Controller
 {
     /**
@@ -35,7 +36,39 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $slider = new Slider();
+
+        $slider->title = $request->nombre;
+        $slider->save();
+
+        $elementos = count($request->file('imagen'));
+
+
+            for ($k=0; $k < $elementos; $k++) {
+
+
+                $img = $request->file('imagen')[$k]->store('sliders');
+
+                $image = new Item();
+
+                $image->background = $img;
+                $image->title = $request->texto[$k];
+                if($image->external_url){
+                    $image->external_url = $request->nuevaVentana[$k];
+                }
+                if($image->status){
+                    $image->status = $request->estado[$k];
+                }
+                $image->url = $request->url[$k];
+                $image->slider_id = $slider->id;
+                $image->save();
+
+
+
+            }
+
+            return response()->json(['rpta'=>'ok']);
     }
 
     /**
@@ -80,6 +113,11 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        Item::where('slider_id',$id)->delete();
+
+        Slider::find($id)->delete();
+
+        return response()->json(['rpta'=>'ok']);
     }
 }

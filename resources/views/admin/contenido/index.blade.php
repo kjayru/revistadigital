@@ -58,11 +58,11 @@
                                                     <tr>
                                                         <td>{{ @$k+1 }}</td>
                                                         <td>{{ @$cat->title }}</td>
-                                                        <td>{{ @$cat->items}}</td>
+                                                        <td>{{ @count($cat->items)}}</td>
                                                         <td>@if(@$cat->status == 1) activo @else inactivo @endif </td>
                                                         <td>{{ @$cat->updated_at}}</td>
-                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-default btn-editar">editar</button></td>
-                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-success btn-slider-editar">editar</button></td>
+                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-slider-borrar">Borrar</button></td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -175,7 +175,10 @@
             </div>
 
           <div class="col-lg-12">
-                <form class="md-form" id="frm-items">
+                <form class="md-form" method="POST" enctype="multipart/form-data" id="frm-items">
+                    @csrf
+                    <input type="hidden" name="_method" id="metodo" value="POST">
+                    <input type="hidden" name="slider_id" id="slider_id">
                     <!-- Add to Cart -->
                     <div class="card-title">
                             <div class="form-group">
@@ -329,6 +332,7 @@
 
                     @csrf
                     <input type="hidden" name="_method" value="POST">
+                    <input type="hidden" name="slider_id" id="gallery_id">
                       <!-- Add to Cart -->
                       <div class="card-title">
                               <div class="form-group">

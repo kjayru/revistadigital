@@ -247,22 +247,72 @@ $(document).ready(function(){
         }
 
    })
-})
-function porcentaje(){
 
-         //
+   $("#frm-items").on('submit',function(e){
+    e.preventDefault();
+
+        var id = $('#fr-items #slider_id').val();
+        var metodo = $('#frm-items #metodo').val();
+
+        alert(metodo);
+        let url ='';
+        if(metodo=='POST'){
+            url ='/admin/sliders/store';
+        }else{
+            url = '/admin/sliders/' + id;
+        }
+        $.ajax({
+            url: url,
+        type: 'POST',
+        data: new FormData(this),
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            if(response.rpta=='ok'){
+                window.location.reload();
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+        })
+    });
+
+    $(".btn-slider-borrar").on('click',function(e){
+        e.preventDefault();
+        var r = confirm("Esta seguro de Eliminar");
+        if (r == true) {
+            let id = $(this).data('id');
+            let token = $("#frm-items input[name='_token']").val();
+
+            let datasend = ({'_method':'DELETE','_token':token,'id':id});
+
+            $.ajax({
+                url:'/admin/sliders/'+id,
+                type:"POST",
+                dataType:"json",
+                data:datasend,
+                success:function(response){
+                    window.location.reload();
+                }
+            });
+
+        } else {
+            return false;
+        }
+
+    });
+
+
+})
+/*function porcentaje(){
     let i =1;
    var timerid = setInterval(function() {
         if(i<100){
-
             $(".contador").css('width',`${i}%`);
             i++;
         }else{
             clearInterval(timerid);
         }
-
-
     }, 60 * 1);
-
-
-}
+}*/
