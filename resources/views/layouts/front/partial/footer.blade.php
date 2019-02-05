@@ -2,7 +2,7 @@
 		<div class="container">
 			<div class="row pt-3">
 				<div class="col-lg-8 col-md-8">
-					<span><img src="assets/logo-claro.svg" class="lg_claro-f"></span> <span class="derechos-reservados">Todos los derechos reservados, Claro 2019</span>
+					<span><img src="/assets/logo-claro.svg" class="lg_claro-f"></span> <span class="derechos-reservados">Todos los derechos reservados, Claro 2019</span>
 				</div>
 				<div class="col-lg-4 col-md-4 text-right">
 					<p>

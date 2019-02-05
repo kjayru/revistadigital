@@ -416,7 +416,7 @@ footer{
 
 
 
-
+/**bloque bk**/
 .revista3d {
     height: 666px;
     width: 90%;
@@ -436,6 +436,9 @@ background-color: #333;
 }
 a.login img {
     max-width: 26px;
+}
+span.invalid-feedback {
+    display: block;
 }
 
 
