@@ -441,4 +441,9 @@ span.invalid-feedback {
     display: block;
 }
 
+.link-dashboard{
+
+    margin-right: 20px;
+    padding-top: 3px;
+}
 

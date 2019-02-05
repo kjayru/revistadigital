@@ -236,7 +236,17 @@ $('#frm-gallery').on('submit', (function (e) {
 
 
 $(document).ready(function(){
+  $(".btn-category-borrar").on('click',function(e){
+    e.preventDefault();
+        var r = confirm("Esta seguro de Eliminar");
+        if (r == true) {
+            $(this).parent('td').children('form').submit();
 
+        } else {
+            return false;
+        }
+
+   })
 })
 function porcentaje(){
 

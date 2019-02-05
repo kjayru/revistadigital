@@ -53,6 +53,9 @@ class CategoryController extends Controller
             $categoria->name = $request->name;
             $categoria->slug = $request->slug;
             $categoria->description = $request->description;
+            if($request->estado){
+             $categoria->estado = $request->estado;
+            }
             $categoria->save();
 
         return redirect()->route('categories.index')
@@ -100,6 +103,9 @@ class CategoryController extends Controller
             $categoria->name = $request->name;
             $categoria->slug = $request->slug;
             $categoria->description = $request->description;
+            if($request->estado){
+                $categoria->status = $request->estado;
+             }
             $categoria->save();
 
             return redirect()->route('categories.index')
@@ -114,6 +120,19 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+
+        try {
+            Category::find($id)->delete();
+
+        } catch (Illuminate\Database\QueryException $e) {
+            dd($e);
+
+        } catch (PDOException $e) {
+            dd($e);
+        }
+
+        return redirect()->route('categories.index')
+        ->with('info','Categoria actualizado satisfactoriamente');
     }
 }

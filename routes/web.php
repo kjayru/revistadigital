@@ -13,7 +13,8 @@
 Auth::routes();
 
 Route::group(['prefix' => 'admin'],function(){
-    Route::get('/', 'admin\HomeController@index')->name('admin');
+    Route::get('/', 'admin\HomeController@index')->name('dashboard.index')
+    ->middleware('permission:dashboard.index');
 
     //Roles
     Route::post('roles/store','admin\RoleController@store')->name('roles.store')
@@ -248,8 +249,8 @@ Route::group(['prefix' => 'admin'],function(){
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/testmail','HomeController@testmail');
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/{url}', 'admin\HomeController@show')->name('home.detalle')
-->middleware('permission:magazines.index');
+Route::get('/{url}', 'admin\HomeController@show')->name('fronts.index')
+->middleware('permission:fronts.index');
 
 
 
