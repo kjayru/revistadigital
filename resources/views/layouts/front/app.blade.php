@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Revista Digital</title>
+	<title>{{ env('APP_NAME')}}</title>
 
 	<link rel="stylesheet" type="text/css" href="/css/main.css?v={{ uniqid() }}">
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
