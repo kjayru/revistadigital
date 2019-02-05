@@ -24,7 +24,7 @@
 </div>
 <div class="md-form form-group">
         <div class="form-check">
-                <input type="checkbox" name="estado" class="form-check-input" id="form4">
+                <input type="checkbox" name="estado" class="form-check-input" id="form4" value="2" @if($category->status==2) checked @endif>
                 <label class="form-check-label" for="form4">Oculto</label>
         </div>
 

@@ -10,6 +10,9 @@
         @guest
         <a href="/login" class="login"> <img src="assets/entrar.svg"> <span class="text-sesion">Iniciar sesión</span></a>
         @else
+        @can('dashboard.index')
+            <a href="/admin" class="link-dashboard">Dashboard</a>
+        @endcan
             <a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">

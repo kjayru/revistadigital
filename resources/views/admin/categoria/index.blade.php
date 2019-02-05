@@ -49,6 +49,7 @@
                                             <th class="th-sm">Nombre </th>
                                             <th class="th-sm">Slug </th>
                                             <th>Cover</th>
+                                            <th>Estado</th>
                                             <th class="th-sm">Fecha </th>
                                             <th ></th>
                                             <th ></th>
@@ -61,9 +62,15 @@
                                                     <td>{{ $cat->name }}</td>
                                                     <td>{{ $cat->slug}}</td>
                                                     <td><img src="/storage/{{ $cat->cover }}" class="img-fluid" style="max-width:100px"></td>
+                                                    <td class="text-center">@if($cat->status==1) <i class="fas fa-circle text-success"></i>  @else <i class="text-danger fas fa-circle"></i> @endif</td>
                                                     <td>{{ $cat->updated_at}}</td>
                                                     <td class="text-center"><a href="/admin/categories/{{ $cat->id }}/edit" class="btn btn-success  btn-editar">Editar</a></td>
-                                                    <td class="text-center"><a href="/admin/categories/delete"   class="btn btn-danger  btn-borrar">Borrar</a></td>
+                                                    <td class="text-center"><a href="#"   class="btn btn-danger  btn-category-borrar">Borrar</a>
+                                                        <form action="/admin/categories/{{ $cat->id }}" method="post" id="fr-category-delete" >
+                                                            <input type="hidden" name="_method" value="delete">
+                                                            @csrf
+                                                        </form>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

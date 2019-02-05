@@ -25,15 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::where('status',1)->get();
         return view('front.index',['categories'=> $categories]);
     }
-
-    public function testmail(){
-        $data = ['message' => "This is a test!"];
-
-        Mail::to('wiltinoco@gmail.com')->send(new TestEmail($data));
-    }
-
 
 }
