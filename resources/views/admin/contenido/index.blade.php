@@ -39,7 +39,7 @@
                                 <div class="panel1">
                                     <h2>Sliders</h2>
                                     <div class="col-md-12 text-right">
-                                        <a href="#" class="btn btn-primary ml-auto" data-toggle="modal" data-target="#canvaslider">Crear</a>
+                                        <a href="#" class="btn btn-primary ml-auto btn-crear-slider" data-toggle="modal" data-target="#canvaslider">Crear</a>
                                     </div>
                                         <table id="tb-sliders" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                             <thead>
@@ -47,8 +47,9 @@
                                                 <th>#</th>
                                                 <th class="th-sm">Nombre </th>
                                                 <th class="th-sm">Items </th>
-                                                <th class="th-sm">Estado </th>
+
                                                 <th class="th-sm">Fecha </th>
+                                                <th class="th-sm">Estado </th>
                                                 <th ></th>
                                                 <th ></th>
                                                 </tr>
@@ -59,8 +60,17 @@
                                                         <td>{{ @$k+1 }}</td>
                                                         <td>{{ @$cat->title }}</td>
                                                         <td>{{ @count($cat->items)}}</td>
-                                                        <td>@if(@$cat->status == 1) activo @else inactivo @endif </td>
+
                                                         <td>{{ @$cat->updated_at}}</td>
+                                                        <td>
+
+                                                                <div class="form-group">
+                                                                        <span class="switch switch-sm">
+                                                                          <input data-id="{{$cat->id}}" type="checkbox" @if(@$cat->status == 1) checked  @endif  class="switch estado-slider" id="switch-sm-{{$k+1}}">
+                                                                          <label for="switch-sm-{{$k+1}}"></label>
+                                                                        </span>
+                                                                </div>
+                                                        </td>
                                                         <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-success btn-slider-editar">editar</button></td>
                                                         <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-slider-borrar">Borrar</button></td>
                                                     </tr>
@@ -111,8 +121,9 @@
                                                 <th>#</th>
                                                 <th class="th-sm">Nombre </th>
                                                 <th class="th-sm">Items </th>
+
+                                                <th >Fecha</th>
                                                 <th class="th-sm">Estado </th>
-                                                <th ></th>
                                                 <th ></th>
                                                 </tr>
                                             </thead>
@@ -121,8 +132,9 @@
                                                     <tr>
                                                         <td>{{ @$k+1 }}</td>
                                                         <td>{{ @$cat->name }}</td>
-                                                        <td></td>
                                                         <td>{{ @$cat->updated_at}}</td>
+                                                        <td></td>
+
                                                         <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-default btn-editar">editar</button></td>
                                                         <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
                                                     </tr>
@@ -182,7 +194,7 @@
                     <!-- Add to Cart -->
                     <div class="card-title">
                             <div class="form-group">
-                                    <input type="text" name="nombre" id="form1" class="form-control" placeholder="Nombre Slide">
+                                    <input type="text" name="nombre" id="form1" class="form-control" placeholder="Nombre Slide" required>
 
                             </div>
                     </div>
@@ -190,51 +202,59 @@
 
                         <div class="row items">
                             <div class="bitem">
-                                <div class="col-md-4 slide-image">
-                                        <figure class="figure">
-                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="figure-img img-fluid z-depth-1"
-                                                alt="..." >
-                                            </figure>
-                                        <div class="file-field">
-                                                    <input type="file"  name="imagen[]" class="form-control" placeholder="Imagen">
-                                        </div>
-
-                                </div>
-                                <div class="col-md-7">
-
-                                    <div class="md-form form-group">
-                                            <input type="text" name="texto[]" id="form2" placeholder="Texto" class="form-control">
-
-                                    </div>
-
-                                    <div class="form-row mb-4 form-group">
-                                        <div class="col-md-10 md-form">
-                                            <input type="text" name="url[]" id="form3" placeholder="URL" class="form-control">
+                                <div class="col-md-11">
+                                    <div class="row">
+                                        <div class="col-md-4 slide-image">
+                                                <figure class="figure">
+                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="figure-img img-fluid z-depth-1" alt="...">
+                                                </figure>
+                                                <div class="file-field">
+                                                    <input type="file"  name="imagen[]" class="form-control preimage" required>
+                                                </div>
 
                                         </div>
-                                        <div class="col-md-2">
-                                            <div class="form-check">
-                                                <input type="checkbox"  name="nuevaVentana[]" class="form-check-input" id="f1">
-                                                <label class="form-check-label" for="f1">Externo</label>
+                                        <div class="col-md-7">
+
+                                            <div class="md-form form-group">
+                                                    <input type="text" name="texto[]" id="form2" placeholder="Texto" class="form-control" required>
+
+                                            </div>
+
+                                            <div class="form-row mb-4 form-group">
+                                                <div class="col-md-10 md-form selectorurl">
+
+
+                                                            <select name="url[]" class="form-control">
+                                                                <option value="">Seleccione</option>
+                                                                @foreach($categories as $cat)
+                                                                <option value="{{ $cat->slug }}">{{ $cat->name }}</option>
+                                                                @endforeach
+                                                            </select>
+
+
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-check">
+                                                        <input type="checkbox"  name="nuevaVentana[]" value="2" class="form-check-input urlexterna" id="f1">
+                                                        <label class="form-check-label" for="f1">Externo</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="md-form form-group">
+                                                <div class="form-check">
+                                                        <input type="checkbox" name="estado[]" value="2" class="form-check-input" id="form4">
+                                                        <label class="form-check-label" for="form4">Ocultar</label>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="md-form form-group">
-                                        <div class="form-check">
-                                                <input type="checkbox" name="estado[]" class="form-check-input" id="form4">
-                                                <label class="form-check-label" for="form4">Ocultar</label>
-                                        </div>
-
-                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <a href="#" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Eliminar slide"><i class="fas fa-minus-circle"></i></a>
                                 </div>
                             </div>
-
-
-
                         </div>
-
-
-
 
                     </div>
                     <div class="card-footer">
@@ -269,27 +289,38 @@
               </div>
 
             <div class="col-lg-12">
-                  <form class="md-form" id="frm-items">
-
+                  <form class="md-form" method="POST" id="frm-video">
+                    @csrf
+                    <input type="hidden" name="_method" value="POST">
+                    <input type="hidden" name="video_id">
 
                       <div class="card-body">
 
-                        <div class="card-title">
-                                <div class="md-form">
-                                        <input type="text" name="nombre" id="form1" class="form-control" >
-                                        <label for="form1">Nombre </label>
-                                </div>
-                        </div>
 
-                        <div class="card-title">
-                                <div class="md-form">
-                                        <input type="text" name="nombre" id="form1" class="form-control" >
-                                        <label for="form1">Embed</label>
+                                <div class="form-group">
+                                        <label for="form1">Nombre </label>
+                                        <input type="text" name="name" id="name" class="form-control" required>
+
                                 </div>
-                        </div>
-                        <div class="md-form form-group">
+
+
+
+                                <div class="form-group">
+                                        <label for="embed">Embed</label>
+                                        <input type="text" name="embed" id="embed" class="form-control" required>
+
+                                </div>
+
+                        <div class="form-group">
+                                <div class="form-check">
+                                        <input type="checkbox" name="destacado" value="2" class="form-check-input" id="destacado">
+                                        <label class="form-check-label" for="destacado">Destacado</label>
+                                </div>
+
+                            </div>
+                        <div class=" form-group">
                             <div class="form-check">
-                                    <input type="checkbox" name="estado" class="form-check-input" id="form4">
+                                    <input type="checkbox" name="status" value="2" class="form-check-input" id="form4">
                                     <label class="form-check-label" for="form4">Oculto</label>
                             </div>
 
@@ -300,7 +331,7 @@
                       <div class="card-footer">
                           <div class="text-center">
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                              <button class="btn btn-primary">guardar
+                              <button type="submit" class="btn btn-primary">guardar
                               <i class="fas fa-save ml-2" aria-hidden="true"></i>
                               </button>
                           </div>
@@ -332,7 +363,7 @@
 
                     @csrf
                     <input type="hidden" name="_method" value="POST">
-                    <input type="hidden" name="slider_id" id="gallery_id">
+                    <input type="hidden" name="gallery_id" id="gallery_id">
                       <!-- Add to Cart -->
                       <div class="card-title">
                               <div class="form-group">
@@ -365,6 +396,78 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
+<!-- Modal delete-->
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog bg-danger" role="document">
+          <div class="modal-content bg-danger text-white">
+            <form id="frm-delete">
+                @csrf
+                <input type="hidden" name="_method" value="POST">
+                <input type="hidden" name="item_id" id="item_id">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body text-center">
+                    ¿Está seguro de eliminar este item?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-warning text-white btn-confirm-delete-slider">Confirmar</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+<!-- end modal-->
+
+<!-- Modal delete2-->
+<div class="modal fade" id="delete-modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog bg-danger" role="document">
+          <div class="modal-content bg-danger text-white">
+            <form id="frm-delete2">
+                @csrf
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="id" id="id">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body text-center">
+                    ¿Está seguro de eliminar este item?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-warning text-white btn-confirm-delete-slider">Confirmar</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+<!-- end modal-->
+
+@php $last_key = count($categories); $last_key= $last_key-1; @endphp
+  {{ $last_key }}
+<script>
+
+    var categories = {
+        @foreach($categories as $k => $cat)
+        "row{{$k+1}}":{'slug':'{{ $cat->slug }}','nombre':'{{ $cat->name }}'},
+
+        @if($k == $last_key)
+        "row{{$k+1}}":{'slug':'{{ $cat->slug }}','nombre':'{{ $cat->name }}'}
+        @endif
+        @endforeach
+    };
+
+    var jsoncat = JSON.stringify(categories);
+
+
+</script>
   @endsection

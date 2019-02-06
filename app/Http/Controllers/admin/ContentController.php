@@ -14,6 +14,10 @@ use App\Flipper;
 
 class ContentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +29,7 @@ class ContentController extends Controller
         $videos  = Video::all();
         $imagenes = Gallery::all();
         $categories = Category::all();
-        return view('admin.contenido.index',['sliders'=>$sliders,'videos'=>$videos,'imagenes'=>$imagenes]);
+        return view('admin.contenido.index',['sliders'=>$sliders,'videos'=>$videos,'imagenes'=>$imagenes,'categories'=>$categories]);
     }
 
     /**
