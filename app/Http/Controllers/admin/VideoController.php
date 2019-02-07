@@ -42,9 +42,16 @@ class VideoController extends Controller
         $video = new Video();
         $video->name = $request->name;
         $video->embed = $request->embed;
-        $video->status = $request->status;
-        $video->destacado = $request->destacado;
-
+        if(isset($request->status)){
+            $video->status = $request->status;
+            }else{
+                $video->status = 2;
+            }
+            if(isset($request->destacado)){
+                $video->destacado = $request->destacado;
+            }else{
+                $video->destacado = 1;
+            }
         $video->save();
 
         return response()->json(['rpta'=>'ok']);
