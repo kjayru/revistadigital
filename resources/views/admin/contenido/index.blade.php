@@ -91,6 +91,7 @@
                                                 <th class="th-sm">Nombre </th>
                                                 <th class="th-sm">Embed </th>
                                                 <th class="th-sm">Estado </th>
+                                                <th class="th-sm">Destacar </th>
                                                 <th ></th>
                                                 <th ></th>
                                                 </tr>
@@ -101,10 +102,26 @@
                                                         <td>{{ @$k+1 }}</td>
                                                         <td>{{ @$vid->name }}</td>
                                                         <td>{{ @$vid->embed }}</td>
-                                                        <td>@if(@$cat->status == 1) activo @else inactivo @endif </td>
-                                                        <td>{{ @$cat->updated_at}}</td>
-                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-default btn-editar">editar</button></td>
-                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                        <td>
+                                                                <div class="form-group">
+                                                                        <span class="switch switch-sm">
+                                                                          <input data-id="{{$vid->id}}" type="checkbox" @if(@$vid->status == 2) checked  @endif  class="switch estado-video" id="switch-sm-v{{$k+1}}">
+                                                                          <label for="switch-sm-v{{$k+1}}"></label>
+                                                                        </span>
+                                                                </div>
+                                                        </td>
+
+                                                        <td>
+                                                                <div class="form-group">
+                                                                        <span class="switch switch-sm">
+                                                                          <input data-id="{{$vid->id}}" type="checkbox" @if(@$vid->destacado == 2) checked  @endif  class="switch destacado-video" id="switch-sm-d{{$k+1}}">
+                                                                          <label for="switch-sm-d{{$k+1}}"></label>
+                                                                        </span>
+                                                                </div>
+                                                        </td>
+                                                        <td>{{ @$vid->updated_at}}</td>
+                                                        <td><button type="button" data-id="{{ @$vid->id }}" class="btn btn-success btn-video-editar">editar</button></td>
+                                                        <td><button type="button" data-id="{{ @$vid->id }}" class="btn btn-danger  btn-video-borrar">Borrar</button></td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -292,7 +309,7 @@
                   <form class="md-form" method="POST" id="frm-video">
                     @csrf
                     <input type="hidden" name="_method" value="POST">
-                    <input type="hidden" name="video_id">
+                    <input type="hidden" name="video_id" id="video_id">
 
                       <div class="card-body">
 
@@ -320,8 +337,8 @@
                             </div>
                         <div class=" form-group">
                             <div class="form-check">
-                                    <input type="checkbox" name="status" value="2" class="form-check-input" id="form4">
-                                    <label class="form-check-label" for="form4">Oculto</label>
+                                    <input type="checkbox" name="status" value="1" class="form-check-input" id="oculto">
+                                    <label class="form-check-label" for="oculto">Oculto</label>
                             </div>
 
                         </div>
@@ -430,6 +447,33 @@
         <div class="modal-dialog bg-danger" role="document">
           <div class="modal-content bg-danger text-white">
             <form id="frm-delete2">
+                @csrf
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="id" id="id">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Item</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body text-center">
+                    ¿Está seguro de eliminar este item?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-warning text-white btn-confirm-delete-slider">Confirmar</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+<!-- end modal-->
+
+<!-- Modal delete3-->
+<div class="modal fade" id="delete-modal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog bg-danger" role="document">
+          <div class="modal-content bg-danger text-white">
+            <form id="frm-delete3">
                 @csrf
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="id" id="id">
