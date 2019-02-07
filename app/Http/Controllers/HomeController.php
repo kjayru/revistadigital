@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::where('status',1)->get();
-        $slider = Slider::where('id',9)->where('status',1)->first();
+        $slider = Slider::where('id',1)->where('status',1)->first();
         if($slider){
             $total = count($slider->items);
         }else{
