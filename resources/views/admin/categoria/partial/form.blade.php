@@ -18,7 +18,7 @@
     <input type="file" name="cover" id="cover" class="form-control-file">
     @if(@$category->cover)
     <p>
-            <img src="{{ $category->cover }}" class="img-fluid" style="max-width:100px">
+            <img src="/storage/{{ $category->cover }}" class="img-fluid" style="max-width:100px">
     </p>
     @endif
 </div>

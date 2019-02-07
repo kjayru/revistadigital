@@ -124,22 +124,20 @@ class VideoController extends Controller
     }
 
     public function estado(Request $request){
+
         $estado = Video::where('id',$request->id)->first();
-
         $estado->status = $request->estado;
-
         $estado->save();
 
         return response()->json(['rpta'=>'ok']);
     }
 
     public function destacar(Request $request){
+
         $estado = Video::where('id',$request->id)->first();
-
         $estado->destacado = $request->destacado;
-
         $estado->save();
-
         return response()->json(['rpta'=>'ok']);
+
     }
 }
