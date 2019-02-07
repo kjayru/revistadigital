@@ -15,13 +15,14 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+
             $table->string('background')->nullable();
-            $table->string('title')->nullable();
+            $table->string('title');
 
             $table->string('subtitle')->nullable();
-            $table->string('external_url')->nullable();
-
+            $table->string('url')->nullable();
+            $table->integer('external_url')->nullable();
+            $table->integer('state')->default(1);
             $table->unsignedInteger('slider_id');
             $table->foreign('slider_id')->references('id')->on('sliders');
 

@@ -39,28 +39,6 @@ Route::group(['prefix' => 'admin'],function(){
     ->middleware('permission:roles.edit');
 
 
-    //Permissions
-    /*Route::post('permissions/store','admin\PermissionController@store')->name('permissions.store')
-    ->middleware('permission:permissions.create');
-
-    Route::get('permissions','admin\PermissionController@index')->name('permissions.index')
-    ->middleware('permission:permissions.index');
-
-    Route::get('permissions/create','admin\PermissionController@create')->name('permissions.create')
-    ->middleware('permission:permissions.create');
-
-    Route::put('permissions/{role}','admin\PermissionController@update')->name('permissions.update')
-    ->middleware('permission:permissions.edit');
-
-    Route::get('permissions/{role}','admin\PermissionController@show')->name('permissions.show')
-    ->middleware('permission:permissions.show');
-
-    Route::delete('permissions/{role}','admin\PermissionController@destroy')->name('permissions.destroy')
-    ->middleware('permission:permissions.destroy');
-
-    Route::get('permissions/{role}/edit','admin\PermissionController@edit')->name('permissions.edit')
-    ->middleware('permission:permissions.edit');*/
-
 
 
     ///categories
@@ -297,9 +275,10 @@ Route::group(['prefix' => 'admin'],function(){
      Route::post('proceso','admin\UserController@proceso')->name('users.proceso')
      ->middleware('permission:users.create');
 });
+
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/testmail','HomeController@testmail');
-//Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/{url}', 'admin\HomeController@show')->name('fronts.index')
 ->middleware('permission:fronts.index');
 
