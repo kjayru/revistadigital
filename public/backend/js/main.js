@@ -304,9 +304,6 @@ $("#tipocontenido").change(function(){
 
 $('#frm-gallery').on('submit', (function (e) {
     e.preventDefault();
-
-
-
        $.ajax({
         url: '/admin/contents/postgallery',
         type: 'POST',
@@ -420,6 +417,7 @@ $("#frm-video").on('submit',function(e){
     })
 
 });
+
 /*function porcentaje(){
     let i =1;
    var timerid = setInterval(function() {
@@ -431,6 +429,130 @@ $("#frm-video").on('submit',function(e){
         }
     }, 60 * 1);
 }*/
+
+$(".btn-video-editar").on('click',function(e){
+    e.preventDefault();
+    let id = $(this).data('id');
+
+    $.ajax({
+        url:'/admin/videos/'+id+'/edit',
+        type:'GET',
+        dataType:'json',
+        success:function(response){
+
+            $("#canvavideo .product-name").html("Editar Video");
+            $("#frm-video #video_id").val(response.id);
+            $("#frm-video input[name='_method']").val('PUT');
+            $("#frm-video input[name='name']").val(response.name);
+            $("#frm-video input[name='embed']").val(response.embed);
+
+            if(response.destacado == 2){
+                $("#frm-video #destacado").attr('checked',true);
+            }
+            if(response.status ==1 ){
+                $("#frm-video #oculto").attr('checked',true);
+            }
+
+
+
+            $("#canvavideo").modal('show');
+        }
+    });
+
+})
+
+//cambio de estado video
+$(".estado-video").on('change',function(e){
+    var estado;
+    let id = $(this).data('id');
+    if($(this)[0].checked){
+        estado = 2;
+    }else{
+        estado = 1;
+    }
+    let token = $("#frm-video input[name='_token']").val();
+
+   var datasend = ({'id':id,'estado':estado,'_token':token,'_method':'POST'});
+
+    $.ajax({
+        url:'/admin/videos/estado',
+        type:'POST',
+        dataType:'json',
+        data:datasend,
+        success:function(response){
+            if(response.rpta=='ok'){
+                //window.location.reload();
+            }
+        }
+    });
+
+});
+
+
+$(".destacado-video").on('change',function(e){
+    var estado;
+    let id = $(this).data('id');
+    if($(this)[0].checked){
+        estado = 2;
+    }else{
+        estado = 1;
+    }
+    let token = $("#frm-video input[name='_token']").val();
+
+   var datasend = ({'id':id,'destacado':estado,'_token':token,'_method':'POST'});
+
+    $.ajax({
+        url:'/admin/videos/destacado',
+        type:'POST',
+        dataType:'json',
+        data:datasend,
+        success:function(response){
+            if(response.rpta=='ok'){
+                //window.location.reload();
+            }
+        }
+    });
+
+});
+//borrar video
+
+$(".btn-video-borrar").on('click',function(e){
+    e.preventDefault();
+    id = $(this).data('id');
+
+    $("#frm-delete3 input[name='id']").val(id);
+    $("#delete-modal3").modal('show');
+
+});
+
+
+$("#frm-delete3").submit(function(e){
+    e.preventDefault();
+    let id = $("#frm-delete3 input[name='id']").val();
+    $.ajax({
+        url: '/admin/videos/delete',
+        type: 'POST',
+        data: new FormData(this),
+        contentType: false,
+        processData: false,
+
+        success: function (response) {
+            if(response.rpta=='ok'){
+
+                $("#delete-modal2").modal('hide');
+                window.location.reload();
+
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+
+    })
+
+});
+
+
 
 function categorias(valor){
     opsel = '<select name="url[]" class="form-control"><option value="">Seleccione</option>';
@@ -446,6 +568,9 @@ function categorias(valor){
     opsel+= '</select>';
     return opsel;
 }
+
+
+
 
 function itemslider(){
 

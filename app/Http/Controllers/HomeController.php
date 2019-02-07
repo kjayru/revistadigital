@@ -8,6 +8,7 @@ use App\File;
 use App\Category;
 use App\Mail\TestEmail;
 use App\Slider;
+use App\Video;
 
 class HomeController extends Controller
 {
@@ -33,7 +34,9 @@ class HomeController extends Controller
             $total = 0;
         }
 
-        return view('front.index',['categories'=> $categories,'slider'=>$slider,'total'=>$total]);
+        $videos = Video::where('status',2)->where('destacado',2)->get();
+
+        return view('front.index',['categories'=> $categories,'slider'=>$slider,'total'=>$total,'videos'=>$videos]);
     }
 
 }

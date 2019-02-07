@@ -69,7 +69,9 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $video =  Video::find($id);
+
+        return response()->json($video);
     }
 
     /**
@@ -81,7 +83,24 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $video = Video::find($id);
+        $video->name = $request->name;
+        $video->embed = $request->embed;
+
+        if(isset($request->status)){
+        $video->status = $request->status;
+        }else{
+            $video->status = 2;
+        }
+        if(isset($request->destacado)){
+            $video->destacado = $request->destacado;
+        }else{
+            $video->destacado = 1;
+        }
+
+        $video->save();
+
+        return response()->json(['rpta'=>'ok']);
     }
 
     /**
@@ -90,8 +109,30 @@ class VideoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Video::find($request->id)->delete();
+
+        return response()->json(['rpta'=>'ok']);
+    }
+
+    public function estado(Request $request){
+        $estado = Video::where('id',$request->id)->first();
+
+        $estado->status = $request->estado;
+
+        $estado->save();
+
+        return response()->json(['rpta'=>'ok']);
+    }
+
+    public function destacar(Request $request){
+        $estado = Video::where('id',$request->id)->first();
+
+        $estado->destacado = $request->destacado;
+
+        $estado->save();
+
+        return response()->json(['rpta'=>'ok']);
     }
 }

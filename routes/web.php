@@ -246,6 +246,12 @@ Route::group(['prefix' => 'admin'],function(){
      Route::get('videos/{slider}/edit','admin\VideoController@edit')->name('videos.edit')
      ->middleware('permission:videos.edit');
 
+     Route::post('videos/destacado','admin\VideoController@destacar')->name('videos.destacado')
+     ->middleware('permission:videos.edit');
+
+     Route::post('videos/estado','admin\VideoController@estado')->name('videos.estado')
+     ->middleware('permission:videos.edit');
+
      ///usuarios
 
      Route::post('users/store','admin\UserController@store')->name('users.store')
