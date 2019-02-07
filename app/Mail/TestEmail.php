@@ -27,9 +27,9 @@ class TestEmail extends Mailable
 
     public function build()
     {
-        $address = 'janeexampexample@example.com';
-        $subject = 'This is a demo!';
-        $name = 'Jane Doe';
+        $address = 'support@mktclaro.com.pe';
+        $subject = 'Bienvenido a Revista digital Claro';
+        $name = 'Soporte';
 
         return $this->view('emails.test')
                     ->from($address, $name)

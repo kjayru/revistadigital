@@ -5,6 +5,8 @@ namespace App\Imports;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestEmail;
 Use \DB;
 use Hash;
 use App\RoleUser;
@@ -128,7 +130,7 @@ class UsersImport implements ToCollection
             $usuario->provincia = $unico->provincia;
             $usuario->distrito = $unico->distrito;
             $usuario->canal = $unico->canal;
-            $usuario->password = Hash::make('claro'.shuffle($rand));
+            $usuario->password = Hash::make('clarosecret');
 
             $usuario->save();
 
@@ -138,6 +140,9 @@ class UsersImport implements ToCollection
            $rol->role_id = 3;
            $rol->user_id = $usuario->id;
            $rol->save();
+
+
+         Mail::to($unico->email)->send(new TestEmail($data));
 
         }
         echo "<pre>";
