@@ -142,7 +142,7 @@ class UsersImport implements ToCollection
            $rol->user_id = $usuario->id;
            $rol->save();
 
-
+            $data = '';
          Mail::to($unico->email)->send(new TestEmail($data));
 
         }
