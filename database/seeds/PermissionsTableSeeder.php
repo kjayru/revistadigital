@@ -172,7 +172,7 @@ class PermissionsTableSeeder extends Seeder
             'description' => 'Elimnar revista',
         ]);
 
-     //revista
+     //historico
      Permission::create([
         'name' => 'Navegar historico',
         'slug' => 'historials.index',
@@ -236,35 +236,66 @@ class PermissionsTableSeeder extends Seeder
     ]);
 
 
-    //reportes
+    //sliders
     Permission::create([
-        'name' => 'Navegar reporte',
-        'slug' => 'reports.index',
-        'description' => 'Lista y navega reporte',
+        'name' => 'Navegar slider',
+        'slug' => 'sliders.index',
+        'description' => 'Lista y navega slider',
     ]);
 
     Permission::create([
-        'name' => 'ver detalle reporte',
-        'slug' => 'reports.show',
-        'description' => 'ver detalle reporte',
+        'name' => 'ver detalle slider',
+        'slug' => 'sliders.show',
+        'description' => 'ver detalle slider',
     ]);
 
     Permission::create([
-        'name' => 'crear  reporte',
-        'slug' => 'reports.create',
-        'description' => 'ver detalle reporte',
+        'name' => 'crear  slider',
+        'slug' => 'sliders.create',
+        'description' => 'ver detalle slider',
     ]);
 
     Permission::create([
-        'name' => 'Edicion reporte',
-        'slug' => 'reports.edit',
-        'description' => 'editar detalle reporte',
+        'name' => 'Edicion slider',
+        'slug' => 'sliders.edit',
+        'description' => 'editar detalle slider',
     ]);
 
     Permission::create([
-        'name' => 'Eliminar reporte',
-        'slug' => 'reports.destroy',
-        'description' => 'Elimnar reporte',
+        'name' => 'Eliminar slider',
+        'slug' => 'sliders.destroy',
+        'description' => 'Elimnar slider',
+    ]);
+
+    //videos
+    Permission::create([
+        'name' => 'Navegar video',
+        'slug' => 'videos.index',
+        'description' => 'Lista y navega video',
+    ]);
+
+    Permission::create([
+        'name' => 'ver detalle video',
+        'slug' => 'videos.show',
+        'description' => 'ver detalle video',
+    ]);
+
+    Permission::create([
+        'name' => 'crear  video',
+        'slug' => 'videos.create',
+        'description' => 'ver detalle video',
+    ]);
+
+    Permission::create([
+        'name' => 'Edicion video',
+        'slug' => 'videos.edit',
+        'description' => 'editar detalle video',
+    ]);
+
+    Permission::create([
+        'name' => 'Eliminar video',
+        'slug' => 'videos.destroy',
+        'description' => 'Elimnar video',
     ]);
 
 
@@ -280,6 +311,9 @@ class PermissionsTableSeeder extends Seeder
         'slug' => 'fronts.download',
         'description' => 'ver detalle front',
     ]);
+
+
+
 
 
     }

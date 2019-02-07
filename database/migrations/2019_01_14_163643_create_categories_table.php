@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('slug');
             $table->string('cover');
             $table->text('description')->nullable();
-            $table->integer('status')->default('0');
+            $table->integer('status')->default('1');
             $table->integer('parent_id')->nullable();
             $table->timestamps();
         });

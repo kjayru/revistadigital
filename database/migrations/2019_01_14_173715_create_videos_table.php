@@ -17,7 +17,8 @@ class CreateVideosTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('embed');
-            $table->integer('status')->default(0);
+            $table->integer('status')->default(1);
+            $table->integer('destacado')->default(1);
             $table->timestamps();
         });
     }

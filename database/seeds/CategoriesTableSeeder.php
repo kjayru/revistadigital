@@ -12,9 +12,9 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         App\Category::create([
-            'name' => 'Productos mobiles',
-            'slug' => 'productos-mobiles',
-            'description' => 'productos mobiles',
+            'name' => 'Productos móviles',
+            'slug' => 'productos-moviles',
+            'description' => 'productos moviles',
             'cover'=> '/category/'.\Faker\Provider\Image::image(storage_path().'/app/public/category',600,350,'business',false),
             'status' => 1
         ]);
@@ -44,9 +44,17 @@ class CategoriesTableSeeder extends Seeder
         ]);
 
         App\Category::create([
-            'name' => 'Claro negocio',
-            'slug' => 'claro-negocio',
+            'name' => 'Claro negocios',
+            'slug' => 'claro-negocios',
             'description' => 'equipos claro negocio',
+            'cover'=> '/category/'.\Faker\Provider\Image::image(storage_path().'/app/public/category',600,350,'business',false),
+            'status' => 1
+        ]);
+
+        App\Category::create([
+            'name' => 'Valor agregado',
+            'slug' => 'valor-agregado',
+            'description' => 'valor agregado',
             'cover'=> '/category/'.\Faker\Provider\Image::image(storage_path().'/app/public/category',600,350,'business',false),
             'status' => 1
         ]);
