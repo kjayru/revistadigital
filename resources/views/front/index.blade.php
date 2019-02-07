@@ -18,11 +18,11 @@
                         <div class="carousel-item @if($k==0) active @endif">
                             @if(@$slide->url)
                             <a href="{{ @$slide->url }}" @if(@$slide->external_url==2) target='_blank' @endif>
-                                <img src="/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
+                                <img src="/storage/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
                             </a>
                             @else
 
-                                <img src="/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
+                                <img src="/storage/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
 
                             @endif
                         </div>
