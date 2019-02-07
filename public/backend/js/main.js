@@ -515,7 +515,7 @@ function editslider(imagen,texto,nuevaVentana,valor,estado,itemid){
     <input type="hidden" name="item_id[]" value="${itemid}">
     <div class="col-md-4 slide-image">
             <figure class="figure">
-                    <img src="/${imagen}" class="figure-img img-fluid z-depth-1"
+                    <img src="/storage/${imagen}" class="figure-img img-fluid z-depth-1"
                     alt="..." >
             </figure>
             <div class="file-field">
