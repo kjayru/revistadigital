@@ -57,7 +57,8 @@ class UsersImport implements ToCollection
                 $users = User::all();
 
                 $temps = UserFile::all();
-
+                $existentes[]='';
+                $nuevos[] = '';
                 foreach($temps as $key => $tp){
                      $us = User::where('email',$tp->email)->count();
                     if($us>0){
