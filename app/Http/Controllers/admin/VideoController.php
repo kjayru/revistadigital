@@ -4,9 +4,13 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Video;
 class VideoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +39,15 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $video = new Video();
+        $video->name = $request->name;
+        $video->embed = $request->embed;
+        $video->status = $request->status;
+        $video->destacado = $request->destacado;
+
+        $video->save();
+
+        return response()->json(['rpta'=>'ok']);
     }
 
     /**

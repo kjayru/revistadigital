@@ -2,30 +2,32 @@
 @section('content')
 <div class="main">
         <section class="banner">
-
+           @if(@$slider->items)
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                        @for($i=0;$i<@$total;$i++)
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" @if($i==0) class="active" @endif></li>
+
+                        @endfor
                     </ol>
 
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="assets/1440x521_novedades.jpg" class="d-block w-100" alt="Novedades">
-                        </div>
-                        <div class="carousel-item">
-                            <a href="/productos-moviles"><img src="assets/1440x521_instagram.jpg" class="d-block w-100" alt="Instagram"></a>
-                        </div>
-                        <div class="carousel-item ">
-                            <a href="/productos-moviles"><img src="assets/banner_1.jpg" class="d-block w-100" alt="Triplica"></a>
-                        </div>
 
-                        <div class="carousel-item">
-                                <a href="/claro-hogar"><img src="assets/banner_3.jpg" class="d-block w-100" alt="Moderniza"></a>
+                       @foreach(@$slider->items as $k => $slide)
+                        <div class="carousel-item @if($k==0) active @endif">
+                            @if(@$slide->url)
+                            <a href="{{ @$slide->url }}" @if(@$slide->external_url==2) target='_blank' @endif>
+                                <img src="/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
+                            </a>
+                            @else
+
+                                <img src="/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
+
+                            @endif
                         </div>
+                        @endforeach
+
 
 
                     </div>
@@ -39,6 +41,7 @@
                     </a>
                 </div>
         </section>
+            @endif
 
         <section class="catalogos">
             <div class="container">

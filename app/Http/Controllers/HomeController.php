@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\File;
 use App\Category;
 use App\Mail\TestEmail;
-
+use App\Slider;
 
 class HomeController extends Controller
 {
@@ -26,7 +26,14 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::where('status',1)->get();
-        return view('front.index',['categories'=> $categories]);
+        $slider = Slider::where('id',9)->where('status',1)->first();
+        if($slider){
+            $total = count($slider->items);
+        }else{
+            $total = 0;
+        }
+
+        return view('front.index',['categories'=> $categories,'slider'=>$slider,'total'=>$total]);
     }
 
 }

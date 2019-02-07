@@ -193,7 +193,7 @@ Route::group(['prefix' => 'admin'],function(){
 
 
 
-     ///magazines
+     ///reportes
 
      Route::post('reports/store','admin\ReportController@store')->name('reports.store')
      ->middleware('permission:reports.create');
@@ -216,6 +216,57 @@ Route::group(['prefix' => 'admin'],function(){
      Route::get('reports/{report}/edit','admin\ReportController@edit')->name('reports.edit')
      ->middleware('permission:reports.edit');
 
+
+     //slider
+     Route::post('sliders/store','admin\SliderController@store')->name('sliders.store')
+     ->middleware('permission:sliders.create');
+
+     Route::get('sliders','admin\SliderController@index')->name('sliders.index')
+     ->middleware('permission:sliders.index');
+
+     Route::get('sliders/create','admin\SliderController@create')->name('sliders.create')
+     ->middleware('permission:sliders.create');
+
+     Route::put('sliders/{slider}','admin\SliderController@update')->name('sliders.update')
+     ->middleware('permission:sliders.edit');
+
+     Route::get('sliders/{slider}','admin\SliderController@show')->name('sliders.show')
+     ->middleware('permission:sliders.show');
+
+     Route::delete('sliders/{slider}','admin\SliderController@destroy')->name('sliders.destroy')
+     ->middleware('permission:sliders.destroy');
+
+     Route::get('sliders/{slider}/edit','admin\SliderController@edit')->name('sliders.edit')
+     ->middleware('permission:sliders.edit');
+
+     Route::post('sliders/delete','admin\SliderController@deleteItem')->name('sliders.deleteitem')
+     ->middleware('permission:sliders.destroy');
+
+     Route::post('sliders/estado','admin\SliderController@estado')->name('sliders.estado')
+     ->middleware('permission:sliders.edit');
+
+
+     //videos
+     Route::post('videos/store','admin\VideoController@store')->name('videos.store')
+     ->middleware('permission:videos.create');
+
+     Route::get('videos','admin\VideoController@index')->name('videos.index')
+     ->middleware('permission:videos.index');
+
+     Route::get('videos/create','admin\VideoController@create')->name('videos.create')
+     ->middleware('permission:videos.create');
+
+     Route::put('videos/{slider}','admin\VideoController@update')->name('videos.update')
+     ->middleware('permission:videos.edit');
+
+     Route::get('videos/{slider}','admin\VideoController@show')->name('videos.show')
+     ->middleware('permission:videos.show');
+
+     Route::delete('videos/{slider}','admin\VideoController@destroy')->name('videos.destroy')
+     ->middleware('permission:videos.destroy');
+
+     Route::get('videos/{slider}/edit','admin\VideoController@edit')->name('videos.edit')
+     ->middleware('permission:videos.edit');
 
      ///usuarios
 
