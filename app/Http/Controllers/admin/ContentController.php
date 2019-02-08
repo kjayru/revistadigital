@@ -153,12 +153,13 @@ class ContentController extends Controller
 
         $flip = new Flipper();
 
-
+        $pathpdf = "";
         if ($request->hasFile('pdffile')) {
             $anuncio = $request->file('pdffile')->store('files');
 
             $ifile = new File();
             $ifile->path = $anuncio;
+            $pathpdf = $anuncio;
             $ifile->save();
             $flip->file_id  =  $ifile->id;
         }
@@ -175,7 +176,7 @@ class ContentController extends Controller
         $flip->month = $request->catmes;
         $flip->year = $request->catyear;
         $flip->save();
-        $filpdf = File::where('id',$ifile->id)->first();
+        dd($pathpdf);
         $pdf = new Pdf($filpdf->path);
 
         $pdf->saveImage('/storage/files/thumbs');
