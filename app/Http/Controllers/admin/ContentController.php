@@ -4,7 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Spatie\PdfToImage\Pdf;
+use JianhuaWang\PdfToImage\PdfToImageMaker;
+
 use App\Slider;
 use App\Video;
 use App\Image;
@@ -159,11 +160,9 @@ class ContentController extends Controller
 
             $ifile = new File();
             $ifile->path = $anuncio;
-            $pathpdf = $anuncio;
+            $converter=new PdfToImageMaker($anuncio);
+            $converter->saveImage();
             $ifile->save();
-
-            $pdf = new Pdf($anuncio);
-            $pdf->saveImage('/storage/files/thumbs');
 
             $flip->file_id  =  $ifile->id;
         }
