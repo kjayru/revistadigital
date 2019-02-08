@@ -163,7 +163,7 @@ class ContentController extends Controller
 
             $ifile->save();
 
-            $path = "/".$anuncio;
+            $path = $anuncio;
             $converter=new PdfToImageMaker($path);
 
             $converter->saveImage();
