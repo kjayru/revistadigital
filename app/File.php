@@ -13,7 +13,7 @@ class File extends Model
     public static function createToPdf($filepdf){
 
 
-        $img = new imagick($filepdf);
+        $img = new imagick("/".$filepdf);
 
         // Set background color and flatten
         // Prevents black background on objects with transparency
