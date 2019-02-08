@@ -10,7 +10,7 @@ class File extends Model
         return $this->hasOne('App\Flipper');
     }
 
-    public static function createToPdf($filepdf){
+    public static function createToPdf($filepdf,$id){
 
 
         $img = new imagick($_SERVER['DOCUMENT_ROOT']."/storage/".$filepdf);
@@ -38,7 +38,7 @@ class File extends Model
             $img->setImageFormat('jpeg');
 
             // Write Images to temp 'upload' folder
-            $img->writeImage('/storage/files/thumbs/'.uniqid().'-1.jpg');
+            $img->writeImage($_SERVER['DOCUMENT_ROOT'].'/storage/files/thumbs/'.uniqid().'-'.$id.'.jpg');
 
         echo "<pre>";
         print_r($images);
