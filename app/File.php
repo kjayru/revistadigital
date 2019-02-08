@@ -12,7 +12,7 @@ class File extends Model
 
     public static function createToPdf($filepdf){
 
-
+        dd($_SERVER['DOCUMENT_ROOT']);
         $img = new imagick("/storage/".$filepdf);
 
         // Set background color and flatten
