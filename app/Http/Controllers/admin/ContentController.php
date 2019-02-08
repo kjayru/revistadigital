@@ -160,9 +160,11 @@ class ContentController extends Controller
 
             $ifile = new File();
             $ifile->path = $anuncio;
+
+            $ifile->save();
+            dd($anuncio);
             $converter=new PdfToImageMaker(Storage::get($anuncio));
             $converter->saveImage();
-            $ifile->save();
 
             $flip->file_id  =  $ifile->id;
         }
