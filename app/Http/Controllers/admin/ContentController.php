@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use JianhuaWang\PdfToImage\PdfToImageMaker;
-
+use Illuminate\Support\Facades\Storage;
 use App\Slider;
 use App\Video;
 use App\Image;
