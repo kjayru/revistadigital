@@ -32,7 +32,7 @@ class File extends Model
 
             $images=uniqid().'-1.jpg';
             // Set iterator postion
-            $img->setIteratorIndex($i);
+            $img->setIteratorIndex(1);
 
             // Set image format
             $img->setImageFormat('jpeg');
