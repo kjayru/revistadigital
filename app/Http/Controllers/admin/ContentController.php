@@ -160,7 +160,7 @@ class ContentController extends Controller
 
             $ifile = new File();
             $ifile->path = $anuncio;
-            $converter=new PdfToImageMaker($anuncio);
+            $converter=new PdfToImageMaker(Storage::get($anuncio));
             $converter->saveImage();
             $ifile->save();
 
