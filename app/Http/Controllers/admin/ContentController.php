@@ -165,7 +165,7 @@ class ContentController extends Controller
 
             $path = "/".$anuncio;
             $converter=new PdfToImageMaker($path);
-            dd($converter);
+
             $converter->saveImage();
 
             $flip->file_id  =  $ifile->id;
