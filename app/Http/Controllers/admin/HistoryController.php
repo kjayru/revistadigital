@@ -23,7 +23,8 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        return view('admin.historial.index');
+        $files = File::all();
+        return view('admin.historial.index',['files'=>$files]);
     }
 
     /**

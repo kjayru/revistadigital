@@ -121,59 +121,19 @@
 
                             <div class="card  col-sm-8 col-lg-9">
                                 <div class="row">
-                                    <div class="col-xl-4 col-md-6 mb-r">
-                                        <div class="cascading-admin-card p-3 text-center">
-                                                <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
-                                                </p>
-                                                <a href="/admin/categories" class="card-link text-center">Publicación</a>
-                                        </div>
-                                    </div>
+                                    @foreach($files as $file)
+
 
                                     <div class="col-xl-4 col-md-6 mb-r">
                                         <div class="cascading-admin-card p-3 text-center">
                                                 <p class="card-text">
                                                 <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
                                                 </p>
-                                                <a href="/admin/categories" class="card-link text-center">Publicación</a>
+                                                <a href="/storage/{{$file->path}}" class="card-link text-center">Publicación</a>
                                         </div>
                                     </div>
 
-                                    <div class="col-xl-4 col-md-6 mb-r">
-                                        <div class="cascading-admin-card p-3 text-center">
-                                                <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
-                                                </p>
-                                                <a href="/admin/categories" class="card-link text-center">Publicación</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-md-6 mb-r">
-                                        <div class="cascading-admin-card p-3 text-center">
-                                                <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
-                                                </p>
-                                                <a href="/admin/categories" class="card-link text-center">Publicación</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-md-6 mb-r">
-                                        <div class="cascading-admin-card p-3 text-center">
-                                                <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
-                                                </p>
-                                                <a href="/admin/categories" class="card-link text-center">Publicación</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-md-6 mb-r">
-                                        <div class="cascading-admin-card p-3 text-center">
-                                                <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
-                                                </p>
-                                                <a href="/admin/categories" class="card-link text-center">Publicación</a>
-                                        </div>
-                                    </div>
+                                    @endforeach
 
                                 </div>
                              </div>

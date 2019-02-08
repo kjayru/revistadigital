@@ -153,14 +153,14 @@ class ContentController extends Controller
         $flip = new Flipper();
 
 
-       // if ($request->hasFile('pdffile')) {
+        if ($request->hasFile('pdffile')) {
             $anuncio = $request->file('pdffile')->store('files');
 
             $ifile = new File();
             $ifile->path = $anuncio;
             $ifile->save();
             $flip->file_id  =  $ifile->id;
-        //}
+        }
 
         if($request->imagenes){
             $flip->gallery_id = $request->imagenes;
@@ -171,12 +171,13 @@ class ContentController extends Controller
         }
 
         $flip->category_id = $request->categoria;
-
         $flip->month = $request->catmes;
         $flip->year = $request->catyear;
-
         $flip->save();
 
+        $pdf = new Spatie\PdfToImage\Pdf($anuncio);
+        dd($pdf);
+        $pdf->saveImage('storage/files/thumb');
         $cate = Category::where('id',$request->categoria)->first();
 
         return  Response()->json($cate->slug);
