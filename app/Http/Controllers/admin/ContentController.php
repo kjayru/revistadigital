@@ -164,7 +164,7 @@ class ContentController extends Controller
             $ifile->save();
 
 
-            File::createToPdf($path);
+            File::createToPdf($anuncio);
 
 
 
