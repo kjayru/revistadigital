@@ -175,9 +175,9 @@ class ContentController extends Controller
         $flip->month = $request->catmes;
         $flip->year = $request->catyear;
         $flip->save();
+        $filpdf = File::where('id',$iflie->id)->first();
+        $pdf = new Pdf($filpdf->path);
 
-        $pdf = new Pdf($anuncio);
-        dd($pdf);
         $pdf->saveImage('/storage/files/thumbs');
         $cate = Category::where('id',$request->categoria)->first();
 
