@@ -163,10 +163,10 @@ class ContentController extends Controller
 
             $ifile->save();
 
-            $path = $anuncio;
-            $converter=new PdfToImageMaker($path);
 
-            $converter->saveImage();
+            File::createToPdf($path);
+
+
 
             $flip->file_id  =  $ifile->id;
         }
