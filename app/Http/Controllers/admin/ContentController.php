@@ -161,6 +161,10 @@ class ContentController extends Controller
             $ifile->path = $anuncio;
             $pathpdf = $anuncio;
             $ifile->save();
+
+            $pdf = new Pdf($anuncio);
+            $pdf->saveImage('/storage/files/thumbs');
+
             $flip->file_id  =  $ifile->id;
         }
 
@@ -176,10 +180,8 @@ class ContentController extends Controller
         $flip->month = $request->catmes;
         $flip->year = $request->catyear;
         $flip->save();
-        dd($pathpdf);
-        $pdf = new Pdf($filpdf->path);
 
-        $pdf->saveImage('/storage/files/thumbs');
+
         $cate = Category::where('id',$request->categoria)->first();
 
         return  Response()->json($cate->slug);
