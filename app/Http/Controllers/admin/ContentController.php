@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\PdfToImage\Pdf;
 use App\Slider;
 use App\Video;
 use App\Image;
@@ -175,9 +176,9 @@ class ContentController extends Controller
         $flip->year = $request->catyear;
         $flip->save();
 
-        $pdf = new Spatie\PdfToImage\Pdf($anuncio);
+        $pdf = new Pdf($anuncio);
         dd($pdf);
-        $pdf->saveImage('storage/files/thumb');
+        $pdf->saveImage('/storage/files/thumbs');
         $cate = Category::where('id',$request->categoria)->first();
 
         return  Response()->json($cate->slug);
