@@ -30,9 +30,9 @@ class File extends Model
         $images = NULL;
         // Convert PDF pages to images
 
-            $images=uniqid().'-1.jpg';
+            $images=uniqid().'-'.$id.'.jpg';
             // Set iterator postion
-            $img->setIteratorIndex(1);
+            $img->setIteratorIndex(0);
 
             // Set image format
             $img->setImageFormat('jpeg');
@@ -40,8 +40,7 @@ class File extends Model
             // Write Images to temp 'upload' folder
             $img->writeImage($_SERVER['DOCUMENT_ROOT'].'/storage/files/thumbs/'.uniqid().'-'.$id.'.jpg');
 
-        echo "<pre>";
-        print_r($images);
+
         $img->destroy();
 
     }
