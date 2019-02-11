@@ -119,7 +119,7 @@
                                     <div class="col-xl-4 col-md-6 mb-r item {{ @$file->flipper->month }} categoria-{{ @$file->flipper->category_id }}">
                                         <div class="cascading-admin-card p-3 text-center">
                                                 <p class="card-text">
-                                                <a href="/storage/{{ $file->path }}" target="_blank"><img src="/storage/{{$file->thumbnail}}"  class="img-fluid" alt=""></a>
+                                                <a href="/storage/{{ $file->path }}" target="_blank"><img src="/storage/{{$file->thumbnail}}"  class="img-fluid" style="max-width: 100px;"></a>
                                                 </p>
                                                 <a href="/storage/{{$file->path}}" class="card-link text-center">{{ $file->created_at }}</a>
                                         </div>
