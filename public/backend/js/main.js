@@ -553,6 +553,19 @@ $("#frm-delete3").submit(function(e){
 });
 
 
+$(".oncategory").on('change',function(e){
+    if($(this).is(':checked')){
+        let category = $(this).val();
+       
+        let valsearch = '.categoria-'+category;
+        $("#canvafiltro .item").hide();
+        $(valsearch).show();
+        
+      
+    }else{
+
+    }
+});
 
 function categorias(valor){
     opsel = '<select name="url[]" class="form-control"><option value="">Seleccione</option>';

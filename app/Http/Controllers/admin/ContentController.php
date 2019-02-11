@@ -142,7 +142,6 @@ class ContentController extends Controller
                 $image->order = $cont;
                 $image->save();
 
-
             }
 
         }
@@ -154,7 +153,6 @@ class ContentController extends Controller
 
         $flip = new Flipper();
 
-
         if ($request->hasFile('pdffile')) {
             $anuncio = $request->file('pdffile')->store('files');
 
@@ -164,9 +162,11 @@ class ContentController extends Controller
             $ifile->save();
 
 
-            File::createToPdf($anuncio,$ifile->id);
+            $paththumb =  File::createToPdf($anuncio,$ifile->id);
 
-
+            $ufile = File::find($ifile->id);
+            $ufile->thumbnail = $paththumb;
+            $ufile->save();
 
             $flip->file_id  =  $ifile->id;
         }

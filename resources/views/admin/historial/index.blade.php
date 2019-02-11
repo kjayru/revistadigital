@@ -29,20 +29,12 @@
                                 <nav id="bloque1" class="flex-column mt-4">
                                   <a class="navbar-brand" href="#">Filtro</a>
                                   <nav class="nav  flex-column">
+                                  @foreach($categorias as $cat)
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="productos">
-                                        <label class="custom-control-label" for="productos">Productos Moviles</label>
+                                        <input type="checkbox" value="{{ $cat->id }}" class="custom-control-input oncategory" id="{{ $cat->slug }}">
+                                        <label class="custom-control-label" for="{{ $cat->slug }}">{{ $cat->name }}</label>
                                     </div>
-
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="olo">
-                                        <label class="custom-control-label" for="olo">Olo</label>
-                                    </div>
-
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="claro">
-                                        <label class="custom-control-label" for="claro">Claro logo</label>
-                                    </div>
+                                   @endforeach
 
                                   </nav>
                                 </nav>
@@ -119,17 +111,17 @@
                                   </nav>
                             </div>
 
-                            <div class="card  col-sm-8 col-lg-9">
+                            <div class="card  col-sm-8 col-lg-9" id="canvafiltro">
                                 <div class="row">
                                     @foreach($files as $file)
 
-
-                                    <div class="col-xl-4 col-md-6 mb-r">
+                                  
+                                    <div class="col-xl-4 col-md-6 mb-r item {{ @$file->flipper->month }} categoria-{{ @$file->flipper->category_id }}">
                                         <div class="cascading-admin-card p-3 text-center">
                                                 <p class="card-text">
-                                                <img src="https://via.placeholder.com/150"  class="img-fluid" alt="">
+                                                <a href="/storage/{{ $file->path }}" target="_blank"><img src="/storage/{{$file->thumbnail}}"  class="img-fluid" alt=""></a>
                                                 </p>
-                                                <a href="/storage/{{$file->path}}" class="card-link text-center">Publicación</a>
+                                                <a href="/storage/{{$file->path}}" class="card-link text-center">{{ $file->created_at }}</a>
                                         </div>
                                     </div>
 

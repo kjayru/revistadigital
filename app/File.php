@@ -11,37 +11,22 @@ class File extends Model
     }
 
     public static function createToPdf($filepdf,$id){
-
-
         $img = new imagick($_SERVER['DOCUMENT_ROOT']."/storage/".$filepdf);
-
-        // Set background color and flatten
-        // Prevents black background on objects with transparency
         $img->setImageBackgroundColor('white');
         //$img = $img->flattenImages();
-
-        // Set image resolution
-        // Determine num of pages
         $img->setResolution(300,300);
         $num_pages = $img->getNumberImages();
-
-        // Compress Image Quality
+ 
         $img->setImageCompressionQuality(100);
         $images = NULL;
-        // Convert PDF pages to images
-
-            $images=uniqid().'-'.$id.'.jpg';
-            // Set iterator postion
+       
+            $images=uniqid().'-'.$id.'.jpg';  
             $img->setIteratorIndex(0);
-
-            // Set image format
             $img->setImageFormat('jpeg');
-
-            // Write Images to temp 'upload' folder
-            $img->writeImage($_SERVER['DOCUMENT_ROOT'].'/storage/files/thumbs/'.uniqid().'-'.$id.'.jpg');
-
+            $paththumb = '/files/thumbs/'.uniqid().'-'.$id.'.jpg';
+            $img->writeImage($_SERVER['DOCUMENT_ROOT'].'/storage/'.$paththumb);
 
         $img->destroy();
-
+        return $paththumb;
     }
 }
