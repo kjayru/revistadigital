@@ -556,7 +556,7 @@ $("#frm-delete3").submit(function(e){
 
 var values = [];
 
-
+var values2 = [];
 
 
 $(".oncategory").on('change',function(e){
@@ -566,7 +566,7 @@ $(".oncategory").on('change',function(e){
         $("#canvafiltro .item").hide();
         
         for(let i=0;i<values.length;i++){
-            console.log(values[i]);
+           
             let valsearch = '.categoria-'+values[i];
            
             $(valsearch).show();
@@ -578,7 +578,38 @@ $(".oncategory").on('change',function(e){
             let valsearch = '.categoria-'+$(this).val();
            
             $(valsearch).hide();
+
+            if(values.length==0){
+                $("#canvafiltro .item").show();
+            }
         
+    }
+});
+
+$(".onmes").on('change',function(e){
+    if($(this).is(':checked')){
+        
+        values2.push($(this).val());
+        $("#canvafiltro .item").hide();
+        
+        for(let i=0;i<values2.length;i++){
+            
+            let valsearch = '.'+values2[i];
+           
+            $(valsearch).show();
+        }
+    }else{
+        values2.remover($(this).val());
+       
+           
+            let valsearch = '.'+$(this).val();
+           
+            $(valsearch).hide();
+
+            if(values2.length==0){
+                $("#canvafiltro .item").show();
+            }
+        //end
     }
 });
 

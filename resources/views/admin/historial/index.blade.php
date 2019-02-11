@@ -43,69 +43,13 @@
                                 <nav id="bloque2" class="flex-column mt-4">
                                     <a class="navbar-brand" href="#">Mes</a>
                                     <nav class="nav  flex-column">
-
+                                    @foreach($meses as $k => $mes)
                                       <div class="custom-control custom-checkbox">
-                                          <input type="checkbox" class="custom-control-input" id="enero">
-                                          <label class="custom-control-label" for="enero">Enero</label>
+                                          <input type="checkbox"  value="{{ strtolower($mes) }}" class="custom-control-input onmes" id="{{ strtolower($mes) }}">
+                                          <label class="custom-control-label" for="{{ strtolower($mes) }}">{{ $mes }}</label>
                                       </div>
 
-                                      <div class="custom-control custom-checkbox">
-                                          <input type="checkbox" class="custom-control-input" id="febrero">
-                                          <label class="custom-control-label" for="febrero">Febrero</label>
-                                      </div>
-
-                                      <div class="custom-control custom-checkbox">
-                                          <input type="checkbox" class="custom-control-input" id="marzo">
-                                          <label class="custom-control-label" for="marzo">Marzo</label>
-                                      </div>
-
-
-                                      <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="abril">
-                                            <label class="custom-control-label" for="abril">Abril</label>
-                                        </div>
-
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="mayo">
-                                            <label class="custom-control-label" for="mayo">Mayo</label>
-                                        </div>
-
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="junio">
-                                            <label class="custom-control-label" for="junio">Junio</label>
-                                        </div>
-
-
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="julio">
-                                            <label class="custom-control-label" for="julio">Julio</label>
-                                        </div>
-
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="agosto">
-                                            <label class="custom-control-label" for="agosto">Agosto</label>
-                                        </div>
-
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="Setiembre">
-                                            <label class="custom-control-label" for="Setiembre">Setiembre</label>
-                                        </div>
-
-
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="octubre">
-                                            <label class="custom-control-label" for="octubre">Octubre</label>
-                                        </div>
-
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="noviembre">
-                                            <label class="custom-control-label" for="noviembre">Noviembre</label>
-                                        </div>
-
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="diciembre">
-                                            <label class="custom-control-label" for="diciembre">Diciembre</label>
-                                        </div>
+                                    @endforeach
 
                                     </nav>
                                   </nav>
@@ -116,7 +60,7 @@
                                     @foreach($files as $file)
 
                                   
-                                    <div class="col-xl-4 col-md-6 mb-r item {{ @$file->flipper->month }} categoria-{{ @$file->flipper->category_id }}">
+                                    <div class="col-xl-4 col-md-6 mb-r item {{ strtolower(@$file->flipper->month) }} categoria-{{ @$file->flipper->category_id }}">
                                         <div class="cascading-admin-card p-3 text-center">
                                                 <p class="card-text">
                                                 <a href="/storage/{{ $file->path }}" target="_blank"><img src="/storage/{{$file->thumbnail}}"  class="img-fluid" style="max-width: 100px;"></a>

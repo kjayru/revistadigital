@@ -19,10 +19,12 @@ class HistoryController extends Controller
     
     public function index()
     {
+        $months = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Setiembre","Octubre","Noviembre","Diciembre");
+
         $files = File::all();
         $categorias = Category::all();
 
-        return view('admin.historial.index',['files'=>$files,'categorias'=>$categorias ]);
+        return view('admin.historial.index',['files'=>$files,'categorias'=>$categorias,'meses'=>$months ]);
     }
 
     
