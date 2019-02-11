@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Page;
 use App\Category;
+use App\Slider;
 
 class PageController extends Controller
 {
@@ -21,7 +22,7 @@ class PageController extends Controller
     public function index()
     {
         $pages = Page::all();
-
+        
         return view('admin.paginas.index',['pages'=>$pages]);
     }
 
@@ -34,8 +35,9 @@ class PageController extends Controller
     {
 
         $categories = Category::all();
-
-        return view('admin.paginas.create',['categories'=>$categories]);
+        $sliders = Slider::all();
+      
+        return view('admin.paginas.create',['categories'=>$categories,'sliders'=>$sliders]);
 
     }
 
@@ -47,7 +49,15 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $page = new Page();
+        $page->title = $request->title;
+        $page->tags = $request->tags;
+        $page->save();
+
+        $page->sliders()->sync($request->get('slider_id'));
+
+        return redirect()->route('pages.index')->with('info','Pagina creada con exito');
     }
 
     /**
@@ -71,8 +81,9 @@ class PageController extends Controller
     {
         $page = Page::find($id);
         $categories = Category::all();
+        $sliders = Slider::all();
 
-        return view('admin.paginas.edit',['page'=>$page,'categories'=>$categories]);
+        return view('admin.paginas.edit',['page'=>$page,'categories'=>$categories,'sliders'=>$sliders]);
     }
 
     /**

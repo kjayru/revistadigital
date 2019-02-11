@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\File;
 use App\Category;
 use App\Flipper;
+use App\Page;
+
 class HomeController extends Controller
 {
     /**
