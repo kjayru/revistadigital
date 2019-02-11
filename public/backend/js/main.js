@@ -526,6 +526,8 @@ $(".btn-video-borrar").on('click',function(e){
 });
 
 
+
+
 $("#frm-delete3").submit(function(e){
     e.preventDefault();
     let id = $("#frm-delete3 input[name='id']").val();
@@ -552,20 +554,35 @@ $("#frm-delete3").submit(function(e){
 
 });
 
+var values = [];
+
+
+
 
 $(".oncategory").on('change',function(e){
     if($(this).is(':checked')){
         let category = $(this).val();
-       
-        let valsearch = '.categoria-'+category;
+        values.push($(this).val());
         $("#canvafiltro .item").hide();
-        $(valsearch).show();
         
-      
+        for(let i=0;i<values.length;i++){
+            console.log(values[i]);
+            let valsearch = '.categoria-'+values[i];
+           
+            $(valsearch).show();
+        }
     }else{
-
+        values.remover($(this).val());
+       
+           
+            let valsearch = '.categoria-'+$(this).val();
+           
+            $(valsearch).hide();
+        
     }
 });
+
+
 
 function categorias(valor){
     opsel = '<select name="url[]" class="form-control"><option value="">Seleccione</option>';
@@ -701,3 +718,15 @@ function editslider(imagen,texto,nuevaVentana,valor,estado,itemid){
 
 $("#frm-items .items").append(item);
 }
+
+
+Array.prototype.remover = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};

@@ -31,7 +31,7 @@
                                   <nav class="nav  flex-column">
                                   @foreach($categorias as $cat)
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" value="{{ $cat->id }}" class="custom-control-input oncategory" id="{{ $cat->slug }}">
+                                        <input type="checkbox" name="category_group[]" value="{{ $cat->id }}"  class="custom-control-input oncategory" id="{{ $cat->slug }}">
                                         <label class="custom-control-label" for="{{ $cat->slug }}">{{ $cat->name }}</label>
                                     </div>
                                    @endforeach
