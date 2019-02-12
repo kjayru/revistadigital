@@ -75,7 +75,7 @@ a.btn-floating.btn-lg.blue.waves-effect.waves-light {
 }
 .bitem {
     display: flex;
-    border: 1px solid lightgray;
+    /*border: 1px solid lightgray;*/
     flex-wrap: wrap;
     width: 100%;
     padding: 10px 0 4px 0;
@@ -279,3 +279,22 @@ a.card-link {
   .dropdown-menu {
     margin-top: .75rem;
   }
+
+  a.btn.btn-danger.btn-xs.btn-borrar-nuevo {
+    margin-top: 100px;
+}
+a.btn.btn-danger.btn-xs.btn-borrar-slider-edit {
+  margin-top: 100px;
+}
+.faces {
+  background: rgba(0,0,0,0.1);
+  padding-right: 0px;
+  padding-left: 1px;
+  text-align: center;
+}
+.fontsize-10{
+  font-size: 10px;
+}
+.items hr{
+  width: 100%;
+}

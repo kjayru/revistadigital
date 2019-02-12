@@ -20,7 +20,7 @@ class CreatePagesTable extends Migration
             $table->string('slug');
             $table->string('tags');
             $table->text('content');
-            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });

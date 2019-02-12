@@ -54,22 +54,7 @@
                         <div class="box-body">
 
                                 <div class="row justify-content-center">
-                                <div class="col-md-3">
-                                    <div class="opciones">
-                                        <div class="form-group">
-                                            <label for="nombre" class="col-sm-12 control-label" >Agregar contenido</label>
-
-                                            <div class="col-sm-12">
-                                                <select name="contenido" id="" class="form-control">
-                                                    <option value="">Seleccione</option>
-                                                    <option value="texto">Area de Texto</option>
-                                                    <option value="video">Video</option>
-                                                   
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                               </div>
+                                
                                     <div class="col-md-7">
                                         <form  method="POST" action="{{ route('pages.store')}}">
 

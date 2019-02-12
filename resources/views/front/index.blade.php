@@ -53,7 +53,7 @@
                 </div>
             </div>
         </section>
-
+        @if(count($videos)>0)
         <section class="campanias">
 			<div class="container">
 				<h2>Lo último en promociones</h2>
@@ -205,8 +205,16 @@
 				</div>
 			</div>
 		</section>
-
-
+        @endif
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        {!! @$page->content !!}
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="contacto">
 			<div class="container">
 				<div class="row">

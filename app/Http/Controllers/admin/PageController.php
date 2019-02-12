@@ -49,10 +49,16 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
+
+        
        
         $page = new Page();
         $page->title = $request->title;
+        $page->slug = $request->slug;
         $page->tags = $request->tags;
+        $page->resume = $request->resume;
+        $page->content = $request->content;
+        $page->category_id = $request->category_id;
         $page->save();
 
         $page->sliders()->sync($request->get('slider_id'));
@@ -83,6 +89,7 @@ class PageController extends Controller
         $categories = Category::all();
         $sliders = Slider::all();
 
+        
         return view('admin.paginas.edit',['page'=>$page,'categories'=>$categories,'sliders'=>$sliders]);
     }
 
@@ -95,7 +102,18 @@ class PageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $page =  Page::find($id);
+        $page->title = $request->title;
+        $page->slug = $request->slug;
+        $page->tags = $request->tags;
+        $page->resume = $request->resume;
+        $page->content = $request->content;
+        $page->save();
+
+        
+        $page->sliders()->sync($request->get('slider_id'));
+
+        return redirect()->route('pages.index')->with('info','Pagina actualizada con exito');
     }
 
     /**

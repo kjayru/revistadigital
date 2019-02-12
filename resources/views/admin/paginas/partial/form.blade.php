@@ -2,15 +2,17 @@
 <div class="form-group">
         
         <div class="col-sm-12">
-            <select class="form-control" name="slider_id">
-                
-                    <option value="" >Slider</option>
-                @foreach($sliders as $sli)
-                    <option value="{{ $sli->id }}" @if($sli->id == @$page->slide_id) selected  @endif>{{ @$sli->title }}</option>
-                @endforeach
-                </div>
+            @foreach($page->sliders as $slide)
+                <select class="form-control" name="slider_id">
+                    
+                        <option value="" >Slider</option>
+                    @foreach($sliders as $sli)
+                        <option value="{{ $sli->id }}" @if($sli->id == $slide->id) selected  @endif>{{ @$sli->title }}</option>
+                    @endforeach
+                    </div>
 
-            </select>
+                </select>
+            @endforeach
         </div>
 </div>
 
@@ -54,14 +56,10 @@
 
 <div class="md-form form-group">
     <div class="col-sm-12">
-        <textarea id="editor-container" class="form-control" placeholder="Contenido.."></textarea>
+        <textarea id="editor-container" name="content" class="form-control" placeholder="Contenido..">{{ @$page->content }}</textarea>
     </div>
 </div>
-<div class="fixed-content-btn">
-    <a href="#" class="btn-floating btn-lg blue waves-effect waves-light btn-add-content" data-toggle="tooltip" title="Nuevo Contenido">
-      <i class="fas fa-plus mdb-gallery-view-icon"></i>
-    </a>
-</div>
+
 
 <div class="md-form form-group text-center">
    

@@ -1,8 +1,5 @@
 @extends('layouts.admin.master')
 @section('content')
-
-
-
 <main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
 
@@ -221,15 +218,34 @@
                             <div class="bitem">
                                 <div class="col-md-11">
                                     <div class="row">
-                                        <div class="col-md-4 slide-image">
-                                                <figure class="figure">
-                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="figure-img img-fluid z-depth-1" alt="...">
-                                                </figure>
-                                                <div class="file-field">
-                                                    <input type="file"  name="imagen[]" class="form-control preimage" required>
+                                        <div class="col-md-5 slide-image">
+                                              <div class="row">
+                                                  <div class="col-6"> <figure class="figure">
+                                                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="img-fluid z-depth-1"  style="max-width:60px">
+                                                  </figure></div>
+                                                <div class="col-6">
+                                                  <figure class="figure">
+                                                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="img-fluid z-depth-1"  style="max-width:30px">
+                                                  </figure>
                                                 </div>
-
+                                                <div class="col-6">
+                                                  <div class="file-field">
+                                                    <label for="">Seleccione imagen desktop</label>
+                                                      <input type="file"  name="imagen[]" class="form-control preimage"  accept="image/png, image/jpeg" required>
+                                                  </div>
+                                                
+                                                </div>
+                                                <div class="col-6">
+                                                  <div class="file-field">
+                                                    <label for="">Seleccione imagen movil</label>
+                                                      <input type="file"  name="imagen[]" class="form-control preimage"  accept="image/png, image/jpeg" >
+                                                  </div>
+                                                
+                                                </div>
+                                               
+                                              </div>
                                         </div>
+                                        
                                         <div class="col-md-7">
 
                                             <div class="md-form form-group">

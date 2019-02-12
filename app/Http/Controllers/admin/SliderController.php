@@ -52,23 +52,36 @@ class SliderController extends Controller
             for ($k=0; $k < $elementos; $k++) {
 
 
-                $img = $request->file('imagen')[$k]->store('sliders');
-
+                $imgdesktop = $request->file('imagen')[$k]->store('sliders');
+                
                 $image = new Item();
 
-                $image->background = $img;
+                $image->background = $imgdesktop;
+
+                if(isset($request->file('imagenmovil')[$k])){
+                    $imgmovil = $request->file('imagenmovil')[$k]->store('sliders');
+                    $image->backmovil = $imgmovil;
+                }   
+
                 $image->title = $request->texto[$k];
-                if(isset($image->external_url)){
+
+                if(isset($request->ocultotexto[$k])){
+                   $image->hidetitle = $request->ocultotexto[$k];
+                }
+
+                if(isset($request->nuevaVentana[$k])){
                     $image->external_url = $request->nuevaVentana[$k];
+                }
+                if(isset($request->descripcion[$k])){
+                    $image->description = $request->descripcion[$k];
                 }
                 if(isset($image->state)){
                     $image->state = $request->estado[$k];
                 }
+
                 $image->url = $request->url[$k];
                 $image->slider_id = $slider->id;
                 $image->save();
-
-
 
             }
 
@@ -130,6 +143,12 @@ class SliderController extends Controller
                     $img = $request->file('imagen')[$k]->store('sliders');
                     $image->background = $img;
                 }
+
+                if(isset($request->file('imagenmovil')[$k])){
+                    $imgmovil = $request->file('imagenmovil')[$k]->store('sliders');
+                    $image->backmovil = $imgmovil;
+                }
+
                 $image->title = $request->texto[$k];
 
                 if(isset($request->nuevaVentana[$k])){
@@ -142,6 +161,19 @@ class SliderController extends Controller
                 }else{
                     $image->state = 1;
                 }
+
+                if(isset($request->ocultotexto[$k])){
+                    $image->hidetitle =2;
+                 }else{
+                    $image->hidetitle =1;
+                 }
+ 
+                
+                 if(isset($request->descripcion[$k])){
+                     $image->description = $request->descripcion[$k];
+                 }
+
+
                 $image->url = $request->url[$k];
                 $image->slider_id = $slider->id;
                 $image->save();

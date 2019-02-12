@@ -110,7 +110,7 @@ $(".btn-slider-editar").on('click',function(e){
             $("#frm-items .items").html('');
             $.each(response[0].items,function(i,e){
 
-                editslider(e.background,e.title,e.external_url,e.url,e.state,e.id)
+                editslider(e.background,e.backmovil,e.title,e.hidetitle,e.external_url,e.url,e.description,e.state,e.id)
             })
             $("#canvaslider").modal('show');
         }
@@ -377,13 +377,16 @@ $(document).ready(function(){
     });
 
 
-
+//pre-image
     $(document).on('change','.preimage',function(e){
-        var output = $(this).parent().parent().children('figure').children('img');
-        console.log(e.target.files[0])
-
+        var output = $(this).parent().parent().children('.cdi').children().children('img');
         output.attr('src',URL.createObjectURL(e.target.files[0]));
-    })
+    });
+
+    $(document).on('change','.preimagemovil',function(e){
+        var output = $(this).parent().parent().children('.cmi').children().children('img');
+        output.attr('src',URL.createObjectURL(e.target.files[0]));
+    });
 })
 
 
@@ -638,21 +641,42 @@ function itemslider(){
     var item = `<div class="bitem">
     <div class="col-md-11">
         <div class="row">
-                <div class="col-md-4 slide-image">
-                        <figure class="figure">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="figure-img img-fluid z-depth-1"
-                                alt="..." >
-                        </figure>
-                        <div class="file-field">
-                                    <input type="file"  name="imagen[]" class="form-control preimage" placeholder="Imagen" required>
+                <div class="col-md-5 slide-image">
+                        <div class="row">
+                            <div class="col-6 cdi"> 
+                                <figure class="figure">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="img-fluid z-depth-1" >
+                                </figure>
+                            </div>
+                            <div class="col-6 cmi">
+                                <figure class="figure">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="img-fluid z-depth-1" >
+                                </figure>
+                            </div>
+                            <div class="col-6 text-center">                              
+                                    <button class="btn btn-success bt-desktop" type="button">Desktop</button>
+                                    <input type="file"  name="imagen[]" class="preimage"  accept="image/png, image/jpeg" required style="display:none">                                                     
+                            </div>
+                            <div class="col-6 text-center">              
+                                    <button class="btn btn-success bt-movil" type="button">Movil</button>
+                                    <input type="file"  name="imagenmovil[]" class="preimagemovil"  accept="image/png, image/jpeg" style="display:none;" >
+                            </div>                       
                         </div>
-
                 </div>
+
                 <div class="col-md-7">
+                        
+                        <div class="form-row mb-4 form-group">
+                            <div class="md-form col-md-10 form-group">
+                                    <input type="text" name="texto[]" id="form2" placeholder="Texto" class="form-control" required>
 
-                        <div class="md-form form-group">
-                                <input type="text" name="texto[]" id="form2" placeholder="Texto" class="form-control" required>
-
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-check">
+                                    <input type="checkbox"  name="ocultotexto[]" value="2"  class="form-check-input ocultotexto" id="f2">
+                                    <label class="form-check-label fontsize-10" for="f2">Oculto</label>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-row mb-4 form-group">
@@ -662,29 +686,52 @@ function itemslider(){
                             <div class="col-md-2">
                                 <div class="form-check">
                                     <input type="checkbox"  name="nuevaVentana[]" value="2"  class="form-check-input urlexterna" id="f1">
-                                    <label class="form-check-label" for="f1">Externo</label>
+                                    <label class="form-check-label fontsize-10" for="f1">Externo</label>
                                 </div>
                             </div>
                         </div>
+                        <div class="md-form form-group"> 
+                                    <textarea name="descripcion[]"  class="form-control"  placeholder="Descripción"></textarea>  
+                        </div>
+
                         <div class="md-form form-group">
                             <div class="form-check">
                                     <input type="checkbox" name="estado[]" value="2" class="form-check-input" id="form4">
-                                    <label class="form-check-label" for="form4">Ocultar</label>
+                                    <label class="form-check-label " for="form4">Ocultar slide</label>
                             </div>
-
                         </div>
-                    </div>
+                </div>
+
              </div>
          </div>
-        <div class="col-md-1">
+        <div class="col-md-1 faces">
             <a href="#" class="btn btn-danger btn-xs btn-borrar-nuevo" data-toggle="tooltip" data-placement="top" title="Eliminar slide"><i class="fas fa-minus-circle"></i></a>
         </div>
 
-    </div>`;
+    </div><hr>`;
 return item;
 }
 
-function editslider(imagen,texto,nuevaVentana,valor,estado,itemid){
+function editslider(imagen,backmovil,texto,hidetexto,nuevaVentana,valor,description,estado,itemid){
+
+    if(imagen==null){
+        imagen='';
+    }
+    if(backmovil==null){
+        backmovil='';
+    }
+    if(texto==null){
+        texto='';
+    }
+    
+    if(valor==null){
+        valor='';
+    }
+    if(description==null){
+        description='';
+    }
+    
+
     if(nuevaVentana==2){
         evento = 'checked';
     }else{
@@ -695,25 +742,52 @@ function editslider(imagen,texto,nuevaVentana,valor,estado,itemid){
     }else{
         status = '';
     }
+    if(hidetexto==2){
+        etexto = 'checked';
+    }else{
+        etexto = '';
+    }
+
+
     var item = `<div class="bitem" id="item-${itemid}">
     <div class="col-md-11">
         <div class="row">
-    <input type="hidden" name="item_id[]" value="${itemid}">
-    <div class="col-md-4 slide-image">
-            <figure class="figure">
-                    <img src="/storage/${imagen}" class="figure-img img-fluid z-depth-1"
-                    alt="..." >
-            </figure>
-            <div class="file-field">
-                        <input type="file"  name="imagen[]"  class="form-control preimage"  placeholder="Imagen">
+            <input type="hidden" name="item_id[]" value="${itemid}">
+           
+            <div class="col-md-5 slide-image">
+                <div class="row">
+                    <div class="col-6 cdi"> 
+                        <figure class="figure">
+                        <img src="/storage/${imagen}" class="img-fluid z-depth-1" >
+                        </figure>
+                    </div>
+                    <div class="col-6 cmi">
+                        <figure class="figure">
+                        <img src="/storage/${backmovil}" class="img-fluid z-depth-1" >
+                        </figure>
+                    </div>
+                    <div class="col-6 text-center">                              
+                            <button class="btn btn-success bt-desktop" type="button">Desktop</button>
+                            <input type="file"  name="imagen[]" class="preimage"  accept="image/png, image/jpeg"  style="display:none">                                                     
+                    </div>
+                    <div class="col-6 text-center">              
+                            <button class="btn btn-success bt-movil" type="button">Movil</button>
+                            <input type="file"  name="imagenmovil[]" class="preimagemovil"  accept="image/png, image/jpeg" style="display:none;" >
+                    </div>                       
+                </div>
             </div>
+         <div class="col-md-7">
+            <div class="form-row mb-4 form-group">
+                <div class="md-form col-md-10 form-group">
+                        <input type="text" name="texto[]" value="${texto}" id="form2" placeholder="Texto" class="form-control" required>
 
-    </div>
-    <div class="col-md-7">
-
-            <div class="md-form form-group">
-                    <input type="text" name="texto[]" value="${texto}" id="form2" placeholder="Texto" class="form-control" required>
-
+                </div>
+                <div class="col-md-2">
+                    <div class="form-check">
+                        <input type="checkbox"  name="ocultotexto[]" value="2" ${etexto} class="form-check-input ocultotexto" id="f2">
+                        <label class="form-check-label fontsize-10" for="f2">Oculto</label>
+                    </div>
+                </div>
             </div>
 
             <div class="form-row mb-4 form-group"><div class="col-md-10 md-form selectorurl">`;
@@ -727,24 +801,27 @@ function editslider(imagen,texto,nuevaVentana,valor,estado,itemid){
                 <div class="col-md-2">
                     <div class="form-check">
                         <input type="checkbox"  name="nuevaVentana[]"  value="2" ${evento} class="form-check-input urlexterna" >
-                        <label class="form-check-label" >Externo</label>
+                        <label class="form-check-label fontsize-10" >Externo</label>
                     </div>
                 </div>
             </div>`;
 
-            item+=`<div class="md-form form-group">
-                <div class="form-check">
-                        <input type="checkbox" name="estado[]" ${status}  value="2" class="form-check-input" >
-                        <label class="form-check-label" >Ocultar</label>
+            item+=`<div class="md-form form-group"> 
+                     <textarea name="descripcion[]"  class="form-control"  placeholder="Descripción">${description}</textarea>  
                 </div>
-            </div>
+                <div class="md-form form-group">
+                    <div class="form-check">
+                            <input type="checkbox" name="estado[]" ${status}  value="2" class="form-check-input" >
+                            <label class="form-check-label" >Ocultar</label>
+                    </div>
+                </div>
         </div>
         </div>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1 faces">
         <a href="#" class="btn btn-danger btn-xs btn-borrar-slider-edit" data-id="${itemid}" data-toggle="tooltip" data-placement="top" title="Eliminar slide"><i class="fas fa-minus-circle"></i></a>
         </div>
-    </div>`;
+    </div><hr>`;
 
 
 $("#frm-items .items").append(item);
@@ -761,3 +838,51 @@ Array.prototype.remover = function() {
     }
     return this;
 };
+
+
+$(document).on('click',".bt-desktop",function(e){
+    e.preventDefault();
+   let cont =  $(this).parent().children('input').trigger('click');
+  
+});
+
+$(document).on('click',".bt-movil",function(e){
+    e.preventDefault();
+   let cont =  $(this).parent().children('input').trigger('click');
+   
+});
+
+
+
+tinymce.init({
+    menubar: false,
+    selector: '#editor-container',
+    //skin: 'voyager',
+    min_height: 300,
+    resize: 'vertical',
+
+    plugins: 'a11ychecker advcode formatpainter linkchecker media mediaembed pageembed permanentpen powerpaste tinycomments tinydrive tinymcespellchecker',
+   toolbar: 'a11ycheck code formatpainter insertfile pageembed permanentpen tinycomments',
+   tinycomments_mode: 'embedded',
+   tinycomments_author: 'Author name',
+    
+    extended_valid_elements: 'span,input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick]',
+    
+    toolbar: 'styleselect bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image table youtube giphy | code',
+    convert_urls: false,
+    image_caption: true,
+    image_title: true,
+    verify_html: false,
+    paste_word_valid_elements: "b,strong,i,em,u,h1,h2,h3,h4,ol,ul,li",
+    content_css: '/css/main.css',
+    init_instance_callback: function(editor) {
+        if (typeof tinymce_init_callback !== "undefined") {
+            tinymce_init_callback(editor);
+        }
+    },
+    setup: function(editor) {
+        editor.on('init', function(e) {
+            console.log('Editor was initialized.');
+        });
+    }
+});

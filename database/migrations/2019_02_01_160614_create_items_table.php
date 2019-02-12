@@ -16,9 +16,11 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('background')->nullable();
             $table->string('title');
-
+            $table->integer('hidetitle')->nullable();
+            $table->string('background')->nullable();
+            $table->string('backmovil')->nullable();
+            $table->string('description')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('url')->nullable();
             $table->integer('external_url')->nullable();

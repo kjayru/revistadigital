@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+
 use App\File;
 use App\Category;
-use App\Mail\TestEmail;
+
 use App\Slider;
 use App\Video;
+use App\Page;
 
 class HomeController extends Controller
 {
@@ -26,8 +27,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        $page = Page::where('slug','home')->first();
+        
+
         $categories = Category::where('status',1)->get();
-        $slider = Slider::where('id',1)->where('status',1)->first();
+        
+        $slider = $page->sliders[0];
         if($slider){
             $total = count($slider->items);
         }else{
@@ -36,7 +42,7 @@ class HomeController extends Controller
 
         $videos = Video::where('status',2)->where('destacado',2)->get();
 
-        return view('front.index',['categories'=> $categories,'slider'=>$slider,'total'=>$total,'videos'=>$videos]);
+        return view('front.index',['categories'=> $categories,'slider'=>$slider,'total'=>$total,'videos'=>$videos,'page'=>$page]);
     }
 
 }
