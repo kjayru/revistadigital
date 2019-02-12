@@ -93,7 +93,9 @@ class UserController extends Controller
 
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $roles = Role::all();
+        return view('admin.usuario.show',['roles'=>$roles,'user'=>$user]);
     }
 
     /**

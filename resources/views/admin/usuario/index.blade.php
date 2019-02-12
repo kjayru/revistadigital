@@ -57,6 +57,7 @@
                                                     <th class="th-sm">Fecha </th>
                                                     <th ></th>
                                                     <th ></th>
+                                                    <th></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -75,12 +76,20 @@
                                                             <td>{{ $user->canal }}</td>
                                                             <td>{{ $user->created_at}}</td>
                                                             <td>
-
-                                                                    @can('users.edit')
-                                                                    <a href="{{route('users.edit',$user->id )}}" class="btn btn-success pull-right">Editar</a>
-                                                                    @endcan
+                                                              @can('users.show')
+                                                              <a href="{{route('users.show',$user->id )}}" class="btn btn-success pull-right">Perfil</a>
+                                                              @endcan
                                                             </td>
-                                                            <td><button type="button" data-id="{{ $user->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                            <td>
+                                                              @can('users.edit')
+                                                              <a href="{{route('users.edit',$user->id )}}" class="btn btn-success pull-right">Editar</a>
+                                                              @endcan
+                                                            </td>
+                                                            <td>
+                                                              @can('users.destroy')
+                                                                <button type="button" data-id="{{ $user->id }}" class="btn btn-danger  btn-borrar">Borrar</button>
+                                                              @endcan
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
