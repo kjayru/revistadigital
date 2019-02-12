@@ -103,7 +103,9 @@
                     @endforeach
 				</div>
 			</div>
-		</section>
+        </section>
+        
+        {!! $page->content !!}
 
 		<section class="contacto">
                 <div class="container">

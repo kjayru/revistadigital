@@ -29,16 +29,18 @@ class HomeController extends Controller
     
     public function show($slug)
     {
+        $page = Page::where('slug',$slug)->first();
+
         $categories = Category::all();
         $cat = Category::where('slug',$slug)->first();
         if($cat){
         $estado = 1;
-        $slug = Flipper::where('category_id',$cat->id)->orderBy('created_at','desc')->first();
+           $slug = Flipper::where('category_id',$cat->id)->orderBy('created_at','desc')->first();
         }else{
           $estado = 0;
         }
-
-        $page = Page::where('slug',$slug)->first();
+        
+       
 
         return view('front.categoria',['slug'=>$slug,'categories'=> $categories,'estado'=>$estado,'cat'=>$cat,'page'=>$page]);
     }

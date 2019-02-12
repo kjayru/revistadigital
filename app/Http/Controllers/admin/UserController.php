@@ -52,11 +52,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $usuario =  new User();
-
         $usuario->name = $request->name;
+        $usuario->lastname = $request->lastname;
+        $usuario->puntoventa = $request->puntoventa;
+        $usuario->numdocumento = $request->numdocumento;
+        $usuario->perfil = $request->perfil;
+        $usuario->movil = $request->movil;
+        $usuario->email = $request->email;
+        $usuario->region = $request->region;
+        $usuario->departamento = $request->departamento;
+        $usuario->provincia = $request->provincia;
+        $usuario->distrito = $request->distrito;
+        $usuario->canal = $request->canal;
         $usuario->email = $request->email;
 
         $usuario->password = Hash::make($request->password);
@@ -113,7 +121,20 @@ class UserController extends Controller
         $usuario =   User::find($id);
 
         $usuario->name = $request->name;
+
+        $usuario->lastname = $request->lastname;
+        $usuario->puntoventa = $request->puntoventa;
+        $usuario->numdocumento = $request->numdocumento;
+        $usuario->perfil = $request->perfil;
+        $usuario->movil = $request->movil;
         $usuario->email = $request->email;
+        $usuario->region = $request->region;
+        $usuario->departamento = $request->departamento;
+        $usuario->provincia = $request->provincia;
+        $usuario->distrito = $request->distrito;
+        $usuario->canal = $request->canal;
+        $usuario->email = $request->email;
+
         if($request->password){
            $usuario->password = Hash::make($request->password);
         }

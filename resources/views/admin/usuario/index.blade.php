@@ -1,8 +1,5 @@
 @extends('layouts.admin.master')
 @section('content')
-
-
-
 <main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
 
@@ -46,8 +43,17 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th class="th-sm">Nombre </th>
+                                                    <th>Apellidos</th>
+                                                    <th>Punto de venta</th>
+                                                    <th>DNI/EXT</th>
+                                                    <th>Perfil</th>
+                                                    <th>Movil</th>
+                                                    
+
                                                     <th class="th-sm">Correo </th>
-                                                    <th class="th-sm">Role</th>
+                                                    <th>Región</th>
+                                                    <th>Canal</th>
+                                                   
                                                     <th class="th-sm">Fecha </th>
                                                     <th ></th>
                                                     <th ></th>
@@ -58,8 +64,15 @@
                                                         <tr>
                                                             <td>{{ $k+1 }}</td>
                                                             <td>{{ $user->name }}</td>
+                                                            <td>{{ $user->lastname }}</td>
+                                                            <td>{{ $user->puntoventa }}</td>
+                                                            <td>{{ $user->numdocumento }}</td>
+                                                            <td>{{ $user->perfil}}</td>
+                                                            <td>{{ $user->movil}}</td>
+
                                                             <td>{{ $user->email}}</td>
-                                                            <td></td>
+                                                            <td>{{ $user->region }}</td>
+                                                            <td>{{ $user->canal }}</td>
                                                             <td>{{ $user->created_at}}</td>
                                                             <td>
 

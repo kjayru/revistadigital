@@ -2,6 +2,7 @@
 <div class="form-group">
         
         <div class="col-sm-12">
+            @if(count($page->sliders)>0)
             @foreach($page->sliders as $slide)
                 <select class="form-control" name="slider_id">
                     
@@ -13,6 +14,18 @@
 
                 </select>
             @endforeach
+            @else
+
+            <select class="form-control" name="slider_id">
+                    
+                        <option value="" >Slider</option>
+                    @foreach($sliders as $sli)
+                        <option value="{{ $sli->id }}" >{{ @$sli->title }}</option>
+                    @endforeach
+                    </div>
+
+                </select>
+            @endif
         </div>
 </div>
 
