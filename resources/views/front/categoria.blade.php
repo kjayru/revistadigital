@@ -105,7 +105,7 @@
 			</div>
         </section>
         
-        {!! $page->content !!}
+        {!! @$page->content !!}
 
 		<section class="contacto">
                 <div class="container">
