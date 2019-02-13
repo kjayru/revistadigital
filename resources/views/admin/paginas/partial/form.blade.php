@@ -2,18 +2,18 @@
 <div class="form-group">
         
         <div class="col-sm-12">
-            @if(count($page->sliders)>0)
-            @foreach($page->sliders as $slide)
-                <select class="form-control" name="slider_id">
-                    
-                        <option value="" >Slider</option>
-                    @foreach($sliders as $sli)
-                        <option value="{{ $sli->id }}" @if($sli->id == $slide->id) selected  @endif>{{ @$sli->title }}</option>
-                    @endforeach
-                    </div>
+            @if(count(@$page->sliders)>0)
+                @foreach(@$page->sliders as $slide)
+                    <select class="form-control" name="slider_id">
+                        
+                            <option value="" >Slider</option>
+                        @foreach($sliders as $sli)
+                            <option value="{{ $sli->id }}" @if($sli->id == $slide->id) selected  @endif>{{ @$sli->title }}</option>
+                        @endforeach
+                        </div>
 
-                </select>
-            @endforeach
+                    </select>
+                @endforeach
             @else
 
             <select class="form-control" name="slider_id">
