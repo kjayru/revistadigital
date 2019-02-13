@@ -21,7 +21,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::all();
+        $page = 0;
         
         return view('admin.paginas.index',['pages'=>$pages]);
     }
@@ -36,8 +36,9 @@ class PageController extends Controller
 
         $categories = Category::all();
         $sliders = Slider::all();
+        'page'=>$page
       
-        return view('admin.paginas.create',['categories'=>$categories,'sliders'=>$sliders]);
+        return view('admin.paginas.create',['categories'=>$categories,'sliders'=>$sliders,'page'=>$page]);
 
     }
 
