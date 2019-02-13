@@ -19,10 +19,20 @@
 
 
           <!-- Heading -->
-
+          @if(session('info'))
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-success">
+                                    {{ session('info')}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
           <!--Grid row-->
           <div class="card mb-4 wow fadeIn">
-
+         
             <!--Card content-->
             <div class="card-body d-sm-flex justify-content-between">
 

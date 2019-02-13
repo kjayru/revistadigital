@@ -35,8 +35,9 @@
                         <div class="box-body">
 
                             <div class="row justify-content-center">
+                              
                                 <div class="col-md-7">
-                                    <form class="mdb-form" action="/admin/page/{{$page->id}}">
+                                    <form class="mdb-form" method="POST" action="{{ route('pages.update',$page->id) }}">
 
                                         @csrf
                                         @method('PUT')

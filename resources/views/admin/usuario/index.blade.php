@@ -1,8 +1,5 @@
 @extends('layouts.admin.master')
 @section('content')
-
-
-
 <main class="pt-1 mx-lg-5">
         <div class="container-fluid mt-5">
 
@@ -46,11 +43,21 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th class="th-sm">Nombre </th>
+                                                    <th>Apellidos</th>
+                                                    <th>Punto de venta</th>
+                                                    <th>DNI/EXT</th>
+                                                    <th>Perfil</th>
+                                                    <th>Movil</th>
+                                                    
+
                                                     <th class="th-sm">Correo </th>
-                                                    <th class="th-sm">Role</th>
+                                                    <th>Región</th>
+                                                    <th>Canal</th>
+                                                   
                                                     <th class="th-sm">Fecha </th>
                                                     <th ></th>
                                                     <th ></th>
+                                                    <th></th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -58,16 +65,31 @@
                                                         <tr>
                                                             <td>{{ $k+1 }}</td>
                                                             <td>{{ $user->name }}</td>
+                                                            <td>{{ $user->lastname }}</td>
+                                                            <td>{{ $user->puntoventa }}</td>
+                                                            <td>{{ $user->numdocumento }}</td>
+                                                            <td>{{ $user->perfil}}</td>
+                                                            <td>{{ $user->movil}}</td>
+
                                                             <td>{{ $user->email}}</td>
-                                                            <td></td>
+                                                            <td>{{ $user->region }}</td>
+                                                            <td>{{ $user->canal }}</td>
                                                             <td>{{ $user->created_at}}</td>
                                                             <td>
-
-                                                                    @can('users.edit')
-                                                                    <a href="{{route('users.edit',$user->id )}}" class="btn btn-success pull-right">Editar</a>
-                                                                    @endcan
+                                                              @can('users.show')
+                                                              <a href="{{route('users.show',$user->id )}}" class="btn btn-success pull-right">Perfil</a>
+                                                              @endcan
                                                             </td>
-                                                            <td><button type="button" data-id="{{ $user->id }}" class="btn btn-danger  btn-borrar">Borrar</button></td>
+                                                            <td>
+                                                              @can('users.edit')
+                                                              <a href="{{route('users.edit',$user->id )}}" class="btn btn-success pull-right">Editar</a>
+                                                              @endcan
+                                                            </td>
+                                                            <td>
+                                                              @can('users.destroy')
+                                                                <button type="button" data-id="{{ $user->id }}" class="btn btn-danger  btn-borrar">Borrar</button>
+                                                              @endcan
+                                                            </td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>

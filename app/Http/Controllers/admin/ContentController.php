@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use JianhuaWang\PdfToImage\PdfToImageMaker;
+use Illuminate\Support\Facades\Storage;
 use App\Slider;
 use App\Video;
 use App\Image;
@@ -140,7 +142,6 @@ class ContentController extends Controller
                 $image->order = $cont;
                 $image->save();
 
-
             }
 
         }
@@ -152,15 +153,23 @@ class ContentController extends Controller
 
         $flip = new Flipper();
 
-
-       // if ($request->hasFile('pdffile')) {
+        if ($request->hasFile('pdffile')) {
             $anuncio = $request->file('pdffile')->store('files');
 
             $ifile = new File();
             $ifile->path = $anuncio;
+
             $ifile->save();
+
+
+            $paththumb =  File::createToPdf($anuncio,$ifile->id);
+
+            $ufile = File::find($ifile->id);
+            $ufile->thumbnail = $paththumb;
+            $ufile->save();
+
             $flip->file_id  =  $ifile->id;
-        //}
+        }
 
         if($request->imagenes){
             $flip->gallery_id = $request->imagenes;
@@ -171,11 +180,10 @@ class ContentController extends Controller
         }
 
         $flip->category_id = $request->categoria;
-
         $flip->month = $request->catmes;
         $flip->year = $request->catyear;
-
         $flip->save();
+
 
         $cate = Category::where('id',$request->categoria)->first();
 

@@ -7,23 +7,15 @@
         <div class="container-fluid mt-5">
 
           <!-- Heading -->
-          <div class="card mb-4 wow fadeIn">
+          < <!-- Heading -->
+          <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="/admin/users">Usuarios</a></li>
+                  <li class="breadcrumb-item active" aria-current="user">Crear</li>
 
-            <!--Card content-->
-            <div class="card-body d-sm-flex justify-content-between">
-
-              <h5 class="mb-2 mb-sm-0 pt-1">
-                <a href="/admin">Dashboard</a>
-                <span>/</span>
-                <a href="/admin/users">Usuarios</a>
-                <span>/</span>
-                <span>Nuevo usuario</span>
-              </h5>
-
-
-            </div>
-
-          </div>
+                </ol>
+        </nav>
           <!-- Heading -->
 
           <!--Grid row-->
