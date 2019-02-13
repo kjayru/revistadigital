@@ -36,7 +36,7 @@ class PageController extends Controller
 
         $categories = Category::all();
         $sliders = Slider::all();
-        $page = 0;
+        $page = [];
       
         return view('admin.paginas.create',['categories'=>$categories,'sliders'=>$sliders,'page'=>$page]);
 
