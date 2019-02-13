@@ -2,7 +2,7 @@
 <div class="form-group">
         
         <div class="col-sm-12">
-            @if(count(@$page->sliders)>0)
+            @if($page)
                 @foreach(@$page->sliders as $slide)
                     <select class="form-control" name="slider_id">
                         
