@@ -91,7 +91,6 @@ class PageController extends Controller
         $categories = Category::all();
         $sliders = Slider::all();
 
-        
         return view('admin.paginas.edit',['page'=>$page,'categories'=>$categories,'sliders'=>$sliders]);
     }
 
