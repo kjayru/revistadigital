@@ -38,7 +38,7 @@
                                         <a href="{{route('users.create')}}" class="btn btn-primary btn-right btn-page-create">Crear</a>
                                         <a href="{{ route('users.carga')}}" class="btn btn-info btn-right mr-2" role="button">Carga masiva</a>
                                         @endcan
-                                            <table id="tb-usuarios" class="table table-striped table-bordered" cellspacing="0" width="100%" >
+                                            <table id="tb-usuarios" class="table table-striped table-responsive table-bordered">
                                                 <thead>
                                                 <tr>
                                                     <th>#</th>
