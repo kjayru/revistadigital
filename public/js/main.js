@@ -22,3 +22,9 @@ $(document).ready(function(){
 
 });
 
+
+$(document).on('click','a',function(){
+ 
+ console.log($(this).data('label'));
+
+});

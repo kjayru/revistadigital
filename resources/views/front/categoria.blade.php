@@ -97,7 +97,7 @@
 		<section class="catalogos catalogos-m">
 			<div class="container">
 				<h2>Catálogos por categorías</h2>
-				<div class="row">
+				<div class="row justify-content-center">
                     @foreach($categories as $cat)
 					<div class="col-lg-2 col-md-4 col-sm-6 col-6"> <a href="/{{ $cat->slug }}" class="enlace_ver"> <img src="/storage/{{ $cat->cover }}" class="img-fluid"><p>{{ $cat->name }}</p></a></div>
                     @endforeach
@@ -156,7 +156,8 @@
 
              props.sheet.flexibleCorner = 0.1;
              props.sheet.flexibility = 1;
-
+             props.sheet.color = 0xFFFFFF;
+             props.cover.binderTexture ='/flipper/images/texture.jpg';
             return props;
 
           },
