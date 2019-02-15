@@ -31,8 +31,9 @@ class HomeController extends Controller
     {
         $page = Page::where('slug',$slug)->first();
 
-        $categories = Category::all();
-        $cat = Category::where('slug',$slug)->first();
+       
+       $cat = Category::where('slug',$slug)->first();
+        $categories = Category::where('status',1)->get();
         if($cat){
         $estado = 1;
            $slug = Flipper::where('category_id',$cat->id)->orderBy('created_at','desc')->first();

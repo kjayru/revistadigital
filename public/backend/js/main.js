@@ -421,17 +421,7 @@ $("#frm-video").on('submit',function(e){
 
 });
 
-/*function porcentaje(){
-    let i =1;
-   var timerid = setInterval(function() {
-        if(i<100){
-            $(".contador").css('width',`${i}%`);
-            i++;
-        }else{
-            clearInterval(timerid);
-        }
-    }, 60 * 1);
-}*/
+
 
 $(".btn-video-editar").on('click',function(e){
     e.preventDefault();
@@ -886,3 +876,4 @@ tinymce.init({
         });
     }
 });
+

@@ -162,11 +162,11 @@ class ContentController extends Controller
             $ifile->save();
 
 
-            $paththumb =  File::createToPdf($anuncio,$ifile->id);
+           /* $paththumb =  File::createToPdf($anuncio,$ifile->id);
 
             $ufile = File::find($ifile->id);
             $ufile->thumbnail = $paththumb;
-            $ufile->save();
+            $ufile->save();*/
 
             $flip->file_id  =  $ifile->id;
         }

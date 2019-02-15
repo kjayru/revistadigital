@@ -39,7 +39,7 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
