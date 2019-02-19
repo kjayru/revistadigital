@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\File;
 use App\Category;
-
+use App\Label;
 use App\Slider;
 use App\Video;
 use App\Page;
@@ -45,4 +45,15 @@ class HomeController extends Controller
         return view('front.index',['categories'=> $categories,'slider'=>$slider,'total'=>$total,'videos'=>$videos,'page'=>$page]);
     }
 
+    
+    public function reporte(Request $request){
+       
+        $label = new Label();
+        $label->label = $request->label;
+        $label->ip =  $request->ip();
+       // $label->user_id =  $id;
+        $label->save();
+
+        return response()->json(['rpta'=>'ok']);
+    }
 }

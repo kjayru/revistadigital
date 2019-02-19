@@ -17,6 +17,9 @@
   @include('layouts.front.partial.footer')
   <!-- inc scripts-->
   @include('layouts.front.partial.scripts')
+  <form id="fr-front">
+    @csrf 
+  </form>
 </body>
 </html>
 
