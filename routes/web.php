@@ -283,7 +283,8 @@ Route::group(['prefix' => 'admin'],function(){
 });
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/testmail','HomeController@testmail');
+
+Route::post('/reportes/store','HomeController@reporte')->name('reporte.store');
 
 Route::get('/{url}', 'admin\HomeController@show')->name('fronts.index')
 ->middleware('permission:fronts.index');

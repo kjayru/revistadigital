@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use App\Label;
 class ReportController extends Controller
 {
     public function __construct()
@@ -39,7 +41,15 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $id  = Auth::id();
+
+        $label = new Label();
+        $label->label = $request->label;
+        $label->ip =  $request->ip();
+        $label->user_id =  $id;
+        $label->save();
+
+        return response()->json(['rpta'=>$rpta]);
     }
 
     /**
