@@ -28,8 +28,8 @@
                            <div class="col-md-12 text-center indicadores">
 
                                <ul>
-                                   <li class="indicador active" id="step1"></li>
-                                   <li  class="indicador" id="step2"></li>
+                                   <li class="indicador btn-ind active" id="step1"></li>
+                                   <li  class="indicador btn-ind" id="step2"></li>
                                    <li  class="indicador"></li>
                                </ul>
                            </div>
@@ -110,6 +110,7 @@
 
                                     <div class="md-form text-center">
                                         <a href="/" class="btn btn-danger btn-step-final">Ir a la publicación</a>
+                                        <a href="#" class="btn btn-success btn-step-reinicio">Cargar otro documento</a>
                                     </div>
 
                                 </div>

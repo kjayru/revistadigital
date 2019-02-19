@@ -137,31 +137,36 @@ $("#paso2").submit(function(e){
     e.preventDefault();
     var categoria = '';
 
-    $.ajax({
-        url: '/admin/contents/postpdf',
-        type: 'POST',
-        data: new FormData(this),
-        contentType: false,
-        processData: false,
-        beforeSend(){
-            $(".capa").show();
-        },
-        success: function (response) {
+    let catval = $("#categoria2").val();
+    let catmes = $("#catmes2").val();
+    let catyear = $("#catyear2").val();
 
-            $(".btn-step-final").attr('href',"/"+response);
-            if(response){
-                $(".capa").fadeOut(350,'swing');
-            }else{
-                console.log("actividad");
+    if(catval && catmes && catyear){
+        $.ajax({
+            url: '/admin/contents/postpdf',
+            type: 'POST',
+            data: new FormData(this),
+            contentType: false,
+            processData: false,
+            beforeSend(){
+                $(".capa").show();
+            },
+            success: function (response) {
+
+                $(".btn-step-final").attr('href',"/"+response);
+                if(response){
+                    $(".capa").fadeOut(350,'swing');
+                }else{
+                    console.log("actividad");
+                }
+            },
+            error: function (err) {
+                console.log(err)
             }
-        },
-        error: function (err) {
-            console.log(err)
-        }
 
-    })
+        })
 
-    $(".step2").hide();
+        $(".step2").hide();
     $(".step3").fadeIn(350,'swing',function(){
         //porcentaje();
         console.log(categoria);
@@ -170,6 +175,14 @@ $("#paso2").submit(function(e){
 
     $(".indicador").removeClass("active");
     $(".indicadores ul li:nth-child(3)").addClass('active');
+    }else{
+        alert("debes completar el formulario en el PASO 1 para continuar");
+        return false;
+    }
+
+
+    
+    debugger
 });
 
 $("#frm-delete").submit(function(e){
@@ -852,9 +865,9 @@ tinymce.init({
     resize: 'vertical',
 
     plugins: 'a11ychecker advcode formatpainter linkchecker media mediaembed pageembed permanentpen powerpaste tinycomments tinydrive tinymcespellchecker',
-   toolbar: 'a11ycheck code formatpainter insertfile pageembed permanentpen tinycomments',
-   tinycomments_mode: 'embedded',
-   tinycomments_author: 'Author name',
+    toolbar: 'a11ycheck code formatpainter insertfile pageembed permanentpen tinycomments',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
     
     extended_valid_elements: 'span,input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick]',
     
@@ -877,3 +890,34 @@ tinymce.init({
     }
 });
 
+$("#step1").on('click',function(){
+   $(".step2").hide();
+   $(".step1").show();
+   $(".indicador").removeClass('active');
+   $(this).addClass('active');
+});
+$("#step2").on('click',function(){
+    $(".step1").hide();
+    $(".step2").show();
+    $(".indicador").removeClass('active');
+   $(this).addClass('active');
+ });
+
+$(".btn-ind").hover(
+    function(){
+        $(this).css('cursor','pointer');
+    },
+    function(){
+        $(this).css('cursor','default');
+    }
+);
+
+$(".btn-step-reinicio").on('click',function(e){
+    e.preventDefault();
+    $(".step3").hide();
+    $(".step2").hide();
+    $(".step1").show();
+    $(".indicador").removeClass('active');
+   $(".indicador:first-child").addClass('active');
+
+});
