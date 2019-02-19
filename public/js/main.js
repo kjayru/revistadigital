@@ -15,7 +15,7 @@ $(document).ready(function(){
     });
 });
 
-
+/*
 $(document).on('click','a',function(e){
 
  let label = $(this).data('label');
@@ -41,4 +41,4 @@ $(document).on('click','a',function(e){
   }
  
 
-});
+});*/
