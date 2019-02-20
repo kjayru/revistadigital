@@ -99,7 +99,14 @@
 				<h2>Catálogos por categorías</h2>
 				<div class="row justify-content-center">
                     @foreach($categories as $cat)
-					<div class="col-lg-2 col-md-4 col-sm-6 col-6"> <a href="/{{ $cat->slug }}" class="enlace_ver"> <img src="/storage/{{ $cat->cover }}" class="img-fluid"><p>{{ $cat->name }}</p></a></div>
+                    
+                        <div class="col-lg-5c">
+                            <a href="/{{ $cat->slug }}" data-label="categoria-{{ $cat->slug }}" class="enlace_ver"> 
+                            <img src="/storage/{{ $cat->cover }}" class="img-fluid">
+                            <h3>{{ $cat->name }}</h3>
+                            <p>{{ $cat->description }}</p>
+                        </a>
+                    </div>
                     @endforeach
 				</div>
 			</div>
