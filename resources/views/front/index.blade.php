@@ -151,7 +151,7 @@
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-6 col-6 mt-3">
-										<a data-toggle="modal" data-target="#exampleModalCenter3" class="linkmodal"><img src="https://img.youtube.com/vi/{{$videos[2]->embed}}/maxresdefault.jpg" class="img-fluid mini-wv"></a>
+										<a data-toggle="modal" data-target="#exampleModalCenter3" class="linkmodal"><img src="https://img.youtube.com/vi/{{$videos[2]->embed}}/mqdefault.jpg" class="img-fluid mini-wv"></a>
 										<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 											<div class="modal-dialog modal-dialog-centered" role="document">
 												<div class="modal-content">
