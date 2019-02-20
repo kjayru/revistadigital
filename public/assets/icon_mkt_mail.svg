@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="83px" height="84px" viewBox="0 0 83 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>804CAB07-7A9A-4EA5-95CD-156FE08FB2D1</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M58.7662963,0 L13.3469136,0.405802469 C5.97444444,0.471481481 0,6.49987654 0,13.87 L0,60.9149383 C0,68.282716 5.97444444,74.2032099 13.3469136,74.1422222 L60.3895062,73.72 C67.7619753,73.6566667 73.7364198,67.6282716 73.7364198,60.2558025 L73.7364198,14.8387654 C73.7364198,6.61716049 67.1051852,0 58.9023457,0 C58.8554321,0 58.8108642,0 58.7662963,0" id="path-1"></path>
+        <filter x="-10.8%" y="-6.7%" width="121.7%" height="121.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="3" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.11 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-3-2019" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="revista_virtual_home02" transform="translate(-959.000000, -114.000000)">
+            <g id="Group-8" transform="translate(402.000000, 114.000000)">
+                <g id="Group-5">
+                    <g id="Group-14" transform="translate(342.000000, 0.000000)">
+                        <g id="Group-9-Copy" transform="translate(219.160494, 1.000000)">
+                            <g id="Group-6" transform="translate(0.469136, 0.751790)">
+                                <g id="Fill-4">
+                                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                    <use stroke="#DEDEDE" stroke-width="1" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                </g>
+                            </g>
+                            <path d="M19.692963,52.6176404 C19.4044444,52.6223317 19.1440741,52.540233 18.881358,52.4628255 L31.2266667,38.2456651 L35.85,42.1652947 C36.1150617,42.3951712 36.4458025,42.5030725 36.7741975,42.5030725 C37.1049383,42.5007268 37.435679,42.3834428 37.7007407,42.1488749 L42.3240741,38.1471465 L54.667037,52.1438132 C54.4066667,52.225912 54.1462963,52.3127021 53.8554321,52.3150478 L19.692963,52.6176404 Z M16.9579012,50.3517144 C16.9203704,50.1664058 16.8476543,49.9951712 16.8476543,49.7981342 L16.8476543,27.021591 C16.8476543,26.7283811 16.9320988,26.4609737 17.0141975,26.1912206 L29.0639506,36.4113441 L16.9579012,50.3517144 Z M53.8554321,23.8455416 C54.0454321,23.8431959 54.2119753,23.915912 54.3902469,23.9487515 L36.7741975,39.2050478 L19.1581481,24.2630725 C19.3387654,24.2255416 19.502963,24.1504799 19.692963,24.1504799 L53.8554321,23.8455416 Z M44.4844444,36.2752947 L56.5365432,25.8393688 C56.618642,26.1044305 56.7030864,26.3741836 56.7030864,26.6673934 L56.7030864,49.441591 C56.7030864,49.638628 56.6280247,49.8168996 56.5881481,50.0022083 L44.4844444,36.2752947 Z M53.8554321,21.000233 L19.692963,21.3028255 C16.5497531,21.3309737 14,23.9041836 14,27.0473934 L14,49.8239367 C14,52.9648009 16.5497531,55.4934428 19.692963,55.4652947 L53.8554321,55.1603564 C57.0009877,55.1322083 59.5507407,52.5613441 59.5507407,49.4181342 L59.5507407,26.641591 C59.5507407,23.4983811 57.0009877,20.9720848 53.8554321,21.000233 Z" id="Fill-7" fill="#DA272C"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

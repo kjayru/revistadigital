@@ -1,6 +1,62 @@
 @extends('layouts.front.app')
 @section('content')
 <div class="main">
+
+        <section class="mkt">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <div class="row">
+                                <div class="col-lg-7 text-center pb-3">
+                                    <img src="/assets/logo_mkt_claro.svg" class="img-fluid">
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-4 text-center">
+                                            <a href="https://play.google.com/store/apps/details?id=com.claroperu.puntodeventa" class="enlace_ver" target="_blank">
+                                                <img src="/assets/icon_mkt_app.svg" alt="" class="img-fluid">
+                                                <span class="tit-icon">App</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-4 col-4 text-center">
+                                            <a href="https://api.whatsapp.com/send?phone=051993000488&text=%20" class="enlace_ver" target="_blank">
+                                                <img src="/assets/icon_mkt_whatsapp.svg" alt="" class="img-fluid">
+                                                <span class="tit-icon">WhatsApp</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-4 col-4 text-center">
+                                            <a href="mailto:mktclaro@claro.com.pe" class="enlace_ver">
+                                                <img src="/assets/icon_mkt_mail.svg" alt="" class="img-fluid">
+                                                <span class="tit-icon">Mail</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>			
+        </section>
+
+        <section class="catalogos">
+                <div class="container">
+                    <h2>Revista por categorías</h2>
+                    <div class="row justify-content-center">
+                        @foreach($categories as $cat)
+                         <div class="col-lg-5c">
+                              <a href="/{{ $cat->slug }}" data-label="categoria-{{ $cat->slug }}" class="enlace_ver"> 
+                                <img src="/storage/{{ $cat->cover }}" class="img-fluid">
+                                <h3>{{ $cat->name }}</h3>
+                                <p>{{ $cat->description }}</p>
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+        </section>
+
+
+
         <section class="banner">
            @if(@$slider->items)
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -43,20 +99,11 @@
         </section>
             @endif
 
-        <section class="catalogos">
-            <div class="container">
-                <h2>Catálogos por categorías</h2>
-                <div class="row justify-content-center">
-                    @foreach($categories as $cat)
-                     <div class="col-lg-2 col-md-4 col-sm-6 col-6"> <a href="/{{ $cat->slug }}" data-label="categoria-{{ $cat->slug }}" class="enlace_ver"> <img src="/storage/{{ $cat->cover }}" class="img-fluid"><p>{{ $cat->name }}</p></a></div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
+        
         @if(count($videos)>0)
         <section class="campanias">
 			<div class="container">
-				<h2>Lo último en promociones</h2>
+                    <h2>Últimas campañas</h2>
 				<div class="row">
 					<div class="col-lg-10 mx-auto">
 						<div class="row">
@@ -199,8 +246,8 @@
 
 
 					<div class="col-lg-10 mx-auto text-right pt-3">
-						<!--<a href="#" class="enlace_ver">Ver todos &#62;</a>-->
-					</div>
+                            <a href="https://www.youtube.com/user/canalclaro" target="_blank" class="enlace_ver">Ver más &#62;</a><!---->
+                    </div>
 
 				</div>
 			</div>
