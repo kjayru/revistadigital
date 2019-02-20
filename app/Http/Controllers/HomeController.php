@@ -40,7 +40,7 @@ class HomeController extends Controller
             $total = 0;
         }
 
-        $videos = Video::where('status',2)->where('destacado',2)->get();
+        $videos = Video::where('status',2)->where('destacado',2)->orderBy('id','desc')->get();
 
         return view('front.index',['categories'=> $categories,'slider'=>$slider,'total'=>$total,'videos'=>$videos,'page'=>$page]);
     }
