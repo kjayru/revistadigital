@@ -110,7 +110,7 @@
                             @if(count($videos)==3)
                             <!--tres video-->
 							<div class="col-lg-8 mt-3 col-sm-8 mx-auto col-12">
-								<a data-toggle="modal" data-target="#exampleModalCenter1" class="linkmodal"><img src="https://img.youtube.com/vi/{{$videos[0]->embed}}/maxresdefault.jpg" class="img-fluid"></a>
+								<a data-toggle="modal" data-target="#exampleModalCenter1" class="linkmodal"><img src="https://img.youtube.com/vi/{{$videos[0]->embed}}/sddefault.jpg" class="img-fluid"></a>
 								<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered" role="document">
 										<div class="modal-content">
