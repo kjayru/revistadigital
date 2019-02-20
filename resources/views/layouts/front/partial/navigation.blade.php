@@ -5,7 +5,7 @@
                 <div class="dos"></div>
                 <div class="tres"></div>
             </button>
-            <a href="#"><img src="/assets/logo-claro.svg" class="lg_claro img-fluid"></a>
+            <a href="/"><img src="/assets/logo-claro.svg" class="lg_claro img-fluid"></a>
         </div>
         @guest
         <a href="/login" class="login"> <img src="assets/entrar.svg"> <span class="text-sesion">Iniciar sesión</span></a>

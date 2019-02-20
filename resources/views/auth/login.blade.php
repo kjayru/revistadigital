@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="es-PE">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Revista Digital</title>
-
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-
-</head>
-<body>
-
-
-	<header class="fixed-top">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 no-gutters">
-					<nav class="navbar navbar-dark mt-2">
-						<a href="#"><img src="assets/logo-claro.svg" class="lg_claro img-fluid"></a>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
+@extends('layouts.front.appauth')
+@section('content')
 
 
 	<div class="main">
@@ -75,11 +52,4 @@
             </div>
         </section>
     </div>
-
-
-
-	@include('layouts.front.partial.footer')
-
-	@include('layouts.front.partial.scripts')
-</body>
-</html>
+@endsection
