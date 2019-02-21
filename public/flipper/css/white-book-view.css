@@ -620,3 +620,15 @@
 
 
 }
+
+@supports (-webkit-overflow-scrolling: touch) {
+  .cmdFullScreen{
+    display: none !important;
+  }
+}
+
+@supports not (-webkit-overflow-scrolling: touch) {
+  .cmdFullScreen{
+    display: none !important;
+  }
+}
