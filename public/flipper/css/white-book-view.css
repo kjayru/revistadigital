@@ -612,6 +612,9 @@
       font-size: 35pt;
       color: #ccc;
     }
+    .flip-book .view .fnav a:active {
+      font-size: 35pt;
+  }
 }
 @media(min-width:780px){
 
