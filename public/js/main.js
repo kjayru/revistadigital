@@ -29,10 +29,10 @@ if(isMobile.iOS()){
  
   var head = $("iframe").contents().find("head");
   var css = '<style type="text/css">' +
-  '.cmdFullScreen{display:none !important;}; ' +
+  '.cmdFullScreen{display:none !important;} .flip-book .view .fnav{ display:none !important;} ' +
   '</style>';
     $(head).append(css);
-    console.log(head);
+    
 };
 
 /*
