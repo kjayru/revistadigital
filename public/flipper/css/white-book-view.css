@@ -599,9 +599,9 @@
   background-color:white;
 }
 @media(max-width:779px){
-    .flip-book .view .fnav {
+    /*.flip-book .view .fnav {
         display: none;
-    }
+    }*/
     .hide-mobile{
         display: none !important;
     }
