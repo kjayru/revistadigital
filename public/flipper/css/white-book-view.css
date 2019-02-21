@@ -608,6 +608,10 @@
     .show-mobile{
         display: inline-block !important;
     }
+    .flip-book .view .fnav a {
+      font-size: 35pt;
+      color: #ccc;
+    }
 }
 @media(min-width:780px){
 
