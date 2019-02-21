@@ -214,7 +214,7 @@
                 href: '/flipper/css/font-awesome.min.css'
               }
             ],
-            script: '/flipper/js/default-book-view.js',
+            script: '/flipper/js/default-book-view.js?v={{ uniqid() }}',
 
             autoNavigation: {
                 urlParam: 'fb3d-page',
@@ -250,9 +250,11 @@
             }
     });
         </script>
+
     @endif
 
     @if(@$slug->video_id)
         EMBED VIDEO
     @endif
 @endsection
+

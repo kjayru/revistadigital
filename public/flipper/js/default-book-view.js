@@ -95,5 +95,9 @@ function init(container) {
     };
     console.error('jQuery is not found');
   }
+
+
+
   return instance;
 } init
+
