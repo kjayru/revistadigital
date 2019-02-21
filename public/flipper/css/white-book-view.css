@@ -621,8 +621,9 @@
 
 }
 
-@supports (-webkit-overflow-scrolling: touch) {
-  .cmdFullScreen{
+@media only screen and (-webkit-min-device-pixel-ratio: 1) {
+  ::i-block-chrome, .cmdFullScreen{
+  
     display: none !important;
   }
 }
