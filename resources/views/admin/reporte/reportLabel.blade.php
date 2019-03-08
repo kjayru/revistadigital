@@ -10,7 +10,8 @@
           <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Reporte</li>
+                  <li class="breadcrumb-item"><a href="/admin/reports">Reporte</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Reporte etiquetas</li>
                 </ol>
             </nav>
           <!-- Heading -->
