@@ -12,7 +12,7 @@
  Initializations -->
 <script src="/backend/js/vendor/sprite.svg.js"></script>
 <script src="/backend/js/vendor/bootstrap-quill.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=aww5pqs4je6b8iq0ym2pykhzksw8h8ri0e0he65wibc2330b"></script>
 <script src="/backend/js/main.js?v={{ uniqid() }}"></script>
 

@@ -63,9 +63,21 @@
                                     <div class="col-xl-4 col-md-6 mb-r item {{ strtolower(@$file->flipper->month) }} categoria-{{ @$file->flipper->category_id }}">
                                         <div class="cascading-admin-card p-3 text-center">
                                                 <p class="card-text">
-                                                <a href="/storage/{{ $file->path }}" target="_blank"><img src="/storage/{{$file->thumbnail}}"  class="img-fluid" style="max-width: 100px;"></a>
+                                                  <a href="/storage/{{ $file->path }}" target="_blank">
+                                                    @if(\App\Category::fileExist($cat->cover) ==true)
+                                                    <img src="/storage/{{ @$cat->cover }}" class="img-fluid" style="max-width:100px">
+                                                  
+                                                    @else
+                                                    <img src="/assets/no-disponible.jpeg" class="img-fluid" style="max-width:100px">
+                                                    @endif
+                                                    
+                                                  </a>
                                                 </p>
-                                                <a href="/storage/{{$file->path}}" class="card-link text-center">{{ $file->created_at }}</a>
+                                                <p><a href="#" class="btn btn-xs btn-danger btn-file-delete" data-id="{{ @$file->id }}" data-toggle="modal" data-target="#deluser" >Eliminar</a></p>
+                                                <a href="/storage/{{$file->path}}" class="card-link text-center">
+                                                 {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $file->created_at, 'UTC')->setTimezone('America/Lima')->format('d/m/Y') }}
+                                                </a>
+                                                
                                         </div>
                                     </div>
 
@@ -86,5 +98,37 @@
       </main>
 
 
-
+<!-- modal delete-->
+<div class="modal modal-danger fade in" id="deluser">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+  
+            <form class="delete" action="" method="POST" id="fr-delete-file">
+                <div class="modal-header">
+                    <h4 class="modal-title">Confirmar Eliminación</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+                  
+                </div>
+                <div class="modal-body text-center">
+  
+                      <input type="hidden" name="_method" value="delete" >
+                      @csrf
+                      <input type="hidden" name="id" id="id">
+                      <p>¿Esta seguro de eliminar este item?</p>
+  
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-outline" >Eliminar</button>
+                </div>
+            </form>
+  
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal-dialog -->
 @endsection

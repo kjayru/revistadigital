@@ -1,11 +1,11 @@
 
 <div class="md-form form-group">
-        <input type="text" name="name" id="form2" value="{{ @$category->name }}" placeholder="Nombre" class="form-control" required>
+        <input type="text" name="name" id="form2" value="{{ @$category->name }}" placeholder="Nombre" class="form-control sensorkey" required>
 
 </div>
 
 <div class="md-form form-group">
-        <input type="text" name="slug" id="form3" value="{{ @$category->slug }}" placeholder="Slug" class="form-control" required>
+        <input type="text" name="slug" id="form3" value="{{ @$category->slug }}" placeholder="Slug" class="form-control islug" required>
 
 </div>
 
@@ -15,12 +15,16 @@
 
 <div class="form-group">
     <label for="cover">Seleccione una imagen</label>
-    <input type="file" name="cover" id="cover" class="form-control-file">
+    <input type="file" name="cover" id="cover" class="form-control preimage" accept="image/png, image/jpeg" >
     @if(@$category->cover)
     <p>
-            <img src="/storage/{{ $category->cover }}" class="img-fluid" style="max-width:100px">
+            <img src="/storage/{{ @$category->cover }}" class="img-fluid" style="max-width:100px">
     </p>
+    
     @endif
+    <div class="preview col-sm-10 col-sm-offset-2">
+        <img src="" width="100">
+    </div>
 </div>
 <div class="md-form form-group">
         <div class="form-check">
