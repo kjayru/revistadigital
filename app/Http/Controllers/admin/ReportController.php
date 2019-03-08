@@ -30,7 +30,7 @@ class ReportController extends Controller
      */
     public function create()
     {
-        //
+      
     }
 
     /**
@@ -60,7 +60,7 @@ class ReportController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -96,4 +96,17 @@ class ReportController extends Controller
     {
         //
     }
+
+    public function reportUser(){
+      
+        return view('admin.reporte.reportUser');
+    }
+    public function reportCategory(){
+        
+        return view('admin.reporte.reportCategory');
+    }
+    public function reportLabel(){
+
+        return view('admin.reporte.reportLabel');
+    }   
 }

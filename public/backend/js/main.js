@@ -182,7 +182,6 @@ $("#paso2").submit(function(e){
 
 
     
-    debugger
 });
 
 $("#frm-delete").submit(function(e){
@@ -920,4 +919,63 @@ $(".btn-step-reinicio").on('click',function(e){
     $(".indicador").removeClass('active');
    $(".indicador:first-child").addClass('active');
 
+});
+
+$(document).on('change','.preimage',function(e){
+    var output = $(this).parent().children('.preview').children('img');
+    console.log(output);
+    output.attr('src',URL.createObjectURL(e.target.files[0]));
+})
+
+
+
+$(document).on('keyup','.sensorkey',function(e){
+    let key = $(this).val();
+    remplaza(key);
+});
+
+$(document).on('focusout','.sensorkey',function(e){
+    let cadena = $(this).val();
+    remplaza(cadena);
+});
+
+function remplaza(cadena){
+    let str = cadena.replace(/\s+/g, '-').toLowerCase();
+    $(".islug").val(str);
+};
+
+$(".btn-category-delete").on("click", function(){
+    let id = $(this).data('id');
+    $("#fr-delete-category #id").val(id);
+    $("#fr-delete-category").attr('action','/admin/categories/'+id);
+});
+
+//btn-file-delete
+//fr-delete-file
+
+$(".btn-file-delete").on("click", function(){
+    let id = $(this).data('id');
+    $("#fr-delete-file #id").val(id);
+    $("#fr-delete-file").attr('action','/admin/historials/'+id);
+});
+  
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [{
+            label: "My First dataset",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
 });

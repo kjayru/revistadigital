@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Caffeinated\Shinobi\Models\Permission;
+use Illuminate\Support\Facades\Storage;
 use App\Category;
 
 class CategoryController extends Controller
@@ -24,6 +25,8 @@ class CategoryController extends Controller
     {
 
         $categories = Category::all();
+
+       
         return view('admin.categoria.index',['categories'=>$categories]);
     }
 
@@ -123,17 +126,12 @@ class CategoryController extends Controller
     {
 
 
-        try {
+        
             Category::find($id)->delete();
 
-        } catch (Illuminate\Database\QueryException $e) {
-            dd($e);
-
-        } catch (PDOException $e) {
-            dd($e);
-        }
+        
 
         return redirect()->route('categories.index')
-        ->with('info','Categoria actualizado satisfactoriamente');
+        ->with('info','Fue eliminado con exito');
     }
 }
