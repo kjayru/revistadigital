@@ -59,6 +59,16 @@ class HistoryController extends Controller
     
     public function destroy($id)
     {
-        //
+         //File::find($id)->delete();
+         $fil = File::find($id);
+
+       
+        Flipper::find($fil->flipper->id)->delete();
+        $fil->delete();
+
+        return redirect()->route('historials.index')
+        ->with('info','Fue eliminado con exito');
     }
+
+   
 }

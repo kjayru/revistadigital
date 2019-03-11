@@ -185,14 +185,21 @@ Route::group(['prefix' => 'admin'],function(){
      Route::put('reports/{report}','admin\ReportController@update')->name('reports.update')
      ->middleware('permission:reports.edit');
 
+     Route::get('reports/users','admin\ReportController@reportUser')->name('reports.reportuser')
+     ->middleware('permission:reports.index');
+
+     Route::get('reports/categories','admin\ReportController@reportCategory')->name('reports.reportcategory')
+     ->middleware('permission:reports.index');
+
+     Route::get('reports/label','admin\ReportController@reportLabel')->name('reports.reportlabel')
+     ->middleware('permission:reports.index');
+
      Route::get('reports/{report}','admin\ReportController@show')->name('reports.show')
      ->middleware('permission:reports.show');
 
      Route::delete('reports/{report}','admin\ReportController@destroy')->name('reports.destroy')
      ->middleware('permission:reports.destroy');
 
-     Route::get('reports/{report}/edit','admin\ReportController@edit')->name('reports.edit')
-     ->middleware('permission:reports.edit');
 
 
      //slider

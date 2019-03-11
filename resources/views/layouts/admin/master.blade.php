@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/backend/js/vendor/css/quill.css">
   <link rel="stylesheet" href="/backend/js/vendor/css/quill.snow.css">
   <link rel="stylesheet" href="/backend/js/vendor/css/quill.bubble.css">
+  
   <link href="/backend/css/main.css?v={{ uniqid() }}" rel="stylesheet">
 </head>
 <body class="grey lighten-3">
