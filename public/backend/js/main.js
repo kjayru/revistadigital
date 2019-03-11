@@ -182,7 +182,6 @@ $("#paso2").submit(function(e){
 
 
     
-    debugger
 });
 
 $("#frm-delete").submit(function(e){
@@ -237,7 +236,7 @@ $("#frm-delete2").submit(function(e){
 });
 
 //$('#tb-categories').DataTable();
-//$('#tb-usuarios').DataTable();
+$('#tb-usuarios').DataTable();
 //$('.dataTables_length').addClass('bs-select');
 
 //datamenu
@@ -920,4 +919,23 @@ $(".btn-step-reinicio").on('click',function(e){
     $(".indicador").removeClass('active');
    $(".indicador:first-child").addClass('active');
 
+});
+
+$(document).on('change','.preimage',function(e){
+    var output = $(this).parent().children('.preview').children('img');
+    console.log(output);
+    output.attr('src',URL.createObjectURL(e.target.files[0]));
+})
+
+
+$(document).on('keyup','.sensorkey',function(e){
+    let codes = e.keyCode;
+    console.log(codes);
+    let key = $(this).val();
+    if(codes == 32){
+        key += "-";
+        console.log(key);
+    }
+    
+    $(".islug").val(key);
 });

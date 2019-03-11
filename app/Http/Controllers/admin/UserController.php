@@ -67,7 +67,7 @@ class UserController extends Controller
         $usuario->canal = $request->canal;
         $usuario->email = $request->email;
 
-        $usuario->password = Hash::make($request->password);
+        //$usuario->password = Hash::make($request->password);
 
 
         $usuario->save();
@@ -137,9 +137,9 @@ class UserController extends Controller
         $usuario->canal = $request->canal;
         $usuario->email = $request->email;
 
-        if($request->password){
+        /*if($request->password){
            $usuario->password = Hash::make($request->password);
-        }
+        }*/
 
         $usuario->save();
 

@@ -86,8 +86,8 @@
                                                     <div class="col-md-4 md-form">
                                                             <select class="form-control" name="tipo" id="tipocontenido" required>
                                                                     <option value="" selected>Tipo</option>
-                                                                    <option value="1">Video</option>
-                                                                    <option value="2">Imagenes</option>
+                                                                    <!--<option value="1">Video</option>
+                                                                    <option value="2">Imagenes</option>-->
                                                                     <option value="3">PDF</option>
                                                             </select>
                                                     </div>

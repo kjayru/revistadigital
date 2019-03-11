@@ -55,24 +55,19 @@
     </div>
 
     <div class="md-form form-group">
-            <input type="text" name="canal" value="{{ @$user->canal }}" placeholder="Canal" class="form-control" required>
-
+            <select name="canal" id="canal" class="form-control">
+                    <option value="">Canal</option>
+                    <option value="{{@$user->canal}}"  @if(@$user->canal =='canal') selected @endif>{{@$user->canal}}</option>
+            </select>
+            
     </div>
-
-
-
-
-    <div class="md-form form-group">
-            <input type="password" name="password"   placeholder="Password" class="form-control" >
-    </div>
-
 
 
     <div class="form-group">
 
         <select name="role_id" class="form-control" required>
 
-            <option> Seleccione</option>
+            <option> Seleccione Rol</option>
             @foreach($roles as $role)
                 <option value="{{ $role->id}}"  @if(@$user->roles[0]->id == $role->id) selected @endif> {{ $role->name }}</option>
             @endforeach

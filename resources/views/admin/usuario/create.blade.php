@@ -3,11 +3,11 @@
 
 
 
-<main class="pt-5 mx-lg-5">
-        <div class="container-fluid mt-5">
+<main class="pt-0 mx-lg-5">
+        <div class="container-fluid mt-2">
 
           <!-- Heading -->
-          < <!-- Heading -->
+          <!-- Heading -->
           <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>

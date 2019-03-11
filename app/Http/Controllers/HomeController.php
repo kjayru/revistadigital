@@ -27,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+       
 
         $page = Page::where('slug','home')->first();
         

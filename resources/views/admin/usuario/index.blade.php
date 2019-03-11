@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 @section('content')
 <main class="pt-1 mx-lg-5">
-        <div class="container-fluid mt-5">
+        <div class="container-fluid mt-2">
 
           <!-- Heading -->
           <nav aria-label="breadcrumb">
