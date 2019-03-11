@@ -236,7 +236,7 @@ $("#frm-delete2").submit(function(e){
 });
 
 //$('#tb-categories').DataTable();
-//$('#tb-usuarios').DataTable();
+$('#tb-usuarios').DataTable();
 //$('.dataTables_length').addClass('bs-select');
 
 //datamenu
