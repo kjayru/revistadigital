@@ -51,8 +51,8 @@
                                             <th>Cover</th>
                                             <th>Estado</th>
                                             <th class="th-sm">Fecha </th>
-                                            <th ></th>
-                                            <th ></th>
+                                            <th></th>
+                                            <th></th>
                                           </tr>
                                         </thead>
                                         <tbody>
