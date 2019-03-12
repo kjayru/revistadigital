@@ -654,7 +654,7 @@ function categorias(valor){
         }else{
             evento = '';
         }
-        opsel+='<option value="'+e.slug+'" '+evento+'>'+e.nombre+'</option>';
+        opsel+='<option value="'+e.slug+'"'+evento+'>'+e.nombre+'</option>';
     });
     opsel+= '</select>';
     return opsel;

@@ -20,6 +20,7 @@ class ReportController extends Controller
      */
     public function index()
     {
+
         return view('admin.reporte.index');
     }
 
@@ -106,7 +107,10 @@ class ReportController extends Controller
         return view('admin.reporte.reportCategory');
     }
     public function reportLabel(){
-
-        return view('admin.reporte.reportLabel');
+        $label = \DB::table('labels')
+                        ->select('label')
+                        ->distinct()->get();
+       
+        return view('admin.reporte.reportLabel',['labels'=>$label]);
     }   
 }
