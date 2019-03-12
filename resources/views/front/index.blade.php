@@ -13,19 +13,19 @@
                                 <div class="col-lg-5">
                                     <div class="row">
                                         <div class="col-lg-4 col-4 text-center">
-                                            <a href="https://play.google.com/store/apps/details?id=com.claroperu.puntodeventa" class="enlace_ver" target="_blank">
+                                            <a href="https://play.google.com/store/apps/details?id=com.claroperu.puntodeventa" data-label="app-puntodeventa" class="enlace_ver" target="_blank">
                                                 <img src="/assets/icon_mkt_app.svg" alt="" class="img-fluid">
                                                 <span class="tit-icon">App</span>
                                             </a>
                                         </div>
                                         <div class="col-lg-4 col-4 text-center">
-                                            <a href="https://api.whatsapp.com/send?phone=051993000488&text=%20" class="enlace_ver" target="_blank">
+                                            <a href="https://api.whatsapp.com/send?phone=051993000488&text=%20" data-label="enlace-whasttapp" class="enlace_ver" target="_blank">
                                                 <img src="/assets/icon_mkt_whatsapp.svg" alt="" class="img-fluid">
                                                 <span class="tit-icon">WhatsApp</span>
                                             </a>
                                         </div>
                                         <div class="col-lg-4 col-4 text-center">
-                                            <a href="mailto:mktclaro@claro.com.pe" class="enlace_ver">
+                                            <a href="mailto:mktclaro@claro.com.pe" class="enlace_ver" data-label="enlace-mail"> 
                                                 <img src="/assets/icon_mkt_mail.svg" alt="" class="img-fluid">
                                                 <span class="tit-icon">Mail</span>
                                             </a>

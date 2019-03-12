@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\File;
 use App\Category;
 use App\Label;
@@ -48,11 +49,14 @@ class HomeController extends Controller
 
     
     public function reporte(Request $request){
-       
+        
         $label = new Label();
         $label->label = $request->label;
         $label->ip =  $request->ip();
-       // $label->user_id =  $id;
+        
+       if (Auth::id()) {
+          $label->user_id =  Auth::id();
+         }
         $label->save();
 
         return response()->json(['rpta'=>'ok']);

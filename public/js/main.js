@@ -35,10 +35,13 @@ if(isMobile.iOS()){
     
 };
 
-/*
-$(document).on('click','a',function(e){
 
+$(document).on('click','a',function(e){
+  
+  
  let label = $(this).data('label');
+ let thisblank = $(this).attr('target');
+
   if(label){
     e.preventDefault();
     let token = $("#fr-front input[name='_token']").val();
@@ -50,15 +53,22 @@ $(document).on('click','a',function(e){
         type:'POST',
         dataType:'json',    
         data:datasend,
+        
         success:function(response){
-          
-          window.location.href=url;
+          if(thisblank=='_blank'){
+            
+            var win = window.open(url, '_blank');
+            win.focus();
+          }else{
+              window.location.href=url;
+          }
           
         }
       });
+      
   }else{
     return true;
   }
  
 
-});*/
+});
