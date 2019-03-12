@@ -19,7 +19,7 @@
                         <form class="formulario" method="POST" action="{{ route('password.email') }}">
                                 @csrf
                                 <h2>Olvidé mi contraseña</h2>
-                                <p>Ingresa tu e-mail para enviarte una nueva contraseña</p>
+                                <p>Ingresa tu e-mail para iniciar el proceso de recuperación de contraseña</p>
                                 <div class="content-form">
                                     <div class="form-group">
                                         <label for="email">{{ __('E-Mail') }}</label>

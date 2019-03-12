@@ -72,7 +72,6 @@
                                                     <td>{{ @$cat->updated_at}}</td>
                                                     <td class="text-center"><a href="/admin/categories/{{ @$cat->id }}/edit" class="btn btn-success  btn-editar">Editar</a></td>
                                                     <td class="text-center"><a href="#"  data-id="{{ @$cat->id }}" data-toggle="modal" data-target="#deluser" class="btn btn-danger btn-category-delete">Borrar</a>
-                                                       
                                                     </td>
                                                 </tr>
                                             @endforeach
