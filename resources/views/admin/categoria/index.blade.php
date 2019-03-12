@@ -61,17 +61,7 @@
                                                     <td>{{ $k+1 }}</td>
                                                     <td>{{ $cat->name }}</td>
                                                     <td>{{ $cat->slug}}</td>
-<<<<<<< HEAD
-                                                    <td><img src="/storage/{{ @$cat->cover }}" class="img-fluid" style="max-width:100px"></td>
-                                                    <td class="text-center">@if(@$cat->status==1) <i class="fas fa-circle text-success"></i>  @else <i class="text-danger fas fa-circle"></i> @endif</td>
-                                                    <td>{{ @$cat->updated_at}}</td>
-                                                    <td class="text-center"><a href="/admin/categories/{{ @$cat->id }}/edit" class="btn btn-success  btn-editar">Editar</a></td>
-                                                    <td class="text-center"><a href="#"   class="btn btn-danger  btn-category-borrar">Borrar</a>
-                                                        <form action="/admin/categories/{{ @$cat->id }}" method="post" id="fr-category-delete" >
-                                                            <input type="hidden" name="_method" value="delete">
-                                                            @csrf
-                                                        </form>
-=======
+
                                                     <td>
                                                        @if(\App\Category::fileExist($cat->cover) ==true)
                                                        <img src="/storage/{{ @$cat->cover }}" class="img-fluid" style="max-width:100px">
@@ -83,8 +73,6 @@
                                                     <td>{{ @$cat->updated_at}}</td>
                                                     <td class="text-center"><a href="/admin/categories/{{ @$cat->id }}/edit" class="btn btn-success  btn-editar">Editar</a></td>
                                                     <td class="text-center"><a href="#"  data-id="{{ @$cat->id }}" data-toggle="modal" data-target="#deluser" class="btn btn-danger btn-category-delete">Borrar</a>
-                                                       
->>>>>>> 0ddec1b3917a150b62d525234880c3fa24062698
                                                     </td>
                                                 </tr>
                                             @endforeach
