@@ -9,9 +9,15 @@
 				<div class="row">
 					<div class="col-lg-6 mx-auto col-md-6 col-sm-12">
 
-                            <form method="POST" action="{{ route('password.update') }}">
-                                    @csrf
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
+
+                            <form method="POST" class="formulario" action="{{ route('password.update') }}">
+                                    @csrf
                                     <input type="hidden" name="token" value="{{ $token }}">
 
                                     <div class="form-group row">
@@ -52,7 +58,7 @@
 
                                     <div class="form-group row mb-0">
                                         <div class="col-md-6 offset-md-4">
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-primary btn-info btn-sm btn-ingresa">
                                                 {{ __('Reset Password') }}
                                             </button>
                                         </div>
