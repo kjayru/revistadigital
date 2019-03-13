@@ -40,17 +40,19 @@ header .navbar a .text-sesion{
 		display: block;
 		margin: 0 auto;
 	}
+	.bg-negro{
+		max-width: 100%;
+	}
+	.legal-tit-rv{
+		display: none;
+	}
 }
 .bg-negro{
 	background: #000;
 	max-width: 350px;
 	width: 100%;
 }
-@media screen and (max-width: 450px){
-	.bg-negro{
-		max-width: 100%;
-	}
-}
+
 .bg_menu{
 	position: fixed;
 	z-index: -1;
@@ -522,3 +524,8 @@ span.invalid-feedback {
     padding-top: 3px;
 }
 
+.main .container .row .col-7 span.h4{
+	display: block;
+	padding-top: 15px;
+	font-size: 22px;
+}

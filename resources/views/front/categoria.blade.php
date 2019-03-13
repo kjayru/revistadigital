@@ -53,25 +53,17 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-sm-6 col-6 pt-2 pb-2"><span class="h4">{{ @$cat->name }} </span></div>
-				<div class="col-md-6 col-sm-6 col-6 text-right pt-2 pb-2">
+                <div class="col-md-8 col-sm-8 col-7 pt-2 pb-2">
+                    <span class="h4">{{ @$cat->name }} </span>
+                    <p class="legal-tit-rv">{{ @cat->description }}</p>
+                </div>
+				<div class="col-md-4 col-sm-4 col-5 text-right pt-2 pb-2">
 
-					<!--
-					<a href="whatsapp://send?text=http://www.claro.com.pe/" class="ml-4" data-action="share/whatsapp/share"><img src="assets/icon-whatsapp.png" class="img-fluid"></a>
-
-					<a href="javascript:void(0);" data-action=”share/whatsapp/share” onclick="window.open(uw,&quot;gplusshare&quot;,&quot;toolbar=0,status=0,width=800,height=600&quot;);" rel="nofollow" title="Compartir en WhatsApp+"><img alt="Compartir en WhatsApp " class="lkdn btnwp-w" src="assets/icon-whatsapp.png" title="Compartir en WhatsApp " /></a>
-					<a href="whatsapp://send?text=http://www.claro.com.pe/" class="mr-2 btnwp-m" data-action="share/whatsapp/share"><img src="assets/icon-whatsapp.png" class="img-fluid"></a>
-
-
-					<a href="#" class="ml-4"><img src="assets/icon-whatsapp.png" class="img-fluid"></a> -->
-					<!--<a href=”fb-messenger://share/?link= https://www.facebook.com/AmericaMovilPeruSAC/”><img border="0" src="assets/icon-messenger.png"></a>-->
-					<!--<a href=""  class="ml-4" onclick="facebookShare()"  ><img border="0" src="assets/icon-messenger.png"></a>-->
+					
                     @if(@$slug->file_id)
                     <a href="/storage/{{ @$slug->file->path }}" target="_blank" class="btn btn-info">Descarga</a>
                     @endif
-					<script type="text/javascript">
-					//	window.open('fb-messenger://share?link=' + encodeURIComponent(link) + '&app_id=' + encodeURIComponent(app_id));
-					</script>
+					
 
 				</div>
 			</div>

@@ -28,8 +28,8 @@
 
                                 <div id="medios" class="list-group">
                                     <a class="list-group-item list-group-item-action active op-slider" href="#list-item-1">Slider</a>
-<!--                                    <a class="list-group-item list-group-item-action op-video" href="#list-item-3">Video</a>
-                                    <a class="list-group-item list-group-item-action op-imagen" href="#list-item-4">Imagenes</a>
+                                  <a class="list-group-item list-group-item-action op-video" href="#list-item-3">Video</a>
+    <!--                                  <a class="list-group-item list-group-item-action op-imagen" href="#list-item-4">Imagenes</a>
     -->
                                </div>
                             </div>
