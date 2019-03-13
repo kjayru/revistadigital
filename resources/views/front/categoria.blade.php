@@ -55,7 +55,7 @@
 			<div class="row">
                 <div class="col-md-8 col-sm-8 col-7 pt-2 pb-2">
                     <span class="h4">{{ @$cat->name }} </span>
-                    <p class="legal-tit-rv">{{ @cat->description }}</p>
+                    <p class="legal-tit-rv">{{ @$cat->description }}</p>
                 </div>
 				<div class="col-md-4 col-sm-4 col-5 text-right pt-2 pb-2">
 
