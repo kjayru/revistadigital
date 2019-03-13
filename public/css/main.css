@@ -419,6 +419,8 @@ footer{
 	opacity: 1;
 	transition: all linear 0.5s;
 	-webkit-transition: all linear 0.5s;
+	margin-right: 25px;
+    display: block;
 }
 .linkmodal:hover{
 	opacity: 0.7;
