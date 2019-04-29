@@ -21,7 +21,7 @@ class CreateUserFilesTable extends Migration
             $table->string('numdocumento')->nullable();
             $table->string('perfil')->nullable();
             $table->string('movil')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->string('region')->nullable();
             $table->string('departamento')->nullable();
             $table->string('provincia')->nullable();

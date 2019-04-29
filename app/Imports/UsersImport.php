@@ -142,8 +142,8 @@ class UsersImport implements ToCollection
            $rol->user_id = $usuario->id;
            $rol->save();
 
-           $data = ['message' => "Envio de registro"];
-           Mail::to($unico->email)->send(new TestEmail($data));
+         /*  $data = ['message' => "Envio de registro"];
+           Mail::to($unico->email)->send(new TestEmail($data));*/
 
         }
         echo "<pre>";
