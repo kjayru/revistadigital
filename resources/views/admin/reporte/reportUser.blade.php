@@ -29,7 +29,29 @@
                     <div class="card-body">
                         <div class="row justify-content-center mt-5 p-5">
 
-                            <canvas id="myChart"></canvas>
+                            <!--<canvas id="myChart"></canvas>-->
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <th>Usuario</th>
+                                  
+                                  <th>IP de acceso</th>
+                                  <th>Browser de acceso</th>
+                                  <th>Inicio de Sesión</th>
+
+                                </tr>
+                              </thead>
+                              <tbody>
+                              @foreach($sesiones as $ses)  
+                                <tr>
+                                  <td>{{ $ses->user->name }}</td>
+                                  <td>{{ $ses->ip_address }}</td>
+                                  <td>{{ $ses->user_agent }}</td>
+                                  <td>{{ $ses->last_activity}}</td>
+                                </tr>
+                              @endforeach
+                              </tbody>
+                            </table>
 
 
                         </div>

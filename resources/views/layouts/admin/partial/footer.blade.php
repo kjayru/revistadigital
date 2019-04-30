@@ -10,7 +10,7 @@
 
         <!--Copyright-->
         <div class="footer-copyright py-3 white">
-          © 2019 Copyright:
+                ©Copyright Claro Péru -   2019
 
 
       </footer>

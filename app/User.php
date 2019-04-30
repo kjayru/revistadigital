@@ -35,5 +35,9 @@ class User extends Authenticatable
         $usuarios = \App\User::all();
     }
 
+    public function sessions(){
+        return $this->hasMany(Session::class);
+    }
+
    
 }

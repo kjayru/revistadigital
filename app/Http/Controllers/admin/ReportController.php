@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Label;
+use App\Session as Sesion;
+
 class ReportController extends Controller
 {
     public function __construct()
@@ -19,7 +21,8 @@ class ReportController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+      
 
         return view('admin.reporte.index');
     }
@@ -99,8 +102,8 @@ class ReportController extends Controller
     }
 
     public function reportUser(){
-      
-        return view('admin.reporte.reportUser');
+        $sesiones = Sesion::all();
+        return view('admin.reporte.reportUser',['sesiones'=>$sesiones]);
     }
     public function reportCategory(){
         
