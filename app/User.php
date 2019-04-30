@@ -33,7 +33,7 @@ class User extends Authenticatable
     public static function existuser($email){
         $user = \App\User::where('email',$email)->count();
         $usuarios = \App\User::all();
-
-
     }
+
+   
 }
