@@ -31,11 +31,10 @@ class TestEmail extends Mailable
         $subject = 'Bienvenido a Revista digital Claro';
         $name = 'Soporte';
 
-        return $this->view('emails.test')
-                    ->from($address, $name)
-                    ->cc($address, $name)
-                    ->bcc($address, $name)
+        return $this->from($address, $name)
                     ->replyTo($address, $name)
-                    ->subject($subject);
+                    ->subject($subject)
+                    ->markdown('emails.test')
+                    ->with($this->data);
     }
 }

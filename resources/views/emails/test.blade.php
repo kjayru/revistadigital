@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-    <html lang="es">
-    	<head>
-    		<meta charset="utf-8">
-    	</head>
-    	<body>
-    		<h2>Bienvenido al sistema Revista Digital Claro</h2>
-            <p>Tus clave de acceso es:</p>
-            <p><strong>clarosecret</strong></p>
-            <p><a href="http://revistamkt.claro.com.pe/login" class="link">Ingresa al sistema</a>   </p>
-    	</body>
-    </html>
+@component('mail::message')
+
+    		Bienvenido al sistema Revista Digital Claroa<br>
+            Tus clave de acceso es:<br>
+            {{ $clave }}
+           
+            [Ingresa al sistema](http://revistamkt.claro.com.pe/login)
+
+@endcomponent

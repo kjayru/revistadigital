@@ -8,6 +8,8 @@ use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Support\Facades\Input;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestEmail;
 use \DB;
 use Hash;
 use Carbon\Carbon;
@@ -52,6 +54,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+
         $usuario =  new User();
         $usuario->name = $request->name;
         $usuario->lastname = $request->lastname;
@@ -65,9 +71,9 @@ class UserController extends Controller
         $usuario->provincia = $request->provincia;
         $usuario->distrito = $request->distrito;
         $usuario->canal = $request->canal;
-        $usuario->email = $request->email;
+        //$usuario->email = $request->email;
 
-        //$usuario->password = Hash::make($request->password);
+        $usuario->password = Hash::make($request->password);
 
 
         $usuario->save();
@@ -75,8 +81,10 @@ class UserController extends Controller
         $role = new RoleUser();
         $role->user_id = $usuario->id;
         $role->role_id = $request->role_id;
-
         $role->save();
+
+        $data = ['message' => "Envio de registro",'clave'=>$request->password];
+        Mail::to($request->email)->send(new TestEmail($data));
 
          return redirect()->route('users.index')
          ->with('info','Usuario creado satisfactoriamente');
@@ -120,6 +128,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $usuario =   User::find($id);
 
         $usuario->name = $request->name;
@@ -137,9 +146,9 @@ class UserController extends Controller
         $usuario->canal = $request->canal;
         $usuario->email = $request->email;
 
-        /*if($request->password){
+        if($request->password){
            $usuario->password = Hash::make($request->password);
-        }*/
+        }
 
         $usuario->save();
 
