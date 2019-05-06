@@ -1,7 +1,7 @@
 @extends('layouts.front.app')
 @section('content')
 <div class="main">
-
+        
         <section class="mkt">
                 <div class="container">
                     <div class="row">

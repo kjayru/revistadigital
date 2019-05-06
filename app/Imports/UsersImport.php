@@ -116,7 +116,7 @@ class UsersImport implements ToCollection
         foreach($userchilds as  $unico){
 
            // $unico = UserFile::where('email',$user)->first();
-
+            $npass = User::ramdowpass(8);
             $usuario = new User();
 
             $usuario->name  = $unico->name;
@@ -131,7 +131,7 @@ class UsersImport implements ToCollection
             $usuario->provincia = $unico->provincia;
             $usuario->distrito = $unico->distrito;
             $usuario->canal = $unico->canal;
-            $usuario->password = Hash::make('clarosecret');
+            $usuario->password = Hash::make($npass);
 
             $usuario->save();
 
@@ -142,7 +142,7 @@ class UsersImport implements ToCollection
            $rol->user_id = $usuario->id;
            $rol->save();
 
-           $data = ['message' => "Envio de registro",'clave'=>'clarosecret'];
+           $data = ['message' => "Envio de registro",'clave'=>$npass];
            Mail::to($unico->email)->send(new TestEmail($data));
 
         }
