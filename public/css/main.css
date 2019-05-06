@@ -531,3 +531,32 @@ span.invalid-feedback {
 	padding-top: 15px;
 	font-size: 22px;
 }
+
+.banner_rd1 {
+	width: 100%;
+	height: 480px;
+	background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Desktop_1920x480.jpg") no-repeat center center;
+	background-size: cover;
+	position: relative;
+	display: block; }
+	@media screen and (max-width: 1366px) {
+		.banner_rd1 {
+			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Desktop_1920x480.jpg") no-repeat center top;
+			background-size: cover;
+			height: 365px; } }
+	@media screen and (max-width: 1024px) {
+		.banner_rd1 {
+			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Tablet_H_1024x342.jpg") no-repeat center top;
+			height: 342px; } }
+	@media screen and (max-width: 768px) {
+		.banner_rd1 {
+			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Tablet_V_768x384.jpg") no-repeat center center;
+			height: 384px; } }
+	@media screen and (max-width: 640px) {
+		.banner_rd1 {
+			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Movil_V_570x190.jpg") no-repeat center center;
+			height: 190px; } }
+	@media screen and (max-width: 480px) {
+		.banner_rd1 {
+			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Movil_400x400.jpg") no-repeat center center;
+			height: 400px; } }

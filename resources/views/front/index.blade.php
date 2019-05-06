@@ -56,8 +56,8 @@
         </section>
 
 
-
-        <section class="banner">
+        <section class="banner_rd1"></section>
+        <!--<section class="banner">
            @if(@$slider->items)
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
@@ -96,8 +96,9 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-        </section>
-            @endif
+                 @endif
+        </section>-->
+           
 
         
         @if(count($videos)>0)
