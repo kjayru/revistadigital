@@ -136,6 +136,12 @@ a {
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #008fa5;
+  border-color: #008fa5;
+}
 .btn-right{
     float:right;
 }
