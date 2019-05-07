@@ -56,6 +56,9 @@
 
                         </div>
                     </div>
+                    <div class="card-footer">
+                      {{ $sesiones->links() }}
+                    </div>
 
                 </div>
               <!--/.Card-->
