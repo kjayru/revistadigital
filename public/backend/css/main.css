@@ -121,6 +121,11 @@ li.indicador.active{
     height: 10px;
     background: #008fa5;
 }
+a {
+  color: #008fa5;
+  text-decoration: none;
+  background-color: transparent;
+}
 .btn-right{
     float:right;
 }
