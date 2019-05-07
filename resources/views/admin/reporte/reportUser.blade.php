@@ -44,7 +44,7 @@
                               <tbody>
                               @foreach($sesiones as $ses)  
                                 <tr>
-                                  <td>{{ $ses->user->name }}</td>
+                                  <td>{{@$ses->user->name }} {{@$ses->user->lastname }}</td>
                                   <td>{{ $ses->ip_address }}</td>
                                   <td>{{ $ses->user_agent }}</td>
                                   <td>{{ $ses->last_activity}}</td>
