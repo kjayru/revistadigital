@@ -103,7 +103,7 @@ class ReportController extends Controller
 
     public function reportUser(){
         
-        $sesiones = Sesion::OrderBy('id','desc')->paginate(50);
+        $sesiones = Sesion::OrderBy('id','desc')->paginate(10);
        
         return view('admin.reporte.reportUser',['sesiones'=>$sesiones]);
     }
