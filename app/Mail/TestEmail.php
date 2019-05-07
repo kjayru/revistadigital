@@ -29,7 +29,7 @@ class TestEmail extends Mailable
     {
         $address = 'support@mktclaro.com.pe';
         $subject = 'Bienvenido a Revista digital Claro';
-        $name = 'Soporte';
+        $name = 'Claro soporte';
 
         return $this->from($address, $name)
                     ->replyTo($address, $name)
