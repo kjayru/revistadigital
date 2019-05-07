@@ -274,21 +274,13 @@ footer{
 
 /*--menu--*/
 .main-nav {
-	/*background: darkslateblue;*/
+	
 	height: 57px;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 }
-/*.menu {
-	transition: all 0.5s;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	display: flex;
-	opacity: 1;
-	visibility: visible;
-}*/
+
 .menu__item {
 	margin: 0 15px;
 }
@@ -452,9 +444,7 @@ footer{
 	}
 
 }
-.salto{
 
-}
 @media screen and (max-width: 769px) {
 	.salto{
 		display: block;
