@@ -1,6 +1,6 @@
 @component('mail::message')
 
-    		Bienvenido al sistema Revista Digital Claroa<br>
+    		Bienvenido al sistema Revista Digital Claro<br>
             Tus clave de acceso es:<br>
             {{ $clave }}
            
