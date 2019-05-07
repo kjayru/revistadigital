@@ -39,7 +39,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6 mb-r">
+                            <!--<div class="col-xl-3 col-md-6 mb-r">
                                 <div class="card card-cascade cascading-admin-card p-3 text-center">
                                     <a href="/admin/reports/categories" class="card-link text-center">
                                         <p class="card-text">
@@ -48,7 +48,7 @@
                                        <p>Categorias</p>
                                     </a>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="col-xl-3 col-md-6 mb-r">
                                 <div class="card card-cascade cascading-admin-card p-3 text-center">
                                     <a href="/admin/reports/label" class="card-link text-center">
