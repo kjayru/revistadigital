@@ -95,7 +95,10 @@
                                                 </tbody>
                                             </table>
 
-                                            {{ $users->links() }}
+                                           
+                                </div>
+                                <div class="box-footer">
+                                  {{ $users->links() }}
                                 </div>
                             </div>
                         </div>
