@@ -58,6 +58,9 @@ a.logo-wrapper.waves-effect {
     background-color: #e23230;
     padding: 0 1.5rem 1.5rem;
 }
+.bg-danger {
+  background-color: #e23230 !important;
+}
 
 a.btn-floating.btn-lg.blue.waves-effect.waves-light {
     border-radius: 50%;
