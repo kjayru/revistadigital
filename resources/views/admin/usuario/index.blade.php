@@ -86,9 +86,9 @@
                                                               @endcan
                                                             </td>
                                                             <td>
-                                                              @can('users.destroy')
+                                                             <!-- @can('users.destroy')
                                                                 <button type="button" data-id="{{ $user->id }}" class="btn btn-danger  btn-borrar">Borrar</button>
-                                                              @endcan
+                                                              @endcan-->
                                                             </td>
                                                         </tr>
                                                     @endforeach
