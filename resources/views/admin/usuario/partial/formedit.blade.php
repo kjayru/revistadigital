@@ -67,43 +67,17 @@
 
     
 
-    <div class="md-form form-group">
-            <select name="canal" id="canal" class="form-control">
-                    <option value="">Canal</option>
-                    <option value="{{@$user->canal}}"  @if(@$user->canal =='canal') selected @endif>{{@$user->canal}}</option>
-            </select>
-            
-    </div>
+        <div class="md-form form-group">
+                <select name="canal" id="canal" class="form-control">
+                        <option value="">Canal</option>
+                        <option value="{{@$user->canal}}"  @if(@$user->canal =='canal') selected @endif>{{@$user->canal}}</option>
+                </select>
+                
+        </div>
 
-    @can('users.create')
+ 
+
     
-    <div class="row md-form form-group">
-        <label for="password" class="col-md-3 col-form-label text-md-left">{{ __('Password') }}</label>
-
-        <div class="col-md-9">
-            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-            @if ($errors->has('password'))
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
-            @endif
-        </div>
-    </div>
-
-    <div class="row md-form form-group">
-        <label for="password-confirm" class="col-md-3 col-form-label text-md-left">{{ __('Confirm Password') }}</label>
-
-        <div class="col-md-9">
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-        </div>
-    </div>
-
-    @endcan
-
-    <div>
-
-    </div>
 
     <div class="md-form form-group">
         <input type="submit" class="btn btn-danger btn-page-save-edit" value="Guardar" >

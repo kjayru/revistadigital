@@ -40,7 +40,7 @@
 
                                         @csrf
                                         @method('PUT')
-                                        @include('admin.usuario.partial.form')
+                                        @include('admin.usuario.partial.formedit')
                                     </form>
                                 </div>
                             </div>
