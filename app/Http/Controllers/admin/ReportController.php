@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Label;
 use App\Session as Sesion;
-
+use \DB;
 class ReportController extends Controller
 {
     public function __construct()
