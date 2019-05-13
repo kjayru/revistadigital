@@ -984,23 +984,37 @@ $(".btn-file-delete").on("click", function(){
     $("#fr-delete-file").attr('action','/admin/historials/'+id);
 });
   
+try {
+    
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
 
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'bar',
+        // The data for our dataset
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: "My First dataset",
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+        },
 
-    // The data for our dataset
-    data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July"],
-        datasets: [{
-            label: "My First dataset",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-    },
+        // Configuration options go here
+        options: {}
+    });
+} catch (error) {
+    console.log('no inicializado');
+}
 
-    // Configuration options go here
-    options: {}
+$(document).on('click',".btn-modificar",function(e){
+    e.preventDefault();
+    
+    let id = $(this).data('id');
+    let project_id = $(this).data('projectid');
+    let row = $(this).data('row');
+    
+    $("#modificarItemLabel").html('Elemento '+row);
 });

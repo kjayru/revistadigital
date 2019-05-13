@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Slider;
 use App\Item;
+use App\Category;
+
+
 class SliderController extends Controller
 {
     public function __construct()
@@ -29,7 +32,8 @@ class SliderController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.sliders.create',['categories'=>$categories]);
     }
 
     /**
@@ -41,11 +45,19 @@ class SliderController extends Controller
     public function store(Request $request)
     {
 
+        $request->validate([
+            'nombre' => 'required',
+         
+        ], [
+            'nombre.required' => 'Complete este campo',
+            
+        ]);
+
         $slider = new Slider();
 
         $slider->title = $request->nombre;
         $slider->save();
-
+/*
         $elementos = count($request->file('imagen'));
 
 
@@ -83,9 +95,10 @@ class SliderController extends Controller
                 $image->slider_id = $slider->id;
                 $image->save();
 
-            }
+            }*/
 
             return response()->json(['rpta'=>'ok']);
+        
     }
 
     /**
@@ -96,7 +109,8 @@ class SliderController extends Controller
      */
     public function show($id)
     {
-        //
+       $items = Item::where('slider_id',$id)->get();
+        return view('admin.sliders.show',['items'=>$items,'slider_id'=>$id]);
     }
 
     /**
@@ -107,9 +121,10 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        $slider = Slider::where('id',$id)->with('items')->get();
-
-        return response()->json($slider);
+        $slider = Slider::where('id',$id)->first();
+        //$categories = Category::all();
+       return response()->json($slider);
+       // return view('admin.sliders.index',['slider'=>$slider,'categories'=>$categories]);
     }
 
     /**

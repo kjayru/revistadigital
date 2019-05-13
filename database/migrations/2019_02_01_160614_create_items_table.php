@@ -20,6 +20,13 @@ class CreateItemsTable extends Migration
             $table->integer('hidetitle')->nullable();
             $table->string('background')->nullable();
             $table->string('backmovil')->nullable();
+
+            $table->string('max1366')->nullable();
+            $table->string('max1024')->nullable();
+            $table->string('max768')->nullable();
+            $table->string('max640')->nullable();
+            $table->string('max480')->nullable();
+
             $table->string('description')->nullable();
             $table->string('subtitle')->nullable();
             $table->string('url')->nullable();

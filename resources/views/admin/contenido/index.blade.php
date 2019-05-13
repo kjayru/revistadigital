@@ -37,7 +37,7 @@
                                 <div class="panel1">
                                     <h2>Sliders</h2>
                                     <div class="col-md-12 text-right">
-                                        <a href="#" class="btn btn-primary ml-auto btn-crear-slider" data-toggle="modal" data-target="#canvaslider">Crear</a>
+                                        <a href="/admin/sliders/create"  data-toggle="modal" data-target="#canvaslider" class="btn btn-primary ml-auto btn-crear-slider">Crear</a>
                                     </div>
                                         <table id="tb-sliders" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                             <thead>
@@ -69,7 +69,8 @@
                                                                         </span>
                                                                 </div>
                                                         </td>
-                                                        <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-success btn-slider-editar">editar</button></td>
+                                                        <td><a  href="#" data-id="{{ @$cat->id }}" data-toggle="modal" data-target="#modificarItem" class="btn btn-success btn-slider-editar">editar</a></td>
+                                                        <td><a  href="/admin/sliders/{{@$cat->id}}" data-id="{{ @$cat->id }}"   class="btn btn-success btn--slider-editar">Implementar</a></td>
                                                         <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-slider-borrar">Borrar</button></td>
                                                     </tr>
                                                 @endforeach
@@ -208,87 +209,14 @@
                     <input type="hidden" name="slider_id" id="slider_id">
                     <!-- Add to Cart -->
                     <div class="card-title">
-                            <div class="form-group">
-                                    <input type="text" name="nombre" id="form1" class="form-control" placeholder="Nombre Slide" required>
-
-                            </div>
+                         NUEVO SLIDER  
                     </div>
                     <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" name="nombre" id="form1" class="form-control" placeholder="Nombre Slide" required>
 
-                        <div class="row items">
-                            <div class="bitem">
-                                <div class="col-md-11">
-                                    <div class="row">
-                                        <div class="col-md-5 slide-image">
-                                              <div class="row">
-                                                  <div class="col-6"> <figure class="figure">
-                                                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="img-fluid z-depth-1"  style="max-width:60px">
-                                                  </figure></div>
-                                                <div class="col-6">
-                                                  <figure class="figure">
-                                                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/8-col/img%20(73).jpg" class="img-fluid z-depth-1"  style="max-width:30px">
-                                                  </figure>
-                                                </div>
-                                                <div class="col-6">
-                                                  <div class="file-field">
-                                                    <label for="">Seleccione imagen desktop</label>
-                                                      <input type="file"  name="imagen[]" class="form-control preimage"  accept="image/png, image/jpeg" required>
-                                                  </div>
-                                                
-                                                </div>
-                                                <div class="col-6">
-                                                  <div class="file-field">
-                                                    <label for="">Seleccione imagen movil</label>
-                                                      <input type="file"  name="imagen[]" class="form-control preimage"  accept="image/png, image/jpeg" >
-                                                  </div>
-                                                
-                                                </div>
-                                               
-                                              </div>
-                                        </div>
-                                        
-                                        <div class="col-md-7">
-
-                                            <div class="md-form form-group">
-                                                    <input type="text" name="texto[]" id="form2" placeholder="Texto" class="form-control" required>
-
-                                            </div>
-
-                                            <div class="form-row mb-4 form-group">
-                                                <div class="col-md-10 md-form selectorurl">
-
-
-                                                            <select name="url[]" class="form-control">
-                                                                <option value="">Seleccione</option>
-                                                                @foreach($categories as $cat)
-                                                                <option value="{{ $cat->slug }}">{{ $cat->name }}</option>
-                                                                @endforeach
-                                                            </select>
-
-
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div class="form-check">
-                                                        <input type="checkbox"  name="nuevaVentana[]" value="2" class="form-check-input urlexterna" id="f1">
-                                                        <label class="form-check-label" for="f1">Externo</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="md-form form-group">
-                                                <div class="form-check">
-                                                        <input type="checkbox" name="estado[]" value="2" class="form-check-input" id="form4">
-                                                        <label class="form-check-label" for="form4">Ocultar</label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-1">
-                                    <a href="#" class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="top" title="Eliminar slide"><i class="fas fa-minus-circle"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                        
 
                     </div>
                     <div class="card-footer">

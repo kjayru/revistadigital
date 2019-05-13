@@ -231,6 +231,32 @@ Route::group(['prefix' => 'admin'],function(){
      ->middleware('permission:sliders.edit');
 
 
+
+      //items
+      Route::post('items/store','admin\ItemController@store')->name('items.store')
+      ->middleware('permission:items.create');
+ 
+      Route::get('items','admin\ItemController@index')->name('items.index')
+      ->middleware('permission:items.index');
+ 
+      Route::get('items/create','admin\ItemController@create')->name('items.create')
+      ->middleware('permission:items.create');
+ 
+      Route::put('items/{item}','admin\ItemController@update')->name('items.update')
+      ->middleware('permission:items.edit');
+ 
+      Route::get('items/{item}','admin\ItemController@show')->name('items.show')
+      ->middleware('permission:items.show');
+ 
+      Route::delete('items/{item}','admin\ItemController@destroy')->name('items.destroy')
+      ->middleware('permission:items.destroy');
+ 
+      Route::get('items/{item}/edit','admin\ItemController@edit')->name('items.edit')
+      ->middleware('permission:items.edit');
+ 
+     
+
+
      //videos
      Route::post('videos/store','admin\VideoController@store')->name('videos.store')
      ->middleware('permission:videos.create');
@@ -241,16 +267,16 @@ Route::group(['prefix' => 'admin'],function(){
      Route::get('videos/create','admin\VideoController@create')->name('videos.create')
      ->middleware('permission:videos.create');
 
-     Route::put('videos/{slider}','admin\VideoController@update')->name('videos.update')
+     Route::put('videos/{video}','admin\VideoController@update')->name('videos.update')
      ->middleware('permission:videos.edit');
 
-     Route::get('videos/{slider}','admin\VideoController@show')->name('videos.show')
+     Route::get('videos/{video}','admin\VideoController@show')->name('videos.show')
      ->middleware('permission:videos.show');
 
-     Route::delete('videos/{slider}','admin\VideoController@destroy')->name('videos.destroy')
+     Route::delete('videos/{video}','admin\VideoController@destroy')->name('videos.destroy')
      ->middleware('permission:videos.destroy');
 
-     Route::get('videos/{slider}/edit','admin\VideoController@edit')->name('videos.edit')
+     Route::get('videos/{video}/edit','admin\VideoController@edit')->name('videos.edit')
      ->middleware('permission:videos.edit');
 
      Route::post('videos/destacado','admin\VideoController@destacar')->name('videos.destacado')
