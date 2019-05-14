@@ -13,7 +13,7 @@
                     <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
                             <li class="breadcrumb-item"><a href="/admin/contents#sliders">Slider</a></li>
-                            <li class="breadcrumb-item"><a href="/admin/slider/{{$slider_id}}">Items</a></li>
+                            <li class="breadcrumb-item"><a href="/admin/sliders/{{$slider_id}}">Items</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Crear Item</li>
       
                           </ol>
@@ -44,21 +44,21 @@
                     <!-- Default box -->
                     <div class="box">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Item</h3>
+                            <h3 class="box-title">Item Slider</h3>
                         </div>
 
                         <div class="box-body">
                         
                             <fieldset>
-                                <legend>Datos de Item</legend>
+                                <legend>Datos slide</legend>
                                 <form action="/admin/items/store" method="post">
                                     @csrf
                                     <input type="hidden" name="slider_id" value="{{$slider_id}}">
-                                    @include('admin.sliders.form.datos')
+                                    @include('admin.items.form.datos')
                                 </form>
                             </fieldset>     
 
-                           @include('admin.sliders.form.tablanew')
+                           @include('admin.items.form.tablanew')
                         </div>
                         <!-- /.box-body -->
                     </div>

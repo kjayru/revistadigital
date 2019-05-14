@@ -30,20 +30,20 @@
     <div class="row  form-group">
             <label for="url" class="col-md-2 col-form-label">URL</label>
             <div class="col-md-5 md-form selectorurl">
-            @if($item->externa_url==2)
+            @if(@$item->externa_url==2 || empty(@$item->externa_url) )
                 <select name="url" class="form-control">
                     <option value="">Seleccione</option>
                     @foreach($categories as $cat)
-                    <option value="{{ $cat->slug }}" @if($cat->id==$item->url) required @endif>{{ $cat->name }}</option>
+                    <option value="{{ $cat->slug }}" @if($cat->id==@$item->url) required @endif>{{ $cat->name }}</option>
                     @endforeach
                 </select>
             @else
-             <input type="text" name="url[]" id="form3" value="{{@$item->url}}" placeholder="http://www.claro.com.pe" class="form-control" required="">
+             <input type="text" name="url" id="form3" value="{{@$item->url}}" placeholder="http://www.claro.com.pe" class="form-control" required="">
             @endif
             </div>
             <div class="col-md-2">
                 <div class="form-check">
-                    <input type="checkbox"  name="nuevaVentana" value="2" class="form-check-input urlexterna" @if($item->externa_url==2) checked @endif  id="f1">
+                    <input type="checkbox"  name="nuevaVentana" value="2" class="form-check-input urlexterna" @if(@$item->externa_url==2) checked @endif  id="f1">
                     <label class="form-check-label" for="f1">Externo</label>
                 </div>
             </div>
@@ -53,7 +53,7 @@
     <div class="row form-group">
             <label for="estado" class="col-md-2 col-form-label">Estado</label>
             <div class="form-check">
-                    <input type="checkbox" name="estado" value="2" class="form-check-input" @if($item->state==2) cheked @endif id="form4">
+                    <input type="checkbox" name="estado" value="2" class="form-check-input" @if(@$item->state==2) cheked @endif id="form4">
                     <label class="form-check-label" for="form4">Ocultar</label>
             </div>
 

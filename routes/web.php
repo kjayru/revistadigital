@@ -254,7 +254,9 @@ Route::group(['prefix' => 'admin'],function(){
       Route::get('items/{item}/edit','admin\ItemController@edit')->name('items.edit')
       ->middleware('permission:items.edit');
  
-     
+      Route::put('items/elementos/{item}','admin\ItemController@elementosUpdate')->name('items.elementos')
+      ->middleware('permission:items.edit');
+      
 
 
      //videos

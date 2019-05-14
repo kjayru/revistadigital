@@ -140,7 +140,7 @@ class SliderController extends Controller
         $slider->title = $request->nombre;
         $slider->save();
 
-        $elementos = count($request->texto);
+       /* $elementos = count($request->texto);
 
             for ($k=0; $k < $elementos; $k++) {
                 if(isset($request->item_id[$k])){
@@ -194,7 +194,7 @@ class SliderController extends Controller
                 $image->save();
 
             }
-
+            */
             return response()->json(['rpta'=>'ok']);
     }
 

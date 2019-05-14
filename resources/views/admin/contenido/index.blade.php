@@ -69,7 +69,7 @@
                                                                         </span>
                                                                 </div>
                                                         </td>
-                                                        <td><a  href="#" data-id="{{ @$cat->id }}" data-toggle="modal" data-target="#modificarItem" class="btn btn-success btn-slider-editar">editar</a></td>
+                                                        <td><a  href="#" data-id="{{ @$cat->id }}"  class="btn btn-success btn-slider-editar">editar</a></td>
                                                         <td><a  href="/admin/sliders/{{@$cat->id}}" data-id="{{ @$cat->id }}"   class="btn btn-success btn--slider-editar">Implementar</a></td>
                                                         <td><button type="button" data-id="{{ @$cat->id }}" class="btn btn-danger  btn-slider-borrar">Borrar</button></td>
                                                     </tr>

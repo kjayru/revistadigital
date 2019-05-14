@@ -13,7 +13,7 @@
                     <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="/admin">Inicio</a></li>
                       <li class="breadcrumb-item"><a href="/admin/contents#sliders">Slider</a></li>
-                      <li class="breadcrumb-item"><a href="/admin/slider/{{$slider_id}}">Items</a></li>
+                      <li class="breadcrumb-item"><a href="/admin/sliders/{{$item->slider->id}}">Items</a></li>
                       <li class="breadcrumb-item active" aria-current="page">Item Detalles</li>
 
                     </ol>
@@ -53,7 +53,7 @@
                                 <legend>Datos de Slider</legend>
                                 <form action="/admin/items/{{$item->id}}" method="post">
                                     @csrf
-                                    <input type="hidden" name="slider_id" value="{{$slider_id}}">
+                                    <input type="hidden" name="slider_id" value="{{$item->slider->id}}">
                                     <input type="hidden" name="_method" value="PUT">
                                     @include('admin.items.form.datos')
                                 </form>
@@ -106,9 +106,11 @@
     <div class="modal fade" id="modificarItem" tabindex="-1" role="dialog" aria-labelledby="modificarItemLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <form action="{{route('items.update',['id'=>$item->id])}}" enctype="multipart/form-data" method="POST">
+            <form action="{{route('items.elementos',['id'=>$item->id])}}"  class="form-item" enctype="multipart/form-data" method="POST">
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="row" value="">
+                <input type="hidden" name="slider_id" value="{{$slider_id}}">
                 <div class="modal-header">
                 <h5 class="modal-title" id="modificarItemLabel">Imagen</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

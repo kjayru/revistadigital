@@ -82,7 +82,7 @@ $(document).on('click',".btn-borrar-slider-edit",function(e){
 
 $(document).on('change','.urlexterna',function(e){
     if($(this)[0].checked){
-        $(this).parent().parent().parent().children('.selectorurl').html('<input type="text" name="url[]" id="form3" placeholder="http://www.claro.com.pe" class="form-control" required>');
+        $(this).parent().parent().parent().children('.selectorurl').html('<input type="text" name="url" id="form3" placeholder="http://www.claro.com.pe" class="form-control" required>');
     }else{
         opsel = categorias();
 
@@ -93,6 +93,7 @@ $(document).on('change','.urlexterna',function(e){
 
 $(".btn-slider-editar").on('click',function(e){
     e.preventDefault();
+    console.log("evento");
     let id = $(this).data('id');
     $.ajax({
         url:'/admin/sliders/'+id+'/edit',
@@ -103,15 +104,15 @@ $(".btn-slider-editar").on('click',function(e){
             //open modal
             //editslider(imagen,texto,nuevaVentana,url,estado)
             $("#canvaslider .product-name").html("Editar Slider");
-            $("#frm-items #slider_id").val(response[0].id);
+            $("#frm-items #slider_id").val(response.id);
             $("#frm-items input[name='_method']").val('PUT');
-            $("#frm-items input[name='nombre']").val(response[0].title);
+            $("#frm-items input[name='nombre']").val(response.title);
 
-            $("#frm-items .items").html('');
+           /* $("#frm-items .items").html('');
             $.each(response[0].items,function(i,e){
 
                 editslider(e.background,e.backmovil,e.title,e.hidetitle,e.external_url,e.url,e.description,e.state,e.id)
-            })
+            })*/
             $("#canvaslider").modal('show');
         }
     });
@@ -879,40 +880,45 @@ $(document).on('click',".bt-movil",function(e){
    
 });
 
-
-
-tinymce.init({
-    menubar: false,
-    selector: '#editor-container',
-    //skin: 'voyager',
-    min_height: 300,
-    resize: 'vertical',
-
-    plugins: 'a11ychecker advcode formatpainter linkchecker media mediaembed pageembed permanentpen powerpaste tinycomments tinydrive tinymcespellchecker',
-    toolbar: 'a11ycheck code formatpainter insertfile pageembed permanentpen tinycomments',
-    tinycomments_mode: 'embedded',
-    tinycomments_author: 'Author name',
+try {
+    tinymce.init({
+        menubar: false,
+        selector: '#editor-container',
+        //skin: 'voyager',
+        min_height: 300,
+        resize: 'vertical',
     
-    extended_valid_elements: 'span,input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick]',
-    
-    toolbar: 'styleselect bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image table youtube giphy | code',
-    convert_urls: false,
-    image_caption: true,
-    image_title: true,
-    verify_html: false,
-    paste_word_valid_elements: "b,strong,i,em,u,h1,h2,h3,h4,ol,ul,li",
-    content_css: '/css/main.css',
-    init_instance_callback: function(editor) {
-        if (typeof tinymce_init_callback !== "undefined") {
-            tinymce_init_callback(editor);
+        plugins: 'a11ychecker advcode formatpainter linkchecker media mediaembed pageembed permanentpen powerpaste tinycomments tinydrive tinymcespellchecker',
+        toolbar: 'a11ycheck code formatpainter insertfile pageembed permanentpen tinycomments',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        
+        extended_valid_elements: 'span,input[id|name|value|type|class|style|required|placeholder|autocomplete|onclick]',
+        
+        toolbar: 'styleselect bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist outdent indent | link image table youtube giphy | code',
+        convert_urls: false,
+        image_caption: true,
+        image_title: true,
+        verify_html: false,
+        paste_word_valid_elements: "b,strong,i,em,u,h1,h2,h3,h4,ol,ul,li",
+        content_css: '/css/main.css',
+        init_instance_callback: function(editor) {
+            if (typeof tinymce_init_callback !== "undefined") {
+                tinymce_init_callback(editor);
+            }
+        },
+        setup: function(editor) {
+            editor.on('init', function(e) {
+                console.log('Editor was initialized.');
+            });
         }
-    },
-    setup: function(editor) {
-        editor.on('init', function(e) {
-            console.log('Editor was initialized.');
-        });
-    }
-});
+    });
+} catch (error) {
+    console.log("no inicializado");
+}
+
+
+
 
 $("#step1").on('click',function(){
    $(".step2").hide();
@@ -1017,4 +1023,14 @@ $(document).on('click',".btn-modificar",function(e){
     let row = $(this).data('row');
     
     $("#modificarItemLabel").html('Elemento '+row);
+    $(".form-item input[name='row']").val(row);
+});
+
+
+
+$(".btn-item-delete").on("click", function(){
+    let id = $(this).data('id');
+    $("#frm-itemslider #id").val(id);
+    $("#frm-itemslider").attr('action','/admin/items/'+id);
+    console.log("carga");
 });

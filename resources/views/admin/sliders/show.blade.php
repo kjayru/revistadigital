@@ -73,7 +73,7 @@
                                                     <td>{{ $item->created_at}}</td>
                                                     <td>
                                                         <a href="/admin/items/{{$item->id}}/edit"  class=" btn btn-sm btn-success">Modificar</a>
-                                                        <a href="#" class="btn-slider-delete btn btn-sm btn-danger">Eliminar</a>
+                                                        <a href="#" data-toggle="modal" data-id="{{ $item->id }}" data-target="#delete-item" class="btn-item-delete btn btn-sm btn-danger">Eliminar</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -98,10 +98,11 @@
       <div class="modal fade" id="delete-item" tabindex="-1" role="dialog" aria-labelledby="delete-itemLabel" aria-hidden="true">
             <div class="modal-dialog bg-danger" role="document">
               <div class="modal-content bg-danger text-white">
-                <form id="frm-delete3">
+                <form id="frm-itemslider" method="POST">
                     @csrf
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="slider_id" value="{{$slider_id}}">
                     <div class="modal-header">
                     <h5 class="modal-title" id="delete-itemLabel">Eliminar Item</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
