@@ -528,25 +528,172 @@ span.invalid-feedback {
 	background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Desktop_1920x480.jpg") no-repeat center center;
 	background-size: cover;
 	position: relative;
-	display: block; }
+	display: block;
+}
+		.maxbackground{
+			display:block;
+		}
+		.max1366{
+			display:none;
+		}
+		.max1024{
+			display:none;
+		}
+
+		.max768{
+			display:none;
+		}
+
+		.max640{
+			display:none;
+		}
+
+		.max480{
+			display:none;
+		}
+
 	@media screen and (max-width: 1366px) {
+
 		.banner_rd1 {
 			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Desktop_1920x480.jpg") no-repeat center top;
 			background-size: cover;
-			height: 365px; } }
+			height: 365px;
+		}
+
+		.maxbackground{
+			display:none;
+		}
+		.max1366{
+			display:block;
+			height: 365px;
+		}
+		.max1024{
+			display:none;
+		}
+		
+		.max768{
+			display:none;
+		}
+		
+		.max640{
+			display:none;
+		}
+		
+		.max480{
+			display:none;
+		}
+	}
+
 	@media screen and (max-width: 1024px) {
 		.banner_rd1 {
 			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Tablet_H_1024x342.jpg") no-repeat center top;
-			height: 342px; } }
+			height: 342px; } 
+		
+			.maxbackground{
+				display:none;
+			}
+			.max1366{
+				display:none;
+				
+			}
+			.max1024{
+				display:block;
+				height: 342px;
+			}
+			
+			.max768{
+				display:none;
+			}
+			
+			.max640{
+				display:none;
+			}
+			
+			.max480{
+				display:none;
+			}
+	}
+
 	@media screen and (max-width: 768px) {
 		.banner_rd1 {
 			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Tablet_V_768x384.jpg") no-repeat center center;
-			height: 384px; } }
+			height: 384px; }
+
+			.maxbackground{
+				display:none;
+			}
+			.max1366{
+				display:none;
+			}
+			.max1024{
+				display:none;
+			}
+			.max768{
+				display:block;
+				height: 384px;
+			}
+			
+			.max640{
+				display:none;
+			}
+			
+			.max480{
+				display:none;
+			}
+			
+	}
+
 	@media screen and (max-width: 640px) {
 		.banner_rd1 {
 			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Movil_V_570x190.jpg") no-repeat center center;
-			height: 190px; } }
+			height: 190px; }
+			
+			.maxbackground{
+				display:none;
+			}
+			.max1366{
+				display:none;
+			}
+			.max1024{
+				display:none;
+			}
+			.max768{
+				display:none;
+				
+			}
+			
+			.max640{
+				display:block;
+				height: 190px;
+			}
+			
+			.max480{
+				display:none;
+			}
+	}
+
 	@media screen and (max-width: 480px) {
 		.banner_rd1 {
 			background: url("/assets/Banner_Hogar_Paquete_Inalambrico_Movil_400x400.jpg") no-repeat center center;
-			height: 400px; } }
+			height: 400px; } 
+
+			.maxbackground{
+				display:none;
+			}
+			.max1366{
+				display:none;
+			}
+			.max1024{
+				display:none;
+			}
+			.max768{
+				display:none;	
+			}
+			.max640{
+				display:none;
+			}
+			.max480{
+				display:block;
+				height: 400px;
+			}
+	}

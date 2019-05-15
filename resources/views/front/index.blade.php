@@ -56,8 +56,8 @@
         </section>
 
 
-        <section class="banner_rd1"></section>
-        <!--<section class="banner">
+        <!--<section class="banner_rd1"></section>-->
+        <section class="banner">
            @if(@$slider->items)
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
@@ -72,15 +72,66 @@
 
                        @foreach(@$slider->items as $k => $slide)
                         <div class="carousel-item @if($k==0) active @endif">
-                            @if(@$slide->url)
-                            <a href="{{ @$slide->url }}" @if(@$slide->external_url==2) target='_blank' @endif>
-                                <img src="/storage/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
-                            </a>
-                            @else
-
-                                <img src="/storage/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
-
-                            @endif
+                        <!--/mediaquery 1366-->
+                            <div class="islide maxbackground">
+                                @if(@$slide->url)
+                                <a href="{{ @$slide->url }}" @if(@$slide->external_url==2) target='_blank' @endif>
+                                    <img src="/storage/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
+                                </a>
+                                @else
+                                    <img src="/storage/{{ @$slide->background }}" class="d-block w-100" alt="Triplica">
+                                @endif
+                            </div>
+                         <!--/mediaquery 1366-->
+                            <div class="islide max1366">
+                                @if(@$slide->url)
+                                <a href="{{ @$slide->url }}" @if(@$slide->external_url==2) target='_blank' @endif>
+                                    <img src="/storage/{{ @$slide->max1366 }}" class="d-block w-100" alt="Triplica">
+                                </a>
+                                @else
+                                    <img src="/storage/{{ @$slide->max1366 }}" class="d-block w-100" alt="Triplica">
+                                @endif
+                            </div>
+                          <!--/mediaquery 1024-->
+                            <div class="islide max1024">
+                                @if(@$slide->url)
+                                <a href="{{ @$slide->url }}" @if(@$slide->external_url==2) target='_blank' @endif>
+                                    <img src="/storage/{{ @$slide->max1024 }}" class="d-block w-100" alt="Triplica">
+                                </a>
+                                @else
+                                    <img src="/storage/{{ @$slide->max1024 }}" class="d-block w-100" alt="Triplica">
+                                @endif
+                            </div>
+                           <!--/mediaquery 768-->
+                            <div class="islide max768">
+                                @if(@$slide->url)
+                                <a href="{{ @$slide->url }}" @if(@$slide->external_url==2) target='_blank' @endif>
+                                    <img src="/storage/{{ @$slide->max768 }}" class="d-block w-100" alt="Triplica">
+                                </a>
+                                @else
+                                    <img src="/storage/{{ @$slide->max768 }}" class="d-block w-100" alt="Triplica">
+                                @endif
+                            </div>
+                            <!--/mediaquery 640-->
+                            <div class="islide max640">
+                                @if(@$slide->url)
+                                <a href="{{ @$slide->url }}" @if(@$slide->external_url==2) target='_blank' @endif>
+                                    <img src="/storage/{{ @$slide->max640 }}" class="d-block w-100" alt="Triplica">
+                                </a>
+                                @else
+                                    <img src="/storage/{{ @$slide->max640 }}" class="d-block w-100" alt="Triplica">
+                                @endif
+                            </div>
+                             <!--/mediaquery 480-->
+                            <div class="islide max480">
+                                @if(@$slide->url)
+                                <a href="{{ @$slide->url }}" @if(@$slide->external_url==2) target='_blank' @endif>
+                                    <img src="/storage/{{ @$slide->max480 }}" class="d-block w-100" alt="Triplica">
+                                </a>
+                                @else
+                                    <img src="/storage/{{ @$slide->max480 }}" class="d-block w-100" alt="Triplica">
+                                @endif
+                            </div>
                         </div>
                         @endforeach
 
@@ -97,7 +148,7 @@
                     </a>
                 </div>
                  @endif
-        </section>-->
+        </section>
            
 
         
@@ -281,10 +332,8 @@
 					</div>
 				</div>
 			</div>
-		</section>
-
-
-
+        </section>
+        
 </div>
 
 @endsection
