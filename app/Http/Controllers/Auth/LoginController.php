@@ -50,11 +50,7 @@ class LoginController extends Controller
 
     }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+   
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -66,12 +62,7 @@ class LoginController extends Controller
         return config('auth.providers.users.field', 'email');
     }
 
-    /**
-     * Attempt to log the user into the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return bool
-     */
+   
     protected function attemptLogin(Request $request)
     {
         if ($this->username() === 'email') {
@@ -83,12 +74,6 @@ class LoginController extends Controller
         return false;
     }
 
-    /**
-     * Attempt to log the user into application using username as an email.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return bool
-     */
     protected function attempLoginUsingUsernameAsAnEmail(Request $request)
     {
         return $this->guard()->attempt(
