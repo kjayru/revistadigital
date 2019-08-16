@@ -14,7 +14,7 @@
                                 @if(!$item->background)
                                 <img src="/assets/default.jpg" class="img-fluid" width="200px">
                                 @else
-                                <img src="/{{ $item->background}}" class="img-fluid" width="200px">
+                                <img src="/storage/{{ $item->background}}" class="img-fluid" width="200px">
                                 @endif
                             </td>
                             <td colspan="3">
@@ -28,7 +28,7 @@
                                 @if(!$item->max1366)
                                 <img src="/assets/default.jpg" class="img-fluid" width="200px">
                                 @else
-                                <img src="/{{ $item->max1366}}" class="img-fluid" width="200px"></td>
+                                <img src="/storage/{{ $item->max1366}}" class="img-fluid" width="200px"></td>
                                 @endif
                                 <td colspan="3">
                                 <a href="#" data-id="{{@$item->id}}"  data-projectid="{{ $item->id }}" data-toggle="modal" data-target="#modificarItem" data-row="max1366" class="btn-modificar btn btn-sm btn-success">Modificar</a>
@@ -41,7 +41,7 @@
                                 @if(!$item->max1024)
                                 <img src="/assets/default.jpg" class="img-fluid" width="200px">
                                 @else
-                                <img src="/{{ $item->max1024}}" class="img-fluid" width="200px">
+                                <img src="/storage/{{ $item->max1024}}" class="img-fluid" width="200px">
                                 @endif
                             </td>
 
@@ -56,7 +56,7 @@
                                 @if(!$item->max768)
                                 <img src="/assets/default.jpg" class="img-fluid" width="200px">
                                 @else
-                                <img src="/{{ $item->max768}}" class="img-fluid" width="200px">
+                                <img src="/storage/{{ $item->max768}}" class="img-fluid" width="200px">
                                 @endif
                             </td>
                                 
@@ -71,7 +71,7 @@
                                 @if(!$item->max640)
                                 <img src="/assets/default.jpg" class="img-fluid" width="200px">
                                 @else
-                                <img src="/{{ $item->max640}}" class="img-fluid" width="200px">
+                                <img src="/storage/{{ $item->max640}}" class="img-fluid" width="200px">
                                 @endif
                             </td>
                             <td colspan="3">
@@ -85,7 +85,7 @@
                                 @if(!$item->max480)
                                 <img src="/assets/default.jpg" class="img-fluid" width="200px">
                                 @else
-                                <img src="/{{ $item->max480}}" class="img-fluid" width="200px">
+                                <img src="/storage/{{ $item->max480}}" class="img-fluid" width="200px">
                                 @endif
                             </td>
                             <td colspan="3">
