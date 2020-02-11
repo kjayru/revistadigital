@@ -93,9 +93,10 @@ class UsersImport implements ToCollection
          //eliminacion de usuario
         foreach($huerfanos as $hue){
 
-            if($hue!='admin@revista.com'){
+            if($hue!='admin@revista.com' && $hue!='sisac@claro.com.pe'){
                 User::where('email',$hue)->delete();
             }
+
         }
 
         echo "<pre>";
