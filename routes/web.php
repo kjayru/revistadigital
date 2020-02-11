@@ -235,28 +235,28 @@ Route::group(['prefix' => 'admin'],function(){
       //items
       Route::post('items/store','admin\ItemController@store')->name('items.store')
       ->middleware('permission:items.create');
- 
+
       Route::get('items','admin\ItemController@index')->name('items.index')
       ->middleware('permission:items.index');
- 
+
       Route::get('items/create','admin\ItemController@create')->name('items.create')
       ->middleware('permission:items.create');
- 
+
       Route::put('items/{item}','admin\ItemController@update')->name('items.update')
       ->middleware('permission:items.edit');
- 
+
       Route::get('items/{item}','admin\ItemController@show')->name('items.show')
       ->middleware('permission:items.show');
- 
+
       Route::delete('items/{item}','admin\ItemController@destroy')->name('items.destroy')
       ->middleware('permission:items.destroy');
- 
+
       Route::get('items/{item}/edit','admin\ItemController@edit')->name('items.edit')
       ->middleware('permission:items.edit');
- 
+
       Route::put('items/elementos/{item}','admin\ItemController@elementosUpdate')->name('items.elementos')
       ->middleware('permission:items.edit');
-      
+
 
 
      //videos
@@ -317,6 +317,9 @@ Route::group(['prefix' => 'admin'],function(){
      ->middleware('permission:users.create');
 });
 
+Route::get('/loginsystem', 'front\LoginController@apilogin');
+
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::post('/reportes/store','HomeController@reporte')->name('reporte.store');
@@ -324,5 +327,8 @@ Route::post('/reportes/store','HomeController@reporte')->name('reporte.store');
 Route::get('/{url}', 'admin\HomeController@show')->name('fronts.index')
 ->middleware('permission:fronts.index');
 
+
+
+//Route::get('/sisacsesion','Auth\LoginController@sisacsesion')->name('front.sisacsesion');
 
 

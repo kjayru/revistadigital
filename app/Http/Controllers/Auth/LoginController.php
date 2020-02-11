@@ -34,7 +34,7 @@ class LoginController extends Controller
     //protected $redirectTo = '/admin';
     protected function authenticated(Request $request, $user)
     {
-        
+
         switch ($user->roles[0]->slug) {
             case 'usuario':
                 return redirect('/');
@@ -42,7 +42,7 @@ class LoginController extends Controller
             case 'contenido':
                 return redirect('/admin');
                 break;
-           
+
             case 'admin':
                 return redirect('/admin');
                 break;
@@ -50,7 +50,7 @@ class LoginController extends Controller
 
     }
 
-   
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -62,7 +62,7 @@ class LoginController extends Controller
         return config('auth.providers.users.field', 'email');
     }
 
-   
+
     protected function attemptLogin(Request $request)
     {
         if ($this->username() === 'email') {
@@ -81,5 +81,9 @@ class LoginController extends Controller
             $request->has('remember')
         );
     }
+
+
+
+
 
 }

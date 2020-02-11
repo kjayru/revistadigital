@@ -17,7 +17,20 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','lastname','puntoventa','numdocumento','perfil','movil','email','region','departamento','provincia','distrito','canal', 'password',
+        'name',
+        'lastname',
+        'puntoventa',
+        'numdocumento',
+        'perfil',
+        'movil',
+        'email',
+        'region',
+        'departamento',
+        'provincia',
+        'distrito',
+        'canal',
+         'password',
+         'api_token',
     ];
 
     /**
@@ -51,5 +64,5 @@ class User extends Authenticatable
 
             return $string;
     }
-   
+
 }
