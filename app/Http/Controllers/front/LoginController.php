@@ -17,16 +17,19 @@ class LoginController extends Controller
     use AuthenticatesUsers;
     public function apilogin(Request $request){
 
+        if($request->token){
 
+            $user = User::where('api_token',$request->token)->first();
 
-        $user = User::where('api_token',$request->token)->first();
+            if(!$user){
 
-        if(!$user){
-            return redirect('/login');
-
+                return redirect('/login');
+            }else{
+                auth()->LoginUsingId($user->id);
+                return redirect()->route('home', ["info" => "Sesion iniciada" ]);
+            }
         }else{
-            auth()->LoginUsingId($user->id);
-            return redirect()->route('home', ["info" => "Sesion iniciada" ]);
+            return redirect('/login');
         }
 
     }
