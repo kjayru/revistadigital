@@ -22,15 +22,12 @@ class LoginController extends Controller
         $user = User::where('api_token',$request->token)->first();
 
         if(!$user){
-            dd("redirect to login");
+            return redirect('/login');
 
+        }else{
+            auth()->LoginUsingId($user->id);
+            return redirect()->route('home', ["info" => "Sesion iniciada" ]);
         }
-
-
-        auth()->LoginUsingId($user->id);
-
-        return redirect()->route('home', ["info" => "Sesion iniciada" ]);
-
 
     }
 }
